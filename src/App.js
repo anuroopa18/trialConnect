@@ -1,16 +1,18 @@
 import React from 'react'
 import RegisterContainer from './containers/Register'
 import TrialContainer from './containers/Trials'
+import NavbarContainer from './containers/NavBar'
 
 class App extends React.Component {
     render() {
         return (
-            <section className="container-fluid">
-                <section ><RegisterContainer/></section>
-                <h1> App Initialized </h1>
-                <section className="container">
-                    <h1>Trial Container</h1>
-                    <TrialContainer />
+            <section>
+                <NavbarContainer/>
+                <section className="container-fluid">
+                    <section><RegisterContainer/></section>
+                    <section className="container">
+                        <TrialContainer />
+                    </section>
                 </section>
             </section>
         )

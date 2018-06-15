@@ -1,4 +1,3 @@
-
 import * as constants from '../constants/AppConstants'
 
 
@@ -21,47 +20,44 @@ export const findAllTrials = dispatch => {
         .then(jsonObject => (dispatch({
             type: 'GET_ALL_TRIALS',
             trials: jsonObject.trials,
-            init:false
+            init: false
         })))
 };
 
-export const onClickTrials = dispatch => {
-    console.log("Trial Clicked");
-    return dispatch({
-        type: 'CLICKED',
-        newMessage: 'New Message'
-    })
-}
-
-export const updateFirstName = (dispatch,firstName) => (
+export const updateFirstName = (dispatch, firstName) => (
     dispatch({
         type: constants.FIRST_NAME_CHANGED,
-        firstName: firstName})
-)
+        firstName: firstName
+    })
+);
 
-export const updateLastName = (dispatch,lastName) => (
+export const updateLastName = (dispatch, lastName) => (
     dispatch({
         type: constants.LAST_NAME_CHANGED,
-        lastName: lastName})
-)
+        lastName: lastName
+    })
+);
 
-export const updateUsername = (dispatch,username) => (
+export const updateUsername = (dispatch, username) => (
     dispatch({
         type: constants.USER_NAME_CHANGED,
-        username: username})
-)
+        username: username
+    })
+);
 
-export const updatePassword = (dispatch,password) => (
+export const updatePassword = (dispatch, password) => (
     dispatch({
         type: constants.PASSWORD_CHANGED,
-        password: password})
-)
-export const updateRole = (dispatch,role) => (
+        password: password
+    })
+);
+export const updateRole = (dispatch, role) => (
     dispatch({
         type: constants.ROLE_CHANGED,
-        role: role})
-)
+        role: role
+    })
+);
 
-export const register = (dispatch) =>(
+export const register = (dispatch) => (
     dispatch({type: constants.REGISTER})
-)
+);

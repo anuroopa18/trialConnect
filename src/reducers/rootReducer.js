@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
-import {trials as trialsReducer} from './TrialsReducer'
-import {register as registerUserReducer} from './RegisterReducer'
+import reducerTrials from './TrialsReducer'
+import reducerRegister from './RegisterReducer'
 
 const rootReducer = combineReducers({
-    trialsReducer,
-    registerUserReducer
+    trialsReducer: reducerTrials,
+    registerReducer: reducerRegister
 });
 
 export default rootReducer

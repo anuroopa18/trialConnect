@@ -1,21 +1,20 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../actions/Actions'
+import TrialListItem from '../components/Trials/TrialsListItem'
 
-const stateToPropertiesMapper = (state) => {
-    console.log("inside stateToPropsMapper");
+const stateToPropertiesMapper = ({trialsReducer}) => {
+
     return {
-        trials: state.trials,
-        message: state.message,
-        init: state.init
+        trials: trialsReducer.trials,
+        message: trialsReducer.message,
+        init: trialsReducer.init
     }
 };
 
 const dispatcherToPropsMapper = dispatch => {
-    console.log("inside dispatcherToPropsMapper");
     return {
         findAllTrials: () => (actions.findAllTrials(dispatch)),
-        onClickTrials: () => (actions.onClickTrials(dispatch))
     }
 };
 
@@ -26,7 +25,7 @@ class Trials extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        if (newProps.init) {
+        if (newProps.trials.init) {
             this.props.findAllTrials();
         }
     }
@@ -34,16 +33,22 @@ class Trials extends React.Component {
     render() {
 
         return (
-            <div>
+            <section>
                 {this.props.trials.length > 0 &&
-                <ul className='list-group'>
-                    {
-                        this.props.trials.map((trial, i) => (
-                            <li key={i} className='list-group-item'>{trial.official_title}</li>
-                        ))}
-                </ul>
+                <section className="accordion" id={this.props.trials.length}>
+                    {this.props.trials.map((trial, index) => {
+                        if (index == 0) {
+                            return <TrialListItem trial={trial} key={index} index={index}
+                                                  collapseClass={"collapse show"}
+                                                  parent={this.props.trials.length}/>
+                        } else {
+                            return <TrialListItem trial={trial} key={index} index={index} collapseClass={"collapse"}
+                                                  parent={this.props.trials.length}/>
+                        }
+                    })}
+                </section>
                 }
-            </div>
+            </section>
         )
     }
 }
