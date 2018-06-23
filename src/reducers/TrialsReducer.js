@@ -1,17 +1,15 @@
-import * as constants from '../constants/AppConstants'
+import * as Constants from '../constants/AppConstants'
 
 const reducerTrials = (state = {
     trials: [],
-    message: '',
     init: true,
-    user: {firstName: '', lastName: '', username: '', password: ''},
-    role: ''
+    searchText: '',
 }, action) => {
 
     let modifiedState;
     switch (action.type) {
 
-        case 'GET_ALL_TRIALS': {
+        case Constants.AppConstants.actions.GET_ALL_TRIALS: {
             if (state.init) {
                 modifiedState = Object.assign({}, state);
                 modifiedState.trials = action.trials;
@@ -19,6 +17,17 @@ const reducerTrials = (state = {
                 return modifiedState;
             }
             break;
+        }
+        case Constants.AppConstants.actions.NAVBAR_SEARCH: {
+            console.log(action.text);
+            modifiedState = Object.assign({}, state);
+            modifiedState.searchText = action.text;
+            return modifiedState;
+        }
+        case Constants.AppConstants.actions.SEARCH_TRIALS: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.trials = action.trials;
+            return modifiedState;
         }
         default:
             return state;

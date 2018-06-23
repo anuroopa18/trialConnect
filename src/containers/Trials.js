@@ -7,7 +7,6 @@ const stateToPropertiesMapper = ({trialsReducer}) => {
 
     return {
         trials: trialsReducer.trials,
-        message: trialsReducer.message,
         init: trialsReducer.init
     }
 };
