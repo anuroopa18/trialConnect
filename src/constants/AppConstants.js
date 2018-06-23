@@ -7,6 +7,7 @@ export const REGISTER = 'REGISTER';
 export const AppConstants = {
     actions: {
         NAVBAR_SEARCH: "NAVBAR_SEARCH",
-        GET_ALL_TRIALS: "GET_ALL_TRIALS"
-    }
+        GET_ALL_TRIALS: "GET_ALL_TRIALS",
+        SEARCH_TRIALS: "SEARCH_TRIALS"
+    },
 };
