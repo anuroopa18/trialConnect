@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="254c3818-6ad4-484c-9bc2-16a05929f65c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/SearchActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/SearchActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/AppConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/AppConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Trials.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Trials.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/TrialsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/TrialsReducer.js" afterDir="false" />
-    </list>
+    <list default="true" id="254c3818-6ad4-484c-9bc2-16a05929f65c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -255,18 +245,17 @@
       <workItem from="1528935521217" duration="15220000" />
       <workItem from="1529096799237" duration="2011000" />
       <workItem from="1529777085538" duration="1243000" />
-      <workItem from="1529791091940" duration="724000" />
+      <workItem from="1529791091940" duration="1007000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21233000" />
+    <option name="totallyTimeSpent" value="21516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23809524" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23809524" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -274,7 +263,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32993197" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32993197" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
