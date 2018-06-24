@@ -33,10 +33,10 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
     return (
         <div className="col-md-6 col-md-offset-3">
             <h1>Register</h1>
-            <form>
+           
                 <div>
                     <label htmlFor="firstName">First Name</label>
-                    <input type="text" className="form-control" name="firstName" ref={node => firstNameInput = node}
+                    <input  required type="text" className="form-control" name="firstName" ref={node => firstNameInput = node}
                            onChange={() => {
                                updateFirstName(firstNameInput.value)
                            }}/>
@@ -44,21 +44,21 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
                 </div>
                 <div>
                     <label htmlFor="lastName">Last Name</label>
-                    <input type="text" className="form-control" name="lastName" ref={node => lastNameInput = node}
+                    <input required type="text" className="form-control" name="lastName" ref={node => lastNameInput = node}
                            onChange={() => {
                                updateLastName(lastNameInput.value)
                            }}/>
                 </div>
                 <div>
                     <label htmlFor="username">Username</label>
-                    <input type="text" className="form-control" name="username" ref={node => usernameInput = node}
+                    <input required type="text" className="form-control" name="username" ref={node => usernameInput = node}
                            onChange={() => {
                                updateUsername(usernameInput.value)
                            }}/>
                 </div>
                 <div>
                     <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" name="password" ref={node => passwordInput = node}
+                    <input required type="password" className="form-control" name="password" ref={node => passwordInput = node}
                            onChange={() => {
                                updatePassword(passwordInput.value)
                            }}/>
@@ -66,10 +66,10 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
                 <p></p>
                 <label>Role</label>
 
-                <form>
+                
                     <div className="radio">
                         <label>
-                            <input type="radio" value="Doctor" checked={role === "Doctor"}
+                            <input required type="radio" value="Doctor" checked={role === "Doctor"}
                                    ref={node => roleInputDoctor = node} onChange={() => {
                                 updateRole(roleInputDoctor.value)
                             }}/>
@@ -85,7 +85,7 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
                             Patient
                         </label>
                     </div>
-                </form>
+                
 
                 <div className="form-group">
                     <button className="btn btn-primary" onClick={() => {
@@ -95,7 +95,7 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
 
                 </div>
 
-            </form>
+            
         </div>
     )
 };

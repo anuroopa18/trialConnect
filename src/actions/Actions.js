@@ -61,3 +61,28 @@ export const updateRole = (dispatch, role) => (
 export const register = (dispatch) => (
     dispatch({type: constants.REGISTER})
 );
+
+export const loginUsername = (dispatch,lUsername) => {
+    dispatch({
+        type:constants.LOGIN_USERNAME_CHANGED,
+        lUsername: lUsername
+    })
+}
+
+export const loginPassword = (dispatch,lPassword) => {
+    dispatch({
+        type:constants.LOGIN_PASSWORD_CHANGED,
+        lPassword: lPassword
+    })
+}
+
+export const loginRole = (dispatch,lRole) => {
+    dispatch({
+        type:constants.LOGIN_ROLE_CHANGED,
+        lRole: lRole
+    })
+}
+
+export const login = dispatch => {
+    dispatch({type: constants.LOGIN})
+}
