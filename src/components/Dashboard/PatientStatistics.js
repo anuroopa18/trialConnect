@@ -21,7 +21,7 @@ const statistics = ({patient}) => {
                                         <h5 className='m-0'>{patient.name}</h5>
                                     </div>
                                     <div className='row'>
-                                        <small>Male: {patient.age} years old</small>
+                                        <small><strong>Male</strong>: {patient.age} years old</small>
                                     </div>
                                     <div className='row'>
                                         <small>PID: 7844837847147328</small>
