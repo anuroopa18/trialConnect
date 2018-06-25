@@ -1,19 +1,19 @@
 import React from 'react'
 import RegisterContainer from './containers/Register'
 import TrialContainer from './containers/Trials'
-import NavbarContainer from './containers/NavBar'
 import LoginContainer from './containers/Login'
 import PatientProfileContainer from './containers/PatientProfile'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import AdminContainer from './containers/Admin'
 import DashboardContainer from './containers/Dashboard'
+import NavContainer from './containers/MobiNavbar'
 
 class App extends React.Component {
     render() {
         return (
             <Router>
                 <section>
-                    <NavbarContainer/>
+                    <NavContainer/>
                     <section>
                         <Route path='/register' component={RegisterContainer}/>
                         <Route path='/login' component={LoginContainer}/>
