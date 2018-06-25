@@ -5,6 +5,7 @@ import NavbarContainer from './containers/NavBar'
 import LoginContainer from './containers/Login'
 import PatientProfileContainer from './containers/PatientProfile'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+import AdminContainer from './containers/Admin'
 import DashboardContainer from './containers/Dashboard'
 
 class App extends React.Component {
@@ -13,9 +14,10 @@ class App extends React.Component {
             <Router>
                 <section>
                     <NavbarContainer/>
-                    <section className="container-fluid">
+                    <section>
                         <Route path='/register' component={RegisterContainer}/>
                         <Route path='/login' component={LoginContainer}/>
+                        <Route path='/admin' component={AdminContainer}/>
                         <Route path='/update/patientProfile' component={PatientProfileContainer}/>
                         <section className="container">
                             <Route path='/search/:searchText/results' component={TrialContainer}/>

@@ -13,6 +13,11 @@ export const EMAIL_CHANGED = 'EMAIL_CHANGED';
 export const PHONE_CHANGED = 'PHONE_CHANGED';
 export const FIND_UPDATED_USER = 'FIND_UPDATED_USER';
 export const SET_USER = 'SET_USER';
+export const FIND_DOCTORS = 'FIND_DOCTORS';
+export const FIND_PATIENTS = 'FIND_PATIENTS';
+export const DELETE_DOCTOR = 'DELETE_DOCTOR';
+export const DELETE_PATIENT = 'DELETE_PATIENT';
+export const ADD = 'ADD';
 export const AppConstants = {
     actions: {
         NAVBAR_SEARCH: "NAVBAR_SEARCH",
