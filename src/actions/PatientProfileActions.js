@@ -1,43 +1,38 @@
 import * as constants from '../constants/AppConstants'
 
-export const updateFirstName = (dispatch, firstName) => (
+export const profileUpdateFirstName = (dispatch, firstName) => (
     dispatch({
-        type: constants.FIRST_NAME_CHANGED,
+        type: constants.PROFILE_FIRST_NAME_CHANGED,
         firstName: firstName
     })
 );
 
-export const updateLastName = (dispatch, lastName) => (
+export const profileUpdateLastName = (dispatch, lastName) => (
     dispatch({
-        type: constants.LAST_NAME_CHANGED,
+        type: constants.PROFILE_LAST_NAME_CHANGED,
         lastName: lastName
     })
 );
 
 
-export const updatePassword = (dispatch, password) => (
+export const profileUpdatePassword = (dispatch, password) => (
     dispatch({
-        type: constants.PASSWORD_CHANGED,
+        type: constants.PROFILE_PASSWORD_CHANGED,
         password: password
     })
 );
-export const updateRole = (dispatch, role) => (
-    dispatch({
-        type: constants.ROLE_CHANGED,
-        role: role
-    })
-);
 
-export const updateEmail = (dispatch, email) => (
+
+export const profileUpdateEmail = (dispatch, email) => (
     dispatch({
-        type: constants.EMAIL_CHANGED,
+        type: constants.PROFILE_EMAIL_CHANGED,
         email: email
     })
 );
 
-export const updatePhone = (dispatch, phone) => (
+export const profileUpdatePhone = (dispatch, phone) => (
     dispatch({
-        type: constants.PHONE_CHANGED,
+        type: constants.PROFILE_PHONE_CHANGED,
         phone: phone
     })
 );
@@ -55,8 +50,7 @@ export const fetchUserDetails = (dispatch,patientId) => {
        .then(response => (response.json()))
         .then(jsonObject => (dispatch({
             type: constants.FIND_UPDATED_USER,
-            patient:jsonObject,
-            init:false
+            patient:jsonObject
             
         })))
 };

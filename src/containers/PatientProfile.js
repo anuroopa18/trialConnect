@@ -5,20 +5,19 @@ import icon from '../assets/person.png'
 
 
 const stateToPropertiesMapper = ({ patientProfileReducer }) => ({
-    updatedUser: patientProfileReducer.updatedUser,
-    init: patientProfileReducer.init
+    updatedUser: patientProfileReducer.updatedUser
 
 })
 
 const dispatcherToPropsMapper = dispatch => {
     return {
-        updateFirstName: (firstName) => {
-            return actions.updateFirstName(dispatch, firstName)
+        profileUpdateFirstName: (profileFirstName) => {
+            return actions.profileUpdateFirstName(dispatch, profileFirstName)
         },
-        updateLastName: (lastName) => (actions.updateLastName(dispatch, lastName)),
-        updatePassword: (password) => (actions.updatePassword(dispatch, password)),
-        updateEmail: (email) => (actions.updateEmail(dispatch, email)),
-        updatePhone: (phone) => (actions.updatePhone(dispatch, phone)),
+        profileUpdateLastName: (profileLastName) => (actions.profileUpdateLastName(dispatch, profileLastName)),
+        profileUpdatePassword: (profilePassword) => (actions.profileUpdatePassword(dispatch, profilePassword)),
+        profileUpdateEmail: (profileEmail) => (actions.profileUpdateEmail(dispatch, profileEmail)),
+        profileUpdatePhone: (profilePhone) => (actions.profileUpdatePhone(dispatch, profilePhone)),
         update: () => (actions.update(dispatch)),
         fetchUserDetails: (patientId) => (actions.fetchUserDetails(dispatch, patientId))
 
@@ -34,10 +33,9 @@ class PatientProfile extends Component {
         super(props)
     }
     componentDidMount() {
-        if (this.props.init) {
+        
             let user = JSON.parse(localStorage.getItem('modifiedState.loginUser'));
             this.props.fetchUserDetails(user.id);
-        }
 
     }
 
@@ -69,7 +67,7 @@ class PatientProfile extends Component {
                                 <input required type="text" className="form-control" name="firstName" ref={node => firstNameInput = node}
                                     value={this.props.updatedUser.firstName}
                                     onChange={() => {
-                                        this.props.updateFirstName(firstNameInput.value)
+                                        this.props.profileUpdateFirstName(firstNameInput.value)
                                     }} />
 
                             </div>
@@ -77,7 +75,7 @@ class PatientProfile extends Component {
                                 <label htmlFor="lastName" style={{ "color": "#2994b2" }}>Last Name</label>
                                 <input required type="text" className="form-control" name="lastName" ref={node => lastNameInput = node}
                                     onChange={() => {
-                                        this.props.updateLastName(lastNameInput.value)
+                                        this.props.profileUpdateLastName(lastNameInput.value)
                                     }} />
                             </div>
                             <div>
@@ -88,7 +86,7 @@ class PatientProfile extends Component {
                                 <label htmlFor="password" style={{ "color": "#2994b2" }}>Password</label>
                                 <input required type="password" className="form-control" name="password" ref={node => passwordInput = node}
                                     onChange={() => {
-                                        this.props.updatePassword(passwordInput.value)
+                                        this.props.profileUpdatePassword(passwordInput.value)
                                     }} />
                             </div>
 
@@ -96,14 +94,14 @@ class PatientProfile extends Component {
                                 <label htmlFor="email" style={{ "color": "#2994b2" }}>Email</label>
                                 <input required className="form-control" name="password" ref={node => emailInput = node}
                                     onChange={() => {
-                                        this.props.updateEmail(emailInput.value)
+                                        this.props.profileUpdateEmail(emailInput.value)
                                     }} />
                             </div>
                             <div>
                                 <label htmlFor="phone" style={{ "color": "#2994b2" }}>Phone</label>
                                 <input required className="form-control" name="phone" ref={node => phoneInput = node}
                                     onChange={() => {
-                                        this.props.updatePhone(phoneInput.value)
+                                        this.props.profileUpdatePhone(phoneInput.value)
                                     }} />
                             </div>
                             <p></p>

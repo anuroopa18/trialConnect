@@ -1,40 +1,37 @@
 import * as constants from '../constants/AppConstants'
 
 const reducerPatientProfile = (state = {
-    user: { firstName: '', lastName: '', password: '', email: '', phone: '' },
-    init: true,
     updatedUser :{ firstName: '', lastName: '', password: '', email: '', phone: '' }
    
 }, action) => {
     let modifiedState;
     switch (action.type) {
-        case constants.FIRST_NAME_CHANGED: {
+        case constants.PROFILE_FIRST_NAME_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.updatedUser.firstName = action.firstName;
-            modifiedState.init=false;
             return modifiedState
         }
 
-        case constants.LAST_NAME_CHANGED: {
+        case constants.PROFILE_LAST_NAME_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.updatedUser.lastName = action.lastName;
             return modifiedState
         }
 
-        case constants.PASSWORD_CHANGED: {
+        case constants.PROFILE_PASSWORD_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.updatedUser.password = action.password;
             return modifiedState
         }
 
 
-        case constants.PHONE_CHANGED: {
+        case constants.PROFILE_PHONE_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.updatedUser.phone = action.phone;
             return modifiedState
         }
 
-        case constants.EMAIL_CHANGED: {
+        case constants.PROFILE_EMAIL_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.updatedUser.email = action.email;
             return modifiedState
@@ -70,16 +67,10 @@ const reducerPatientProfile = (state = {
         }
 
         case constants.FIND_UPDATED_USER: {
-            if (state.init) {
+            
                 modifiedState = Object.assign({}, state);
                 modifiedState.updatedUser = action.patient;
-                modifiedState.init = action.init;
                 return modifiedState;
-            }
-            else{
-
-                return state;
-            }
         }
 
 
