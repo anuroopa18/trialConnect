@@ -8,3 +8,15 @@
 .bg-pc {
     background-color: #563d7c;
 }
+
+.card {
+    border-width: 0.5px;
+}
+
+.no-border-r {
+    border-radius: 0 !important;
+}
+
+.text-trial {
+    color:#563d7c;
+}
