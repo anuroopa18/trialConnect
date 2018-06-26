@@ -7,7 +7,8 @@ const reducerProfile = (state = {
     lastName: '',
     phone: '',
     password: '',
-    email: ''
+    email: '',
+    username:''
 }, action) => {
     let modifiedState;
     switch (action.type) {
@@ -19,6 +20,7 @@ const reducerProfile = (state = {
             modifiedState.email = action.user.email;
             modifiedState.phone = action.user.phone;
             modifiedState.password = action.user.password;
+            modifiedState.username = action.user.username;
             modifiedState.init = false;
             console.log(modifiedState);
             return modifiedState;

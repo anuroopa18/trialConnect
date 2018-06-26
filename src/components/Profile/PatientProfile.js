@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import * as actions from '../../actions/ProfileActions'
 import NavContainer from '../Navbar/Navbar'
 import icon from '../../assets/person.png'
+import background from '../../assets/plus.jpg'
 
 const stateToPropsMapper = ({patientProfileReducer}) => {
     console.log(patientProfileReducer);
@@ -13,7 +14,8 @@ const stateToPropsMapper = ({patientProfileReducer}) => {
         lastName: patientProfileReducer.lastName,
         phone: patientProfileReducer.phone,
         email: patientProfileReducer.email,
-        password: patientProfileReducer.password
+        password: patientProfileReducer.password,
+        username: patientProfileReducer.username
     }
 };
 
@@ -30,7 +32,7 @@ const dispatchToPropsMapper = dispatch => ({
 
 const PatientProfile = ({
                             firstName, lastName, phone, email, password, user, updateUserFirstName,
-                            updateLastName, setUser, updatePassword, updatePhone,
+                            updateLastName, setUser, updatePassword, updatePhone,username,
                             updateEmail, updateUser, match, init
                         }) => {
 
@@ -47,10 +49,10 @@ const PatientProfile = ({
     console.log('password: ' + password);
     return (
         <div>
-            <div className='mb-lg-5'>
+            <div>
                 <NavContainer showLogin={false} showProfile={false} showRegister={false} showAboutUs={false} user={user}/>
             </div>
-            <div className='container-fluid'>
+            <div className='container-fluid pt-5' style={{"backgroundImage":`url(${background})`}}>
                 <div className="row">
                     <div className="col-md-4 offset-4">
                         <div className="card">
@@ -64,7 +66,7 @@ const PatientProfile = ({
                                     <img className="center" src={icon} width="60" height="60"/>
                                 </div>
                                 <div>
-                                    <label htmlFor="firstName" style={{"color": "#2994b2"}}>First Name</label>
+                                    <label htmlFor="firstName" style={{"color": "#2994b2"}}><span className="font-weight-bold">First Name</span></label>
                                     <input required type="text" className="form-control" name="firstName"
                                            ref={node => firstNameInput = node}
                                            value={firstName}
@@ -74,7 +76,7 @@ const PatientProfile = ({
 
                                 </div>
                                 <div>
-                                    <label htmlFor="lastName" style={{"color": "#2994b2"}}>Last Name</label>
+                                    <label htmlFor="lastName" style={{"color": "#2994b2"}}><span className="font-weight-bold">Last Name</span></label>
                                     <input required type="text" className="form-control" name="lastName"
                                            value={lastName}
                                            ref={node => lastNameInput = node}
@@ -83,11 +85,11 @@ const PatientProfile = ({
                                            }}/>
                                 </div>
                                 <div>
-                                    <label htmlFor="username" style={{"color": "#2994b2"}}>Username</label>
-                                    <input disabled type="text" className="form-control" name="username"/>
+                                    <label htmlFor="username" style={{"color": "#2994b2"}}><span className="font-weight-bold">Username</span></label>
+                                    <input disabled type="text" className="form-control" name="username" value={username}/>
                                 </div>
                                 <div>
-                                    <label htmlFor="password" style={{"color": "#2994b2"}}>Password</label>
+                                    <label htmlFor="password" style={{"color": "#2994b2"}}><span className="font-weight-bold">Password</span></label>
                                     <input required type="password" className="form-control" name="password"
                                            value={password}
                                            ref={node => passwordInput = node}
@@ -97,7 +99,7 @@ const PatientProfile = ({
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" style={{"color": "#2994b2"}}>Email</label>
+                                    <label htmlFor="email" style={{"color": "#2994b2"}}><span className="font-weight-bold">Email</span></label>
                                     <input required className="form-control" name="email" value={email}
                                            ref={node => emailInput = node}
                                            onChange={() => {
@@ -105,7 +107,7 @@ const PatientProfile = ({
                                            }}/>
                                 </div>
                                 <div>
-                                    <label htmlFor="phone" style={{"color": "#2994b2"}}>Phone</label>
+                                    <label htmlFor="phone" style={{"color": "#2994b2"}}><span className="font-weight-bold">Phone</span></label>
                                     <input required className="form-control" name="phone" value={phone}
                                            ref={node => phoneInput = node}
                                            onChange={() => {
