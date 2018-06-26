@@ -21,7 +21,9 @@ export const FIND_DOCTORS = 'FIND_DOCTORS';
 export const FIND_PATIENTS = 'FIND_PATIENTS';
 export const DELETE_DOCTOR = 'DELETE_DOCTOR';
 export const DELETE_PATIENT = 'DELETE_PATIENT';
-export const ADD = 'ADD';
+export const ADD_DOCTOR = 'ADD_DOCTOR';
+export const ADD_PATIENT = 'ADD_PATIENT';
+export const FIND_RECORDS = 'FIND_RECORDS'
 export const AppConstants = {
     actions: {
         NAVBAR_SEARCH: "NAVBAR_SEARCH",

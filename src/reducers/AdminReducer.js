@@ -4,7 +4,8 @@ const reducerAdmin = (state = {
     doctors: [],
     patients: [],
     user: { firstName: '', lastName: '', username: '', password: '' },
-    role: 'Doctor'
+    role: 'Doctor',
+    records:[]
 
 }, action) => {
     let modifiedState;
@@ -19,30 +20,11 @@ const reducerAdmin = (state = {
             modifiedState.patients = action.patients;
             return modifiedState
         }
-        case constants.DELETE_DOCTOR: {
+        
+        case constants.FIND_RECORDS:{
             modifiedState = Object.assign({}, state);
-            fetch('http://localhost:8080/api/doctor/' + action.doctorId, {
-                method: 'delete'
-            })
-                .then(response => {
-                    alert('Deleted!!!')
-                    return modifiedState
-                })
-
-
-        }
-
-        case constants.DELETE_PATIENT: {
-            modifiedState = Object.assign({}, state);
-            fetch('http://localhost:8080/api/patient/' + action.patientId, {
-                method: 'delete'
-            })
-                .then(response => {
-                     alert('Deleted!!!')
-                    return modifiedState
-                })
-
-
+            modifiedState.patients = action.records;
+            return modifiedState
         }
 
         case constants.FIRST_NAME_CHANGED: {
@@ -75,62 +57,7 @@ const reducerAdmin = (state = {
             return modifiedState
         }
 
-        case constants.ADD: {
-
-            if (state.role === "Doctor") {
-                if ((state.user.firstName !== undefined && state.user.firstName !== "") &&
-                    (state.user.lastName !== undefined && state.user.lastName !== "") &&
-                    (state.user.username !== undefined && state.user.username !== "") &&
-                    (state.user.password !== undefined && state.user.password !== "")
-                ) {
-                    fetch('http://localhost:8080/api/doctor', {
-                        method: 'post',
-                        body: JSON.stringify(state.user),
-                        headers: {
-                            'content-type': 'application/json'
-                        }
-                    }).then(response => (response.json()))
-                        .then(doctor => {
-                            modifiedState = Object.assign({}, state);
-                            modifiedState.user = doctor;
-                            alert('Added successfully!');
-                        })
-                }
-                else {
-                    alert("Please fill all the fields!!");
-                    return state;
-                }
-            }
-           
-
-
-            if (state.role === "Patient") {
-                if ((state.user.firstName !== undefined && state.user.firstName !== "") &&
-                    (state.user.lastName !== undefined && state.user.lastName !== "") &&
-                    (state.user.username !== undefined && state.user.username !== "") &&
-                    (state.user.password !== undefined && state.user.password !== "")
-                ) {
-                    fetch('http://localhost:8080/api/patient', {
-                        method: 'post',
-                        body: JSON.stringify(state.user),
-                        headers: {
-                            'content-type': 'application/json'
-                        }
-                    }).then(response => (response.json()))
-                        .then(patient => {
-                            modifiedState = Object.assign({}, state);
-                            modifiedState.user = patient;
-                            alert('Added successfully!');
-                        })
-
-                }
-                else {
-                    alert("Please fill all the fields!!");
-                    return state;
-                }
-            }
-            
-        }
+       
 
         default:
             return state;

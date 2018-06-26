@@ -66,9 +66,7 @@ class PatientProfile extends Component {
                                 <label htmlFor="firstName" style={{ "color": "#2994b2" }}>First Name</label>
                                 <input required type="text" className="form-control" name="firstName" ref={node => firstNameInput = node}
                                     value={this.props.updatedUser.firstName}
-                                    onChange={() => {
-                                        this.props.profileUpdateFirstName(firstNameInput.value)
-                                    }} />
+                                    onChange={() => {this.props.profileUpdateFirstName(firstNameInput.value)}} />
 
                             </div>
                             <div>
