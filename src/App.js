@@ -11,6 +11,7 @@ import AdminUpdateProfileContainer from './containers/AdminUpdateProfileDoctor'
 import LandingPage from "./containers/LandingPage";
 import Footer from './components/Footer/footer'
 import AdminUpdatePatientProfileContainer from './containers/AdminUpdateProfilePatient'
+import DoctorProfileContainer from './components/Profile/DoctorProfile'
 
 class App extends React.Component {
     render() {
@@ -21,10 +22,11 @@ class App extends React.Component {
                         <Route exact path='/' component={LandingPage}/>
                         <Route path='/register' component={RegisterContainer}/>
                         <Route path='/login' component={LoginContainer}/>
-                        <Route path='/admin/updateProfile/:userId' component={AdminUpdateProfileContainer}/>
+                        <Route exact path='/admin/updateProfile/:userId' component={AdminUpdateProfileContainer}/>
                         <Route exact path='/admin/updatePatientProfile/:patId' component={AdminUpdatePatientProfileContainer}/>
                         <Route exact path='/admin' component={AdminContainer}/>
                         <Route exact path='/profile/:username' component={PatientProfileContainer}/>
+                        <Route exact path='/doctor/profile/:docId' component={DoctorProfileContainer}/>
                         <section className="container">
                             <Route path='/search/:searchText/results' component={TrialContainer}/>
                         </section>
