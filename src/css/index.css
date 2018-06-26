@@ -20,3 +20,10 @@
 .text-trial {
     color: #563d7c;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}

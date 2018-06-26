@@ -2,39 +2,56 @@ import * as constants from '../constants/AppConstants'
 
 export const findAllDoctors = (dispatch) => {
     fetch('http://localhost:8080/api/doctors/')
-       .then(response => (response.json()))
+        .then(response => (response.json()))
         .then(jsonObject => (dispatch({
             type: constants.FIND_DOCTORS,
-            doctors:jsonObject
-            
+            doctors: jsonObject
+
         })))
-       
+
 };
 
-export const findAllPatients = (dispatch) => {
+export const findAllPatients = (dispatch) => (
     fetch('http://localhost:8080/api/patients/')
-       .then(response => (response.json()))
+        .then(response => (response.json()))
         .then(jsonObject => (dispatch({
             type: constants.FIND_PATIENTS,
-            patients:jsonObject
-            
+            patients: jsonObject
+
         })))
-       
+
+);
+
+export const findAllRecords = (dispatch) => (
+    fetch('http://localhost:8080/api/medicalrecords/')
+        .then(response => (response.json()))
+        .then(jsonObject => (dispatch({
+            type: constants.FIND_RECORDS,
+            records: jsonObject
+
+        })))
+
+);
+
+export const deleteDoctor = (dispatch, doctorId) => {
+    return fetch('http://localhost:8080/api/doctor/' + doctorId, {
+        method: 'delete'
+    })
+        .then(() => {
+            findAllDoctors(dispatch);
+        })
+
 };
 
- export const deleteDoctor = (dispatch,doctorId) => {
-    dispatch({
-        type: constants.DELETE_DOCTOR,
-        doctorId:doctorId})
-       
-}; 
+export const deletePatient = (dispatch, patientId) => {
+    return fetch('http://localhost:8080/api/patient/' + patientId, {
+        method: 'delete'
+    })
+        .then(() => {
+            findAllPatients(dispatch);
+        })
 
-export const deletePatient = (dispatch,patientId) => {
-    dispatch({
-        type: constants.DELETE_PATIENT,
-        patientId:patientId})
-       
-}; 
+};
 
 export const updateFirstName = (dispatch, firstName) => (
     dispatch({
@@ -70,6 +87,33 @@ export const updateRole = (dispatch, role) => (
     })
 );
 
-export const add = (dispatch) => (
-    dispatch({type: constants.REGISTER})
-);
+export const add = (dispatch, role, user) => {
+    console.log('after clicking add from validateFields');
+    if (role === "Doctor") {
+        return fetch('http://localhost:8080/api/doctor', {
+            method: 'post',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(() => {
+            alert("Added successfully")
+            findAllDoctors(dispatch);
+        })
+    }
+    else {
+        return fetch('http://localhost:8080/api/patient', {
+            method: 'post',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+
+            .then(() => {
+                alert("Added successfully")
+                findAllPatients(dispatch);
+            })
+    }
+
+};

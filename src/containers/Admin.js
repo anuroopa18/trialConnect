@@ -3,13 +3,16 @@ import { connect } from "react-redux";
 import * as actions from '../actions/AdminActions'
 
 const stateToPropertiesMapper = ({ adminReducer }) => {
-
+    console.log(adminReducer);
     return {
         doctors: adminReducer.doctors,
         patients: adminReducer.patients,
-        role: adminReducer.role
+        role: adminReducer.role,
+        user: adminReducer.user,
+        records: adminReducer.records,
     }
 };
+
 
 const dispatcherToPropsMapper = dispatch => {
     return {
@@ -22,27 +25,42 @@ const dispatcherToPropsMapper = dispatch => {
         updateUsername: (username) => (actions.updateUsername(dispatch, username)),
         updatePassword: (password) => (actions.updatePassword(dispatch, password)),
         updateRole: (role) => (actions.updateRole(dispatch, role)),
-        add: () => (actions.add(dispatch))
+        findAllRecords: () => (actions.findAllRecords(dispatch)),
+        add: (role, user) => (actions.add(dispatch, role, user))
     }
 };
 
-let doctors = {};
+
 
 
 class Admin extends Component {
     constructor(props) {
         super(props)
+
     }
 
     componentDidMount() {
         this.props.findAllDoctors();
         this.props.findAllPatients();
+        this.props.findAllRecords();
     }
 
- /*    componentWillUpdate() {
-        this.props.findAllDoctors();
-        this.props.findAllPatients();
-    } */
+
+
+    validateFields = ({ user, role, add }) => {
+        console.log(user);
+        if ((user.firstName !== undefined && user.firstName !== "") &&
+            (user.lastName !== undefined && user.lastName !== "") &&
+            (user.username !== undefined && user.username !== "") &&
+            (user.password !== undefined && user.password !== "")
+        ) {
+            add(role, user);
+        }
+        else {
+            alert("Please fill all the fields!!");
+        }
+
+    }
 
     render() {
 
@@ -61,6 +79,7 @@ class Admin extends Component {
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-view-user-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">View Users</a>
                             <a class="nav-link" id="v-pills-add-user-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add Users</a>
+                            <a class="nav-link" id="v-pills-add-user-tab" data-toggle="pill" href="#v-pills-medical-record" role="tab" aria-controls="v-pills-record" aria-selected="false">View Medical Records</a>
                         </div>
                     </div>
                     <div class="col-9">
@@ -118,7 +137,9 @@ class Admin extends Component {
                                                                             {doctor.specialization}
                                                                         </td>
                                                                         <td>
-                                                                            <i class="fa fa-times" onClick={() => this.props.deleteDoctor(doctor.id)} style={{ "color": "red" }}></i>
+                                                                            <i class="fa fa-times" onClick={
+                                                                                () => { if (window.confirm('Are you sure you wish to delete this item?')) this.props.deleteDoctor(doctor.id) }} style={{ "color": "red" }}></i>
+
                                                                         </td>
                                                                     </tr>
                                                                 }
@@ -156,7 +177,7 @@ class Admin extends Component {
                                                                             {patient.phone}
                                                                         </td>
                                                                         <td>
-                                                                            <i class="fa fa-times" onClick={() => this.props.deletePatient(patient.id)} style={{ "color": "red" }}></i>
+                                                                            <i class="fa fa-times" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.props.deletePatient(patient.id) }} style={{ "color": "red" }}></i>
                                                                         </td>
 
                                                                     </tr>
@@ -175,75 +196,117 @@ class Admin extends Component {
 
                             </div>
                             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-add-user-tab">
-                            <div className="col-md-6 col-md-offset-3">
-            <h1>Add User</h1>
-           
-                <div>
-                    <label htmlFor="firstName">First Name</label>
-                    <input  required type="text" className="form-control" name="firstName" ref={node => firstNameInput = node}
-                           onChange={() => {
-                            this.props.updateFirstName(firstNameInput.value)
-                           }}/>
+                                <div className="col-md-6 col-md-offset-3">
+                                    <h1>Add User</h1>
 
-                </div>
-                <div>
-                    <label htmlFor="lastName">Last Name</label>
-                    <input required type="text" className="form-control" name="lastName" ref={node => lastNameInput = node}
-                           onChange={() => {
-                            this.props.updateLastName(lastNameInput.value)
-                           }}/>
-                </div>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input required type="text" className="form-control" name="username" ref={node => usernameInput = node}
-                           onChange={() => {
-                               this.props.updateUsername(usernameInput.value)
-                           }}/>
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input required type="password" className="form-control" name="password" ref={node => passwordInput = node}
-                           onChange={() => {
-                            this.props.updatePassword(passwordInput.value)
-                           }}/>
-                </div>
-                <p></p>
-                <label>Role</label>
+                                    <div>
+                                        <label htmlFor="firstName">First Name</label>
+                                        <input required type="text" className="form-control" name="firstName" ref={node => firstNameInput = node}
+                                            onChange={() => {
+                                                this.props.updateFirstName(firstNameInput.value)
+                                            }} />
 
-                
-                    <div className="radio">
-                        <label>
-                            <input required type="radio" value="Doctor" checked={this.props.role === "Doctor"}
-                                   ref={node => roleInputDoctor = node} onChange={() => {
-                                    this.props.updateRole(roleInputDoctor.value)
-                            }}/>
-                            Doctor
+                                    </div>
+                                    <div>
+                                        <label htmlFor="lastName">Last Name</label>
+                                        <input required type="text" className="form-control" name="lastName" ref={node => lastNameInput = node}
+                                            onChange={() => {
+                                                this.props.updateLastName(lastNameInput.value)
+                                            }} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="username">Username</label>
+                                        <input required type="text" className="form-control" name="username" ref={node => usernameInput = node}
+                                            onChange={() => {
+                                                this.props.updateUsername(usernameInput.value)
+                                            }} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="password">Password</label>
+                                        <input required type="password" className="form-control" name="password" ref={node => passwordInput = node}
+                                            onChange={() => {
+                                                this.props.updatePassword(passwordInput.value)
+                                            }} />
+                                    </div>
+                                    <p></p>
+                                    <label>Role</label>
+
+
+                                    <div className="radio">
+                                        <label>
+                                            <input required type="radio" value="Doctor" checked={this.props.role === "Doctor"}
+                                                ref={node => roleInputDoctor = node} onChange={() => {
+                                                    this.props.updateRole(roleInputDoctor.value)
+                                                }} />
+                                            Doctor
                         </label>
-                    </div>
-                    <div className="radio">
-                        <label>
-                            <input type="radio" value="Patient" checked={this.props.role === "Patient"}
-                                   ref={node => roleInputPatient = node} onChange={() => {
-                                    this.props.updateRole(roleInputPatient.value)
-                            }}/>
-                            Patient
+                                    </div>
+                                    <div className="radio">
+                                        <label>
+                                            <input type="radio" value="Patient" checked={this.props.role === "Patient"}
+                                                ref={node => roleInputPatient = node} onChange={() => {
+                                                    this.props.updateRole(roleInputPatient.value)
+                                                }} />
+                                            Patient
                         </label>
-                    </div>
-                
+                                    </div>
+                                    <div className="form-group">
+                                        <button className="btn btn-primary" onClick={() => {
+                                            this.validateFields(this.props)
+                                        }}>Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
 
-                <div className="form-group">
-                    <button className="btn btn-primary" onClick={() => {
-                        this.props.add()
-                    }}>Add
-                    </button>
+                            <div class="tab-pane fade " id="v-pills-medical-record" role="tabpanel" aria-labelledby="v-pills-view-user-tab">
+                                <h2>Medical Records </h2>
+                                <div className='container'>
+                                                        < table className="table  table-hover table-responsive-md">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th className="th-lg">Patient</th>
+                                                                    <th className="th-lg">Gender</th>
+                                                                    <th className="th-lg">Medicine</th>
+                                                                    <th className="th-lg">Problem</th>
+                                                                    <th className="th-lg">Results</th>
+                                                                    <th className="th-lg">Visits</th>
+                                                                    
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {this.props.records.map((record, index) => {
+                                                                    return <tr key={index}>
+                                                                        <td>
+                                                                           
+                                                                        </td>
+                                                                        <td>
+                                                                            {record.gender}
+                                                                        </td>
+                                                                        <td>
+                                                                            {record.medicine}
+                                                                        </td>
+                                                                        <td>
+                                                                            {record.problem}
+                                                                        </td>
+                                                                        <td>
+                                                                            {record.results}
+                                                                        </td>
+                                                                        <td>
+                                                                            {record.visits}
+                                                                        </td>
+                                                                        
+                                                                        <td>
+                                                                            <i class="fa fa-times"  style={{ "color": "red" }}></i>
+                                                                        </td>
 
-                </div>
+                                                                    </tr>
+                                                                }
+                                                                )}
+                                                            </tbody>
+                                                        </table>
 
-            
-        </div>
-
-
-
+                                                    </div>
                             </div>
 
                         </div>
