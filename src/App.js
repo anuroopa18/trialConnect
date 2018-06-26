@@ -10,6 +10,7 @@ import NavContainer from './components/Navbar/Navbar'
 import AdminUpdateProfileContainer from './containers/AdminUpdateProfileDoctor'
 import LandingPage from "./containers/LandingPage";
 import Footer from './components/Footer/footer'
+import AdminUpdatePatientProfileContainer from './containers/AdminUpdateProfilePatient'
 
 class App extends React.Component {
     render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
                         <Route path='/register' component={RegisterContainer}/>
                         <Route path='/login' component={LoginContainer}/>
                         <Route path='/admin/updateProfile/:userId' component={AdminUpdateProfileContainer}/>
+                        <Route exact path='/admin/updatePatientProfile/:patId' component={AdminUpdatePatientProfileContainer}/>
                         <Route exact path='/admin' component={AdminContainer}/>
                         <Route exact path='/profile/:username' component={PatientProfileContainer}/>
                         <section className="container">

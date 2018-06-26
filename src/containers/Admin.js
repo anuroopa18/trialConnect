@@ -72,22 +72,23 @@ class Admin extends Component {
 
         return (
             <div>
-                <div className='mb-lg-5 pb-lg-5'>
+                <div className="mb-lg-5 pb-lg-5">
                     <NavbarContainer showLogin={false} showRegister={false} showProfile={false} showAboutUs={false}/>
                 </div>
-                <div className='container-fluid pb-5 mb-5'>
+                <div className="container-fluid pb-5 mb-5">
                     <div className="row">
                         <div class="col-3">
-                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                            <div class="nav flex-column nav-tabs border-0" style={{"marginTop":"6px"}} id="v-pills-tab" role="tablist"
                                  aria-orientation="vertical">
-                                <a class="nav-link active" id="v-pills-view-user-tab" data-toggle="pill"
-                                   href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">View
-                                    Users</a>
-                                <a class="nav-link" id="v-pills-add-user-tab" data-toggle="pill" href="#v-pills-profile"
-                                   role="tab" aria-controls="v-pills-profile" aria-selected="false">Add Users</a>
-                                <a class="nav-link" id="v-pills-add-user-tab" data-toggle="pill"
+                                <a class="nav-link p-3 active" id="v-pills-view-user-tab" data-toggle="pill"
+                                   href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                   <i class="fa fa-eye text-secondary"></i><strong className="text-secondary">&nbsp;View Users</strong></a>
+                                <a class="nav-link p-3" id="v-pills-add-user-tab" data-toggle="pill" href="#v-pills-profile"
+                                   role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-user-plus text-secondary"></i>
+                                   <strong className="text-secondary">&nbsp;Add Users</strong></a>
+                                <a class="nav-link p-3" id="v-pills-add-user-tab" data-toggle="pill"
                                    href="#v-pills-medical-record" role="tab" aria-controls="v-pills-record"
-                                   aria-selected="false">View Medical Records</a>
+                                   aria-selected="false" ><i class="fas fa-notes-medical text-secondary"></i><strong className="text-secondary">&nbsp;View Medical Records</strong></a>
                             </div>
                         </div>
                         <div class="col-9">
@@ -97,9 +98,9 @@ class Admin extends Component {
                                     <div className='container'>
                                         <div>
                                             <div className='card' style={{"marginTop": "1%"}}>
-                                                <ul className='nav nav-tabs nav-fill'>
+                                                <ul className='nav nav-tabs nav-fill border-0 '>
                                                     <li className='nav-item active'>
-                                                        <a href='#' className='nav-link active' id='doctors-tab'
+                                                        <a href='#' className='nav-link p-3 active' id='doctors-tab'
                                                            data-toggle="tab"
                                                            href="#doctors"
                                                            role="tab" aria-controls="doctors"
@@ -107,7 +108,7 @@ class Admin extends Component {
                                                             className='text-secondary'>Doctors</strong></a>
                                                     </li>
                                                     <li className='nav-item'>
-                                                        <a className='nav-link' href='#' id='patients-tab'
+                                                        <a className='nav-link p-3' href='#' id='patients-tab'
                                                            data-toggle="tab"
                                                            href="#patients"
                                                            role="tab" aria-controls="patients"
@@ -121,21 +122,21 @@ class Admin extends Component {
                                                          role="tabpanel"
                                                          aria-labelledby="doctors-tab">
                                                         <div className='container'>
-                                                            < table className="table  table-hover table-responsive-md">
+                                                            < table className="table  table-hover table-responsive-md" style={{"backgroundColor":"white"}}>
                                                                 <thead>
                                                                 <tr>
-                                                                    <th className="th-lg">First Name</th>
-                                                                    <th className="th-lg">Last Name</th>
-                                                                    <th className="th-lg">Email</th>
-                                                                    <th className="th-lg">Phone</th>
-                                                                    <th className="th-lg">Specialization</th>
-                                                                    <th className="th-lg"></th>
-                                                                    <th className="th-lg"></th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}>First Name</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}>Last Name</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}>Email</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}>Phone</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}>Specialization</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}></th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}></th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                 {this.props.doctors.map((doctor, index) => {
-                                                                        return <tr key={index}>
+                                                                        return <tr style={{"color":"grey"}} key={index}>
                                                                             <td>
 
                                                                                 {doctor.firstName}
@@ -154,7 +155,7 @@ class Admin extends Component {
                                                                                 {doctor.specialization}
                                                                             </td>
                                                                             <td>
-                                                                                <Link style={{"color": "black"}}
+                                                                                <Link style={{"color": "#55b4d4"}}
                                                                                       to={`/admin/updateProfile/${doctor.id}`}>
                                                                                     <i class="fa fa-edit"></i>
                                                                                 </Link>
@@ -176,20 +177,21 @@ class Admin extends Component {
                                                     <div className='tab-pane fade' id='patients' role="tabpanel"
                                                          aria-labelledby="patients-tab">
                                                         <div className='container'>
-                                                            < table className="table  table-hover table-responsive-md">
+                                                            < table className="table  table-hover table-responsive-md" style={{"backgroundColor":"white","borderRadius":"5px"}}>
                                                                 <thead>
                                                                 <tr>
-                                                                    <th className="th-lg">First Name</th>
-                                                                    <th className="th-lg">Last Name</th>
-                                                                    <th className="th-lg">Email</th>
-                                                                    <th className="th-lg">Phone</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}>First Name</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}>Last Name</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}>Email</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}>Phone</th>
+                                                                    <th className="th-lg" style={{"color":"#55b4d4"}}></th>
                                                                     <th className="th-lg"></th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                 {this.props.patients.map((patient, index) => {
-                                                                        return <tr key={index}>
-                                                                            <td>
+                                                                        return <tr style={{"color":"grey"}} key={index}>
+                                                                            <td >
                                                                                 {patient.firstName}
                                                                             </td>
                                                                             <td>
@@ -201,6 +203,11 @@ class Admin extends Component {
                                                                             <td>
                                                                                 {patient.phone}
                                                                             </td>
+                                                                            <td>
+                                                                        <Link style={{"color":"#55b4d4"}} to= {`/admin/updatePatientProfile/${patient.id}`}>
+                                                                        <i class="fa fa-edit"></i>
+                                                                        </Link>
+                                                                        </td>
                                                                             <td>
                                                                                 <i class="fa fa-times" onClick={() => {
                                                                                     if (window.confirm('Are you sure you wish to delete this item?')) this.props.deletePatient(patient.id)
@@ -349,6 +356,7 @@ class Admin extends Component {
                     </div>
                 </div>
             </div>
+            
         )
     }
 };

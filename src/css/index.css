@@ -27,3 +27,12 @@
     margin-right: auto;
     margin-bottom: 2%;
 }
+
+.admin{
+     color: #fff;
+     background-color: #55b4d4!important;
+     padding-bottom: 15px;
+     padding-top: 15px;
+     border: 0;
+     border-radius: 25px;
+}
