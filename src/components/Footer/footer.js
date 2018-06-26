@@ -3,7 +3,7 @@ import logo from '../../assets/images/whatsapp-image-2018-06-24-at-10.26.44-pm-1
 
 const Footer = () => {
     return (
-        <section className="cid-qTkAaeaxX5 mbr-reveal" id="footer1-2">
+        <section className="cid-qTkAaeaxX5 mbr-reveal pb-0 mb-0"  id="footer1-2">
             <div className="container">
                 <div className="media-container-row content text-white">
                     <div className="col-12 col-md-3">
@@ -16,13 +16,13 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="col-12 col-md-3 mbr-fonts-style display-4">
-                        <h5 className="pb-3">
+                        <h5 className="pb-2">
                             Address
                         </h5>
                         <p className="mbr-text">109, Peterborough St.<br/>Boston, MA 02215</p>
                     </div>
                     <div className="col-12 col-md-3 mbr-fonts-style display-4">
-                        <h5 className="pb-3">
+                        <h5 className="pb-2">
                             Contacts
                         </h5>
                         <p className="mbr-text">
@@ -32,7 +32,7 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className="col-12 col-md-3 mbr-fonts-style display-4">
-                        <h5 className="pb-3"><p>Attributions</p></h5>
+                        <h5 className="pb-1 m-0"><p>Attributions</p></h5>
                         <p className="mbr-text">Powered
                             by: <br/>FontAwesome<br/>Mobirise<br/>react.js<br/>redux<br/>springboot<br/>AWS<br/><br/>
                         </p>

@@ -18,7 +18,7 @@ class App extends React.Component {
         return (
             <Router>
                 <section>
-                    <section>
+                    <section id="content">
                         <Route exact path='/' component={LandingPage}/>
                         <Route path='/register' component={RegisterContainer}/>
                         <Route path='/login' component={LoginContainer}/>
