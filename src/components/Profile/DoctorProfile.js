@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import icon from '../../assets/person.png'
+import icon from '../../assets/stethoscope-icon.png'
 import * as actions from '../../actions/DoctorProfileActions'
 import NavContainer from '../Navbar/Navbar'
 

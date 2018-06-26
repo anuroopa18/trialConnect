@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import icon from '../assets/person.png'
+import icon from '../assets/stethoscope-icon.png'
 import * as actions from '../actions/AdminUpdateProfileActions'
 import NavContainer from '../components/Navbar/Navbar'
 
@@ -59,7 +59,7 @@ class AdminUpdateProfileDoctor extends Component {
                                         <img className="center" src={icon} width="60" height="60"/>
                                     </div>
                                     <div>
-                                        <label htmlFor="firstName" style={{"color": "#2994b2"}}>First Name</label>
+                                        <label htmlFor="firstName" style={{"color": "#2994b2"}}><span className="font-weight-bold">First Name</span></label>
                                         <input required type="text" className="form-control" name="firstName"
                                                ref={node => firstNameInput = node}
                                                onChange={() => {
@@ -68,7 +68,7 @@ class AdminUpdateProfileDoctor extends Component {
 
                                     </div>
                                     <div>
-                                        <label htmlFor="lastName" style={{"color": "#2994b2"}}>Last Name</label>
+                                        <label htmlFor="lastName" style={{"color": "#2994b2"}}><span className="font-weight-bold">Last Name</span></label>
                                         <input required type="text" className="form-control" name="lastName"
                                                ref={node => lastNameInput = node}
                                                onChange={() => {
@@ -76,12 +76,12 @@ class AdminUpdateProfileDoctor extends Component {
                                                }} value={this.props.lastName}/>
                                     </div>
                                     <div>
-                                        <label htmlFor="username" style={{"color": "#2994b2"}}>Username</label>
+                                        <label htmlFor="username" style={{"color": "#2994b2"}}><span className="font-weight-bold">Username</span></label>
                                         <input disabled type="text" className="form-control" name="username"
                                                value={this.props.username}/>
                                     </div>
                                     <div>
-                                        <label htmlFor="password" style={{"color": "#2994b2"}}>Password</label>
+                                        <label htmlFor="password" style={{"color": "#2994b2"}}><span className="font-weight-bold">Password</span></label>
                                         <input required type="password" className="form-control" name="password"
                                                ref={node => passwordInput = node}
                                                onChange={() => {
@@ -90,7 +90,7 @@ class AdminUpdateProfileDoctor extends Component {
                                     </div>
 
                                     <div>
-                                        <label htmlFor="email" style={{"color": "#2994b2"}}>Email</label>
+                                        <label htmlFor="email" style={{"color": "#2994b2"}}><span className="font-weight-bold">Email</span></label>
                                         <input required className="form-control" name="password"
                                                ref={node => emailInput = node}
                                                onChange={() => {
@@ -98,7 +98,7 @@ class AdminUpdateProfileDoctor extends Component {
                                                }} value={this.props.email}/>
                                     </div>
                                     <div>
-                                        <label htmlFor="phone" style={{"color": "#2994b2"}}>Phone</label>
+                                        <label htmlFor="phone" style={{"color": "#2994b2"}}><span className="font-weight-bold">Phone</span></label>
                                         <input required className="form-control" name="phone"
                                                ref={node => phoneInput = node}
                                                onChange={() => {

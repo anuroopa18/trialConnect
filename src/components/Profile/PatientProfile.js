@@ -48,7 +48,7 @@ const PatientProfile = ({
     return (
         <div>
             <div className='mb-lg-5'>
-                <NavContainer showLogin={false} showHome={false} showRegister={false} showAboutUs={false} user={user}/>
+                <NavContainer showLogin={false} showProfile={false} showRegister={false} showAboutUs={false} user={user}/>
             </div>
             <div className='container-fluid'>
                 <div className="row">
