@@ -1,15 +1,15 @@
 import * as constants from '../constants/AppConstants'
 
 const reducerDoctorProfile = (state = {
-   
-    firstName:'',
-    lastName:'',
-    password:'',
-    email:'',
-    phone:'',
-    userId:'',
-    username:''
-   
+
+    firstName: '',
+    lastName: '',
+    password: '',
+    email: '',
+    phone: '',
+    userId: '',
+    username: ''
+
 
 }, action) => {
     let modifiedState;
@@ -24,8 +24,8 @@ const reducerDoctorProfile = (state = {
             modifiedState.lastName = action.lastName;
             return modifiedState
         }
-        
-        case constants.PROFILE_PASSWORD_CHANGED_DOC:{
+
+        case constants.PROFILE_PASSWORD_CHANGED_DOC: {
             modifiedState = Object.assign({}, state);
             modifiedState.password = action.password;
             return modifiedState
@@ -42,15 +42,15 @@ const reducerDoctorProfile = (state = {
             modifiedState.phone = action.phone;
             return modifiedState
         }
-        
+
         case constants.FIND_UPDATED_USER_DOC: {
             modifiedState = Object.assign({}, state);
             modifiedState.firstName = action.doctor.firstName;
             modifiedState.lastName = action.doctor.lastName;
             modifiedState.password = action.doctor.password;
             modifiedState.email = action.doctor.email;
-            modifiedState.phone =action.doctor.phone;
-            modifiedState.username =action.doctor.username;
+            modifiedState.phone = action.doctor.phone;
+            modifiedState.username = action.doctor.username;
             return modifiedState
         }
 
@@ -64,8 +64,8 @@ const reducerDoctorProfile = (state = {
                 const user = {
                     firstName: state.firstName,
                     lastName: state.lastName,
-                    password:state.password,
-                    email:state.email,
+                    password: state.password,
+                    email: state.email,
                     phone: state.phone
                 };
                 fetch('http://localhost:8080/api/doctor/' + action.docId, {
@@ -85,7 +85,11 @@ const reducerDoctorProfile = (state = {
                         alert('Updated successfully!');
                         return modifiedState;
                     })
+            } else {
+                alert('Please fill out all the fields');
+                return state;
             }
+            break;
         }
         default:
             return state;

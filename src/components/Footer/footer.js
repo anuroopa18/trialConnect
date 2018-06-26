@@ -53,32 +53,31 @@ const Footer = () => {
                         <div className="col-md-6">
                             <div className="social-list align-right">
                                 <div className="soc-item">
-                                    <a href="https://twitter.com/mobirise" target="_blank">
+                                    <a href="/">
                                             <span
                                                 className="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
                                     </a>
                                 </div>
                                 <div className="soc-item">
-                                    <a href="#"
-                                       target="_blank">
+                                    <a href="/">
                                             <span
                                                 className="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
                                     </a>
                                 </div>
                                 <div className="soc-item">
-                                    <a href="#" target="_blank">
+                                    <a href="/">
                                             <span
                                                 className="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
                                     </a>
                                 </div>
                                 <div className="soc-item">
-                                    <a href="#" target="_blank">
+                                    <a href="/">
                                             <span
                                                 className="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
                                     </a>
                                 </div>
                                 <div className="soc-item">
-                                    <a href="#" target="_blank">
+                                    <a href="/">
                                     <span
                                         className="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
                                     </a>

@@ -1,15 +1,15 @@
 import * as constants from '../constants/AppConstants'
 
 const reducerAdminUpdatePatientProfile = (state = {
-   
-    firstName:'',
-    lastName:'',
-    password:'',
-    email:'',
-    phone:'',
-    userId:'',
-    username:''
-   
+
+    firstName: '',
+    lastName: '',
+    password: '',
+    email: '',
+    phone: '',
+    userId: '',
+    username: ''
+
 
 }, action) => {
     let modifiedState;
@@ -24,8 +24,8 @@ const reducerAdminUpdatePatientProfile = (state = {
             modifiedState.lastName = action.lastName;
             return modifiedState
         }
-        
-        case constants.ADMIN_PASSWORD_CHANGED_PAT:{
+
+        case constants.ADMIN_PASSWORD_CHANGED_PAT: {
             modifiedState = Object.assign({}, state);
             modifiedState.password = action.password;
             return modifiedState
@@ -42,15 +42,15 @@ const reducerAdminUpdatePatientProfile = (state = {
             modifiedState.phone = action.phone;
             return modifiedState
         }
-        
+
         case constants.ADMIN_FIND_PAT: {
             modifiedState = Object.assign({}, state);
             modifiedState.firstName = action.patient.firstName;
             modifiedState.lastName = action.patient.lastName;
             modifiedState.password = action.patient.password;
             modifiedState.email = action.patient.email;
-            modifiedState.phone =action.patient.phone;
-            modifiedState.username =action.patient.username;
+            modifiedState.phone = action.patient.phone;
+            modifiedState.username = action.patient.username;
             return modifiedState
         }
 
@@ -64,8 +64,8 @@ const reducerAdminUpdatePatientProfile = (state = {
                 const user = {
                     firstName: state.firstName,
                     lastName: state.lastName,
-                    password:state.password,
-                    email:state.email,
+                    password: state.password,
+                    email: state.email,
                     phone: state.phone
                 };
                 fetch('http://localhost:8080/api/patient/' + action.patId, {
@@ -85,7 +85,10 @@ const reducerAdminUpdatePatientProfile = (state = {
                         alert('Updated successfully!');
                         return modifiedState;
                     })
+            } else {
+                alert('Please fill out all the fields');
             }
+            break;
         }
         default:
             return state;

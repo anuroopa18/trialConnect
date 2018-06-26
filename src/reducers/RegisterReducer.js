@@ -54,7 +54,7 @@ const reducerRegister = (state = {
                         .then(doctor => {
                             modifiedState = Object.assign({}, state);
                             modifiedState.user = doctor;
-                            localStorage.setItem('modifiedState.user', JSON.stringify(modifiedState.user));
+                            localStorage.setItem('user', JSON.stringify(doctor));
 
                             // to retrieve the object stored in local storage
                             //var retrievedObject = localStorage.getItem('modifiedState.user');
@@ -86,12 +86,13 @@ const reducerRegister = (state = {
                         .then(patient => {
                             modifiedState = Object.assign({}, state);
                             modifiedState.user = patient;
-                            localStorage.setItem('modifiedState.user', JSON.stringify(modifiedState.user));
+                            localStorage.setItem('user', JSON.stringify(modifiedState.user));
 
                             // to retrieve the object stored in local storage
                             //var retrievedObject = localStorage.getItem('modifiedState.user');
                             //console.log('retrievedObject: ', JSON.parse(retrievedObject));
                             alert('Registered successfully!');
+                            return modifiedState;
                         })
 
                 }
@@ -100,7 +101,7 @@ const reducerRegister = (state = {
                     return state;
                 }
             }
-            
+            break;
         }
         default:
             return state;
