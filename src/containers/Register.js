@@ -49,12 +49,12 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
                                 }}>Register</h1>
                             </div>
 
-                            <div class="card-body p-0">
+                            <div className="card-body p-0">
                                 <div className='card-img-top mt-3'>
                                     <img className="center" src={logo} width="60" height="60"/>
                                 </div>
                                 <div>
-                                    <label htmlFor="firstName" style={{"color": "#2994b2"}}>First Name</label>
+                                    <label htmlFor="firstName" style={{"color": "#2994b2"}}><span className="font-weight-bold">First Name</span></label>
                                     <input required type="text" className="form-control" name="firstName"
                                            ref={node => firstNameInput = node}
                                            onChange={() => {
@@ -63,7 +63,7 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
 
                                 </div>
                                 <div>
-                                    <label htmlFor="lastName" style={{"color": "#2994b2"}}>Last Name</label>
+                                    <label htmlFor="lastName" style={{"color": "#2994b2"}}><span className="font-weight-bold">Last Name</span></label>
                                     <input required type="text" className="form-control" name="lastName"
                                            ref={node => lastNameInput = node}
                                            onChange={() => {
@@ -71,7 +71,7 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
                                            }}/>
                                 </div>
                                 <div>
-                                    <label htmlFor="username" style={{"color": "#2994b2"}}>Username</label>
+                                    <label htmlFor="username" style={{"color": "#2994b2"}}><span className="font-weight-bold">Username</span></label>
                                     <input required type="text" className="form-control" name="username"
                                            ref={node => usernameInput = node}
                                            onChange={() => {
@@ -79,7 +79,7 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
                                            }}/>
                                 </div>
                                 <div>
-                                    <label htmlFor="password" style={{"color": "#2994b2"}}>Password</label>
+                                    <label htmlFor="password" style={{"color": "#2994b2"}}><span className="font-weight-bold">Password</span></label>
                                     <input required type="password" className="form-control" name="password"
                                            ref={node => passwordInput = node}
                                            onChange={() => {
@@ -87,7 +87,7 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
                                            }}/>
                                 </div>
                                 <p></p>
-                                <label style={{"color": "#2994b2"}}>Role</label>
+                                <label style={{"color": "#2994b2"}}><span className="font-weight-bold">Register as</span></label>
 
 
                                 <div className="flex-row">
@@ -95,15 +95,17 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
                                         <input required type="radio" value="Doctor" checked={role === "Doctor"}
                                                ref={node => roleInputDoctor = node} onChange={() => {
                                             updateRole(roleInputDoctor.value)
-                                        }}/>
+                                        }}/><span className="p-2 font-weight-bold">
                                         Doctor
+                                        </span>
                                     </label>
                                     <label style={{"color": "#2994b2"}}>
                                         <input type="radio" value="Patient" checked={role === "Patient"}
                                                ref={node => roleInputPatient = node} onChange={() => {
                                             updateRole(roleInputPatient.value)
-                                        }}/>
+                                        }}/><span className="p-2 font-weight-bold">
                                         Patient
+                                        </span>
                                     </label>
                                 </div>
 
@@ -112,7 +114,8 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
                                     <button className="btn btn-block m-0"
                                             style={{"backgroundColor": "#22a7cc", "color": "white"}} onClick={() => {
                                         register()
-                                    }}>Register
+                                    }}><span className="font-weight-bold">Register
+                                     </span>
                                     </button>
 
                                 </div>

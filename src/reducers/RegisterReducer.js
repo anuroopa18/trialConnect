@@ -44,31 +44,40 @@ const reducerRegister = (state = {
                     (state.user.username !== undefined && state.user.username !== "") &&
                     (state.user.password !== undefined && state.user.password !== "")
                 ) {
-                    fetch('http://localhost:8080/api/doctor', {
-                        method: 'post',
-                        body: JSON.stringify(state.user),
-                        headers: {
-                            'content-type': 'application/json'
+                     return fetch('http://localhost:8080/api/findDoctor/' + state.user.username)
+                     .then(response => (response.json()))
+                     .then(doctor => {
+                        if (doctor.username !== undefined && doctor.username !== '' && doctor.username !== null)
+                        {
+                       
+                            alert("Username already exists!!!!");
+                            return state;
                         }
-                    }).then(response => (response.json()))
-                        .then(doctor => {
-                            modifiedState = Object.assign({}, state);
-                            modifiedState.user = doctor;
-                            localStorage.setItem('user', JSON.stringify(doctor));
-
-                            // to retrieve the object stored in local storage
-                            //var retrievedObject = localStorage.getItem('modifiedState.user');
-                            //console.log('retrievedObject: ', JSON.parse(retrievedObject));
-                            alert('Registered successfully!');
-                        })
+                        else
+                        {
+                            
+                            return fetch('http://localhost:8080/api/doctor', {
+                                method: 'post',
+                                body: JSON.stringify(state.user),
+                                headers: {
+                                    'content-type': 'application/json'
+                                }
+                                }).then(response => (response.json()))
+                                .then(doctor => {
+                                    modifiedState = Object.assign({}, state);
+                                    modifiedState.user = doctor;
+                                    localStorage.setItem('user', JSON.stringify(doctor));
+                                    window.location.href = '/login';
+                                    return modifiedState;
+                                })
+                        }
+                     })
                 }
                 else {
                     alert("Please fill all the fields!!");
                     return state;
                 }
             }
-           
-
 
             if (state.role === "Patient") {
                 if ((state.user.firstName !== undefined && state.user.firstName !== "") &&
@@ -76,7 +85,18 @@ const reducerRegister = (state = {
                     (state.user.username !== undefined && state.user.username !== "") &&
                     (state.user.password !== undefined && state.user.password !== "")
                 ) {
-                    fetch('http://localhost:8080/api/patient', {
+                    return fetch('http://localhost:8080/api/findPatient/' + state.user.username)
+                     .then(response => (response.json()))
+                     .then(patient => {
+                        if (patient.username !== undefined && patient.username !== '' && patient.username !== null)
+                        {
+                       
+                            alert("Username already exists!!!!");
+                            return state;
+                        }
+
+                    else{
+                    return fetch('http://localhost:8080/api/patient', {
                         method: 'post',
                         body: JSON.stringify(state.user),
                         headers: {
@@ -87,13 +107,11 @@ const reducerRegister = (state = {
                             modifiedState = Object.assign({}, state);
                             modifiedState.user = patient;
                             localStorage.setItem('user', JSON.stringify(modifiedState.user));
-
-                            // to retrieve the object stored in local storage
-                            //var retrievedObject = localStorage.getItem('modifiedState.user');
-                            //console.log('retrievedObject: ', JSON.parse(retrievedObject));
-                            alert('Registered successfully!');
+                            window.location.href = '/login';
                             return modifiedState;
                         })
+                    }
+                })
 
                 }
                 else {
@@ -101,7 +119,7 @@ const reducerRegister = (state = {
                     return state;
                 }
             }
-            break;
+            
         }
         default:
             return state;

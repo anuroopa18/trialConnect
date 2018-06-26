@@ -123,9 +123,10 @@ class Admin extends Component {
                                                         role="tabpanel"
                                                         aria-labelledby="doctors-tab">
                                                         <div className='container'>
+                                                       
                                                             < table className="table  table-hover table-responsive-md" style={{ "backgroundColor": "white" }}>
                                                                 <thead>
-                                                                    <tr>
+                                                                    <tr >
                                                                         <th className="th-lg" style={{ "color": "#55b4d4" }}>First Name</th>
                                                                         <th className="th-lg" style={{ "color": "#55b4d4" }}>Last Name</th>
                                                                         <th className="th-lg" style={{ "color": "#55b4d4" }}>Email</th>
@@ -137,7 +138,7 @@ class Admin extends Component {
                                                                 </thead>
                                                                 <tbody>
                                                                     {this.props.doctors.map((doctor, index) => {
-                                                                        return <tr style={{ "color": "grey" }} key={index}>
+                                                                        return <tr  style={{ "color": "grey" }} key={index}>
                                                                             <td>
 
                                                                                 {doctor.firstName}
@@ -173,11 +174,13 @@ class Admin extends Component {
                                                                     )}
                                                                 </tbody>
                                                             </table>
-                                                        </div>
+                                                            </div>
+                                                        
                                                     </div>
                                                     <div className='tab-pane fade' id='patients' role="tabpanel"
                                                         aria-labelledby="patients-tab">
                                                         <div className='container'>
+                                                       
                                                             < table className="table  table-hover table-responsive-md" style={{ "backgroundColor": "white", "borderRadius": "5px" }}>
                                                                 <thead>
                                                                     <tr>
@@ -222,6 +225,7 @@ class Admin extends Component {
                                                             </table>
 
                                                         </div>
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -323,6 +327,7 @@ class Admin extends Component {
                                     aria-labelledby="v-pills-view-user-tab">
                                     <h2>Medical Records </h2>
                                     <div className='container'>
+                                    <div className="row">
                                         < table className="table  table-hover table-responsive-md">
                                             <thead>
                                                 <tr>
@@ -367,6 +372,7 @@ class Admin extends Component {
                                             </tbody>
                                         </table>
 
+                                    </div>
                                     </div>
                                 </div>
 

@@ -42,7 +42,7 @@ const Login = ({loginUsername, loginPassword, loginRole, login, role, username, 
                             <div className="card-header">
                                 <h1 className="text-center font-weight-bold" style={{"color": "#2994b2"}}>Login</h1>
                             </div>
-                            <div class="card-body p-0">
+                            <div className="card-body p-0">
                                 <div className='text-center mt-3 mb-0'>
                                     <img className="center" src={logo} width="60" height="60"/>
                                 </div>
