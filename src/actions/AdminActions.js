@@ -97,7 +97,8 @@ export const add = (dispatch, role, user) => {
                 'content-type': 'application/json'
             }
         }).then(() => {
-            alert("Added successfully")
+            window.location.reload();
+            alert("Added successfully");
             findAllDoctors(dispatch);
         })
     }

@@ -7,6 +7,7 @@ import PatientProfileContainer from './containers/PatientProfile'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import AdminContainer from './containers/Admin'
 import DashboardContainer from './containers/Dashboard'
+import AdminUpdateProfileContainer from './containers/AdminUpdateProfileDoctor'
 
 class App extends React.Component {
     render() {
@@ -17,7 +18,8 @@ class App extends React.Component {
                     <section>
                         <Route path='/register' component={RegisterContainer}/>
                         <Route path='/login' component={LoginContainer}/>
-                        <Route path='/admin' component={AdminContainer}/>
+                        <Route path='/admin/updateProfile/:userId' component={AdminUpdateProfileContainer}/>
+                        <Route exact path='/admin' component={AdminContainer}/>
                         <Route path='/update/patientProfile' component={PatientProfileContainer}/>
                         <section className="container">
                             <Route path='/search/:searchText/results' component={TrialContainer}/>

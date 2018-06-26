@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import * as actions from '../actions/AdminActions'
+import {  Route,Link } from 'react-router-dom'
+
+
 
 const stateToPropertiesMapper = ({ adminReducer }) => {
     console.log(adminReducer);
@@ -116,13 +119,16 @@ class Admin extends Component {
                                                                     <th className="th-lg">Phone</th>
                                                                     <th className="th-lg">Specialization</th>
                                                                     <th className="th-lg"></th>
+                                                                    <th className="th-lg"></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 {this.props.doctors.map((doctor, index) => {
                                                                     return <tr key={index}>
                                                                         <td>
+                                                                       
                                                                             {doctor.firstName}
+                                            
                                                                         </td>
                                                                         <td>
                                                                             {doctor.lastName}
@@ -135,6 +141,11 @@ class Admin extends Component {
                                                                         </td>
                                                                         <td>
                                                                             {doctor.specialization}
+                                                                        </td>
+                                                                        <td>
+                                                                        <Link style={{"color":"black"}} to= {`/admin/updateProfile/${doctor.id}`}>
+                                                                        <i class="fa fa-edit"></i>
+                                                                        </Link>
                                                                         </td>
                                                                         <td>
                                                                             <i class="fa fa-times" onClick={
@@ -312,6 +323,7 @@ class Admin extends Component {
                         </div>
                     </div>
                 </div>
+               
             </div>
         )
     }
