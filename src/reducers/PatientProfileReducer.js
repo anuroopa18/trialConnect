@@ -1,83 +1,68 @@
-import * as constants from '../constants/AppConstants'
+import {AppConstants} from "../constants/AppConstants";
 
-const reducerPatientProfile = (state = {
-    updatedUser :{ firstName: '', lastName: '', password: '', email: '', phone: '' }
-   
+const reducerProfile = (state = {
+    user: {},
+    init: true,
+    firstName: '',
+    lastName: '',
+    phone: '',
+    password: '',
+    email: ''
 }, action) => {
     let modifiedState;
     switch (action.type) {
-        case constants.PROFILE_FIRST_NAME_CHANGED: {
+        case AppConstants.actions.SET_USER: {
             modifiedState = Object.assign({}, state);
-            modifiedState.updatedUser.firstName = action.firstName;
+            modifiedState.user = action.user;
+            modifiedState.firstName = action.user.firstName;
+            modifiedState.lastName = action.user.lastName;
+            modifiedState.email = action.user.email;
+            modifiedState.phone = action.user.phone;
+            modifiedState.password = action.user.password;
+            modifiedState.init = false;
+            console.log(modifiedState);
+            return modifiedState;
+
+        }
+        case AppConstants.actions.PROFILE_FIRSTNAME: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.firstName = action.firstName;
+            console.log(modifiedState);
+            return modifiedState;
+        }
+        case AppConstants.actions.PROFILE_LASTNAME: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.lastName = action.lastName;
             return modifiedState
         }
 
-        case constants.PROFILE_LAST_NAME_CHANGED: {
+        case AppConstants.actions.PROFILE_PW: {
             modifiedState = Object.assign({}, state);
-            modifiedState.updatedUser.lastName = action.lastName;
-            return modifiedState
-        }
-
-        case constants.PROFILE_PASSWORD_CHANGED: {
-            modifiedState = Object.assign({}, state);
-            modifiedState.updatedUser.password = action.password;
+            modifiedState.password = action.password;
             return modifiedState
         }
 
 
-        case constants.PROFILE_PHONE_CHANGED: {
+        case AppConstants.actions.PROFILE_PHONE: {
             modifiedState = Object.assign({}, state);
-            modifiedState.updatedUser.phone = action.phone;
+            modifiedState.phone = action.phone;
             return modifiedState
         }
 
-        case constants.PROFILE_EMAIL_CHANGED: {
+        case AppConstants.actions.PROFILE_EMAIL: {
             modifiedState = Object.assign({}, state);
-            modifiedState.updatedUser.email = action.email;
+            modifiedState.email = action.email;
             return modifiedState
         }
-
-        case constants.UPDATE: {
-
-
-            if ((state.user.firstName !== undefined && state.user.firstName !== "") &&
-                (state.user.lastName !== undefined && state.user.lastName !== "") &&
-                (state.user.password !== undefined && state.user.password !== "") &&
-                (state.user.email !== undefined && state.user.email !== "") &&
-                (state.user.phone !== undefined && state.user.phone !== "")
-            ) {
-                fetch('http://localhost:8080/api/patient/' + action.patientId, {
-                    method: 'put',
-                    body: JSON.stringify(state.user),
-                    headers: {
-                        'content-type': 'application/json'
-                    }
-                }).then(response => (response.json()))
-                    .then(patient => {
-                        modifiedState = Object.assign({}, state);
-                        modifiedState.updatedUser = patient;
-                        localStorage.setItem('modifiedState.loginUser', JSON.stringify(modifiedState.user));
-                        alert('Updated successfully!');
-                        return modifiedState;
-                    })
-            }
-
-
-
+        case AppConstants.actions.PROFILE_UPDATE: {
+            console.log(state.user);
+            modifiedState = Object.assign({}, state);
+            modifiedState.user = action.user;
+            return modifiedState;
         }
-
-        case constants.FIND_UPDATED_USER: {
-            
-                modifiedState = Object.assign({}, state);
-                modifiedState.updatedUser = action.patient;
-                return modifiedState;
-        }
-
-
         default:
             return state;
     }
-
 };
 
-export default reducerPatientProfile;
+export default reducerProfile;

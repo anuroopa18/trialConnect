@@ -1,7 +1,7 @@
 import * as constants from '../constants/AppConstants'
 
 const reducerLogin = (state = {
-    loginUser: { username: '', password: '' },
+    loginUser: {username: '', password: ''},
     role: 'Doctor',
     localUser: {}
 }, action) => {
@@ -27,72 +27,14 @@ const reducerLogin = (state = {
         }
 
         case constants.LOGIN: {
-            if (state.role === "Doctor") {
-                if ((state.loginUser.username !== undefined && state.loginUser.username !== "") &&
-                    (state.loginUser.password !== undefined && state.loginUser.password !== "")
-                ) {
-                    fetch('http://localhost:8080/api/findDoctorByCredentials/doctor', {
-                        method: 'post',
-                        body: JSON.stringify(state.loginUser),
-                        headers: {
-                            'content-type': 'application/json'
-                        }
-                    }).then(response => response.json())
-                    .then(response => {
-                        if(response.username !== null){
-                            modifiedState = Object.assign({}, state);
-                            modifiedState.loginUser = response;
-                             localStorage.setItem('modifiedState.loginUser', JSON.stringify(modifiedState.loginUser));
-                             modifiedState.localUser = localStorage.getItem('modifiedState.loginUser');
-                             alert('Logged in successfully!');
-                             return modifiedState;
-                        }
-                        else{
-                            alert("User Does not exist!!!");
-                        }
-                    })
-                  
-        }
-            else {
-    alert("Please fill all fields!!");
-    return state;
-}
-        }
-if (state.role === "Patient") {
-    if ((state.loginUser.username !== undefined && state.loginUser.username !== "") &&
-        (state.loginUser.password !== undefined && state.loginUser.password !== "")
-    ) {
-        fetch('http://localhost:8080/api/findPatientByCredentials/patient', {
-            method: 'post',
-            body: JSON.stringify(state.loginUser),
-            headers: {
-                'content-type': 'application/json'
-            }
-        }).then(response => (response.json()))
-            .then(patient => {
-                if(patient.username !== null){
-                modifiedState = Object.assign({}, state);
-                modifiedState.loginUser = patient;
-                localStorage.setItem('modifiedState.loginUser', JSON.stringify(modifiedState.loginUser));
-                modifiedState.localUser = localStorage.getItem('modifiedState.loginUser');
-                alert('Logged in successfully!');
-                return modifiedState;
-                }
-                else{
-                    alert("User Does not exist!!!");
-                }
-
-            })
-
-    }
-    else {
-        alert("Please fill all fields!!");
-        return state;
-    }
-}
+            modifiedState = Object.assign({}, state);
+            modifiedState.loginUser = action.user;
+            localStorage.setItem('user', JSON.stringify(action.user));
+            console.log(modifiedState);
+            return modifiedState;
         }
         default:
-return state;
+            return state;
     }
 
 };

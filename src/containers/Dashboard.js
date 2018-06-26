@@ -1,9 +1,26 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import PatientStats from '../components/Dashboard/PatientStatistics'
 import MedicalRecord from '../components/Dashboard/MedicalRecord'
+import NavContainer from '../components/Navbar/Navbar'
+import * as actions from '../actions/ProfileActions'
 
-const Dashboard = () => {
+const stateToPropsMapper = ({patientProfileReducer}) => {
+    console.log(patientProfileReducer);
+    return {
+        user: patientProfileReducer.user,
+        init: patientProfileReducer.init
+    }
+};
+
+const dispatchToPropsMapper = dispatch => {
+    return {
+        setUser: (user) => (actions.setUser(dispatch, user))
+    }
+};
+
+const Dashboard = ({init, setUser, user}) => {
     let patient = {
         name: 'Jonathan Cardiel',
         gender: 'Male',
@@ -58,22 +75,43 @@ const Dashboard = () => {
             phone: '8988118600'
         }]
     };
+    if (init === true) {
+        let localUser = JSON.parse(localStorage.getItem('user'));
+        console.log(localUser);
+        setUser(localUser)
+    } else {
+        console.log(user);
+    }
     return (
-        <div className='container bg-light'>
-            <div className='row p-3'>
-                <div className='col-md-12'>
-                    <PatientStats patient={patient}/>
-                </div>
+        <div>
+            <div className='mb-lg-5'>
+                <NavContainer showLogin={false} showHome={false} showRegister={false} showAboutUs={false} user={user}/>
             </div>
-            <div className='row p-3'>
-                <div className='col-md-12'>
-                    <MedicalRecord patient={patient}/>
+            <div className='container bg-light'>
+                <div className='row p-3'>
+                    <div className='col-md-12'>
+                        <PatientStats patient={patient}/>
+                    </div>
+                </div>
+                <div className='row p-3'>
+                    <div className='col-md-12'>
+                        <MedicalRecord patient={patient}/>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-4 offset-4'>
+                        <Link to={`/profile/${user.username}`}>
+                            <button className='btn btn-outline-dark btn-block'>
+                                Profile
+                            </button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
     )
-}
+};
 
-const DashboardContainer = connect()(Dashboard);
+const DashboardContainer = connect(stateToPropsMapper, dispatchToPropsMapper)(Dashboard);
 
 export default DashboardContainer;
