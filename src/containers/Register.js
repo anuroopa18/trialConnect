@@ -35,7 +35,7 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
     return (
         <div>
             <div className='mb-lg-5'>
-                <NavContainer showLogin={false} showHome={false} showProfile={false} showLogout={false}/>
+                <NavContainer showRegister={false} showProfile={false} showLogout={false}/>
             </div>
             <div className='container-fluid'>
                 <div className="row">
