@@ -27,31 +27,31 @@ const reducerAdmin = (state = {
             return modifiedState
         }
 
-        case constants.FIRST_NAME_CHANGED: {
+        case constants.ADMIN_FIRST_NAME_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.user.firstName = action.firstName;
             return modifiedState
         }
 
-        case constants.LAST_NAME_CHANGED: {
+        case constants.ADMIN_LAST_NAME_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.user.lastName = action.lastName;
             return modifiedState
         }
 
-        case constants.PASSWORD_CHANGED: {
+        case constants.ADMIN_PASSWORD_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.user.password = action.password;
             return modifiedState
         }
 
-        case constants.USER_NAME_CHANGED: {
+        case constants.ADMIN_USER_NAME_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.user.username = action.username;
             return modifiedState
         }
 
-        case constants.ROLE_CHANGED: {
+        case constants.ADMIN_ROLE_CHANGED: {
             modifiedState = Object.assign({}, state);
             modifiedState.role = action.role;
             return modifiedState

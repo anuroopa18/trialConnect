@@ -20,11 +20,11 @@ const dispatcherToPropsMapper = dispatch => {
         findAllPatients: () => (actions.findAllPatients(dispatch)),
         deleteDoctor: (doctorId) => (actions.deleteDoctor(dispatch, doctorId)),
         deletePatient: (patientId) => (actions.deletePatient(dispatch, patientId)),
-        updateFirstName: (firstName) => (actions.updateFirstName(dispatch, firstName)),
-        updateLastName: (lastName) => (actions.updateLastName(dispatch, lastName)),
-        updateUsername: (username) => (actions.updateUsername(dispatch, username)),
-        updatePassword: (password) => (actions.updatePassword(dispatch, password)),
-        updateRole: (role) => (actions.updateRole(dispatch, role)),
+        adminUpdateFirstName: (firstName) => (actions.adminUpdateFirstName(dispatch, firstName)),
+        adminUpdateLastName: (lastName) => (actions.adminUpdateLastName(dispatch, lastName)),
+        adminUpdateUsername: (username) => (actions.adminUpdateUsername(dispatch, username)),
+        adminUpdatePassword: (password) => (actions.adminUpdatePassword(dispatch, password)),
+        adminUpdateRole: (role) => (actions.adminUpdateRole(dispatch, role)),
         findAllRecords: () => (actions.findAllRecords(dispatch)),
         add: (role, user) => (actions.add(dispatch, role, user))
     }
@@ -203,7 +203,7 @@ class Admin extends Component {
                                         <label htmlFor="firstName">First Name</label>
                                         <input required type="text" className="form-control" name="firstName" ref={node => firstNameInput = node}
                                             onChange={() => {
-                                                this.props.updateFirstName(firstNameInput.value)
+                                                this.props.adminUpdateFirstName(firstNameInput.value)
                                             }} />
 
                                     </div>
@@ -211,21 +211,21 @@ class Admin extends Component {
                                         <label htmlFor="lastName">Last Name</label>
                                         <input required type="text" className="form-control" name="lastName" ref={node => lastNameInput = node}
                                             onChange={() => {
-                                                this.props.updateLastName(lastNameInput.value)
+                                                this.props.adminUpdateLastName(lastNameInput.value)
                                             }} />
                                     </div>
                                     <div>
                                         <label htmlFor="username">Username</label>
                                         <input required type="text" className="form-control" name="username" ref={node => usernameInput = node}
                                             onChange={() => {
-                                                this.props.updateUsername(usernameInput.value)
+                                                this.props.adminUpdateUsername(usernameInput.value)
                                             }} />
                                     </div>
                                     <div>
                                         <label htmlFor="password">Password</label>
                                         <input required type="password" className="form-control" name="password" ref={node => passwordInput = node}
                                             onChange={() => {
-                                                this.props.updatePassword(passwordInput.value)
+                                                this.props.adminUpdatePassword(passwordInput.value)
                                             }} />
                                     </div>
                                     <p></p>
@@ -236,7 +236,7 @@ class Admin extends Component {
                                         <label>
                                             <input required type="radio" value="Doctor" checked={this.props.role === "Doctor"}
                                                 ref={node => roleInputDoctor = node} onChange={() => {
-                                                    this.props.updateRole(roleInputDoctor.value)
+                                                    this.props.adminUpdateRole(roleInputDoctor.value)
                                                 }} />
                                             Doctor
                         </label>
@@ -245,7 +245,7 @@ class Admin extends Component {
                                         <label>
                                             <input type="radio" value="Patient" checked={this.props.role === "Patient"}
                                                 ref={node => roleInputPatient = node} onChange={() => {
-                                                    this.props.updateRole(roleInputPatient.value)
+                                                    this.props.adminUpdateRole(roleInputPatient.value)
                                                 }} />
                                             Patient
                         </label>

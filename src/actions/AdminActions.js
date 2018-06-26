@@ -53,36 +53,36 @@ export const deletePatient = (dispatch, patientId) => {
 
 };
 
-export const updateFirstName = (dispatch, firstName) => (
+export const adminUpdateFirstName = (dispatch, firstName) => (
     dispatch({
-        type: constants.FIRST_NAME_CHANGED,
+        type: constants.ADMIN_FIRST_NAME_CHANGED,
         firstName: firstName
     })
 );
 
-export const updateLastName = (dispatch, lastName) => (
+export const adminUpdateLastName = (dispatch, lastName) => (
     dispatch({
-        type: constants.LAST_NAME_CHANGED,
+        type: constants.ADMIN_LAST_NAME_CHANGED,
         lastName: lastName
     })
 );
 
-export const updateUsername = (dispatch, username) => (
+export const adminUpdateUsername = (dispatch, username) => (
     dispatch({
-        type: constants.USER_NAME_CHANGED,
+        type: constants.ADMIN_USER_NAME_CHANGED,
         username: username
     })
 );
 
-export const updatePassword = (dispatch, password) => (
+export const adminUpdatePassword = (dispatch, password) => (
     dispatch({
-        type: constants.PASSWORD_CHANGED,
+        type: constants.ADMIN_PASSWORD_CHANGED,
         password: password
     })
 );
-export const updateRole = (dispatch, role) => (
+export const adminUpdateRole = (dispatch, role) => (
     dispatch({
-        type: constants.ROLE_CHANGED,
+        type: constants.ADMIN_ROLE_CHANGED,
         role: role
     })
 );
