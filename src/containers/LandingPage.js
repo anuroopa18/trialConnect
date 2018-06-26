@@ -36,17 +36,19 @@ const LandingPage = () => {
                     </div>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                            <li className="nav-item">
-                                <a className="nav-link link text-primary display-4" href="/dashboard">
-                                    <span className="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
-                                    Home
-                                </a>
-                            </li>
+        
 
                             <li className="nav-item">
                                 <a className="nav-link link text-primary display-4" href='/login'>
                                     <span className="mbri-login mbr-iconfont mbr-iconfont-btn"></span>
                                     Login
+                                </a>
+                            </li>
+
+                            <li className="nav-item">
+                                <a className="nav-link link text-primary display-4" href='/register'>
+                                    <span className="mbri-users mbr-iconfont mbr-iconfont-btn"></span>
+                                    Register
                                 </a>
                             </li>
 
