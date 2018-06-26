@@ -4,6 +4,7 @@ import * as actions from '../actions/AdminActions'
 import { Link } from 'react-router-dom'
 import icon from '../assets/person.png'
 import NavbarContainer from '../components/Navbar/Navbar'
+import background from '../assets/plus.jpg'
 
 
 const stateToPropertiesMapper = ({ adminReducer }) => {
@@ -73,10 +74,10 @@ class Admin extends Component {
 
         return (
             <div>
-                <div className="mb-lg-5 pb-lg-5">
+                <div className="pb-lg-1">
                     <NavbarContainer showLogin={false} showRegister={false} showProfile={false} showAboutUs={false} />
                 </div>
-                <div className="container-fluid pb-5 mb-5">
+                <div className="container-fluid pt-5 adminContent" style={{"backgroundImage":`url(${background})`}}>
                     <div className="row">
                         <div class="col-3">
                             <div class="nav flex-column nav-tabs border-0" style={{ "marginTop": "6px" }} id="v-pills-tab" role="tablist"
@@ -124,7 +125,7 @@ class Admin extends Component {
                                                         aria-labelledby="doctors-tab">
                                                         <div className='container'>
                                                        
-                                                            < table className="table  table-hover table-responsive-md" style={{ "backgroundColor": "white" }}>
+                                                            < table className="table  table-hover table-responsive-md table-striped" style={{ "backgroundColor": "white" }}>
                                                                 <thead>
                                                                     <tr >
                                                                         <th className="th-lg" style={{ "color": "#55b4d4" }}>First Name</th>
@@ -181,7 +182,7 @@ class Admin extends Component {
                                                         aria-labelledby="patients-tab">
                                                         <div className='container'>
                                                        
-                                                            < table className="table  table-hover table-responsive-md" style={{ "backgroundColor": "white", "borderRadius": "5px" }}>
+                                                            < table className="table  table-hover table-responsive-md table-striped" style={{ "backgroundColor": "white", "borderRadius": "5px" }}>
                                                                 <thead>
                                                                     <tr>
                                                                         <th className="th-lg" style={{ "color": "#55b4d4" }}>First Name</th>
@@ -250,7 +251,7 @@ class Admin extends Component {
                                                         </div>
 
                                                         <div>
-                                                            <label htmlFor="firstName" style={{ "color": "#2994b2" }}>First Name</label>
+                                                            <label htmlFor="firstName" style={{ "color": "#2994b2" }}><span className="font-weight-bold">First Name</span></label>
                                                             <input required type="text" className="form-control" name="firstName"
                                                                 ref={node => firstNameInput = node}
                                                                 onChange={() => {
@@ -259,7 +260,7 @@ class Admin extends Component {
 
                                                         </div>
                                                         <div>
-                                                            <label htmlFor="lastName" style={{ "color": "#2994b2" }}>Last Name</label>
+                                                            <label htmlFor="lastName" style={{ "color": "#2994b2" }}><span className="font-weight-bold">Last Name</span></label>
                                                             <input required type="text" className="form-control" name="lastName"
                                                                 ref={node => lastNameInput = node}
                                                                 onChange={() => {
@@ -267,7 +268,7 @@ class Admin extends Component {
                                                                 }} />
                                                         </div>
                                                         <div>
-                                                            <label htmlFor="username" style={{ "color": "#2994b2" }}>Username</label>
+                                                            <label htmlFor="username" style={{ "color": "#2994b2" }}><span className="font-weight-bold">Username</span></label>
                                                             <input required type="text" className="form-control" name="username"
                                                                 ref={node => usernameInput = node}
                                                                 onChange={() => {
@@ -275,7 +276,7 @@ class Admin extends Component {
                                                                 }} />
                                                         </div>
                                                         <div>
-                                                            <label htmlFor="password" style={{ "color": "#2994b2" }}>Password</label>
+                                                            <label htmlFor="password" style={{ "color": "#2994b2" }}><span className="font-weight-bold">Password</span></label>
                                                             <input required type="password" className="form-control" name="password"
                                                                 ref={node => passwordInput = node}
                                                                 onChange={() => {
@@ -283,7 +284,7 @@ class Admin extends Component {
                                                                 }} />
                                                         </div>
                                                         <p></p>
-                                                        <label style={{ "color": "#2994b2" }}>Role</label>
+                                                        <label style={{ "color": "#2994b2" }}><span className="font-weight-bold">Role</span></label>
 
 
                                                         <div className="flex-row">
@@ -293,7 +294,7 @@ class Admin extends Component {
                                                                     ref={node => roleInputDoctor = node} onChange={() => {
                                                                         this.props.adminUpdateRole(roleInputDoctor.value)
                                                                     }} />
-                                                                Doctor
+                                                                <span className="font-weight-bold p-2">Doctor</span>
                                                              </label>
 
                                                             <label style={{ "color": "#2994b2" }}>
@@ -302,7 +303,7 @@ class Admin extends Component {
                                                                     ref={node => roleInputPatient = node} onChange={() => {
                                                                         this.props.adminUpdateRole(roleInputPatient.value)
                                                                     }} />
-                                                                Patient
+                                                                <span className="font-weight-bold p-2">Patient</span>
                                                             </label>
                                                         </div>
                                                         <div className="form-group">
@@ -325,24 +326,30 @@ class Admin extends Component {
 
                                 <div class="tab-pane fade " id="v-pills-medical-record" role="tabpanel"
                                     aria-labelledby="v-pills-view-user-tab">
-                                    <h2>Medical Records </h2>
+                                    <div className="container-fluid">
+                                    <div className="card">
+                                    <div className="card-header">
+                                    <h1 className='text-center font-weight-bold'
+                                        style={{"color": "#2994b2"}}><span className="font-weight-bold">Medical Records</span></h1>
+                                    </div>
                                     <div className='container'>
                                     <div className="row">
-                                        < table className="table  table-hover table-responsive-md">
+                                        < table className="table  table-hover table-striped table-responsive-md" style={{ "backgroundColor": "white", "borderRadius": "5px" }}>
                                             <thead>
                                                 <tr>
-                                                    <th className="th-lg">Patient</th>
-                                                    <th className="th-lg">Gender</th>
-                                                    <th className="th-lg">Medicine</th>
-                                                    <th className="th-lg">Problem</th>
-                                                    <th className="th-lg">Results</th>
-                                                    <th className="th-lg">Visits</th>
+                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Patient</th>
+                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Gender</th>
+                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Medicine</th>
+                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Problem</th>
+                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Results</th>
+                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Visits</th>
+                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}></th>
 
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {this.props.records.map((record, index) => {
-                                                    return <tr key={index}>
+                                                    return <tr style={{ "color": "grey" }} key={index}>
                                                         <td>
 
                                                         </td>
@@ -375,7 +382,9 @@ class Admin extends Component {
                                     </div>
                                     </div>
                                 </div>
+                                </div>
 
+                            </div>
                             </div>
                         </div>
                     </div>

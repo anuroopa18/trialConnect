@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import * as actions from '../actions/Actions'
 import logo from '../assets/TrialLogo2.jpeg.png'
 import NavContainer from '../components/Navbar/Navbar'
+import background from '../assets/plus.jpg'
 
 const stateToPropertiesMapper = ({registerReducer}) => {
 
@@ -34,10 +35,10 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
 
     return (
         <div>
-            <div className='mb-lg-5'>
+            <div>
                 <NavContainer showRegister={false} showProfile={false} showLogout={false}/>
             </div>
-            <div className='container-fluid'>
+            <div className='container-fluid pt-5' style={{"backgroundImage":`url(${background})`}}>
                 <div className="row">
                     <div className="col-md-4 offset-4">
                         <div className="card">

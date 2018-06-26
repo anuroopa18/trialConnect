@@ -39,3 +39,7 @@
 #content {
     min-height: calc(100vh - 40px);
   }
+
+  .adminContent{
+    min-height: calc(100vh - 40px);
+  }

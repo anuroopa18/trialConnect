@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import icon from '../assets/person.png'
 import * as actions from '../actions/AdminUpdatePatientProfileActions'
 import NavContainer from '../components/Navbar/Navbar'
+import background from '../assets/plus.jpg'
 
 
 
@@ -46,10 +47,10 @@ class AdminUpdateProfilePatient extends Component {
         let phoneInput;
         return (
             <div>
-                <div className='mb-lg-5'>
+                <div>
                     <NavContainer showLogin={false} showProfile={false} showAboutUs={false} showRegister={false} />
                 </div>
-                <div className='container-fluid'>
+                <div className='container-fluid pt-5' style={{"backgroundImage":`url(${background})`}}>
                     <div className="row">
                     <div className="col-md-4 offset-4">
                             <div className="card">
