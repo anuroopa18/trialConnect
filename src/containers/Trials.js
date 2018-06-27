@@ -35,7 +35,7 @@ class Trials extends React.Component {
         return (
             <div>
                <div className="pb-lg-1">
-                    <NavbarContainer  showHome={false}  showProfile={false} showAboutUs={false} showLogout={false} />
+                    <NavbarContainer  showProfile={false} showAboutUs={false} showLogout={false} />
                 </div>
             <section className="container">
                 {this.props.trials.length > 0 &&

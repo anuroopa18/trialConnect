@@ -16,6 +16,9 @@ const dispatchToPropsMapper = () => ({
        else if(role == "Doctor"){
         window.location.href = '/register/';
        }
+       else{
+        window.location.href = '/';
+       }
     }
 })
 
@@ -56,7 +59,7 @@ const NewNavbar = ({
                             {showHome &&
                                 <li className="nav-item">
                                     <a className="nav-link link text-primary display-4"
-                                        href={`/home/${user.username}/dashboard`} onClick={() => { home() }}>
+                                         onClick={() => { home() }}>
                                         <span className="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
                                         Home
                                 </a>
