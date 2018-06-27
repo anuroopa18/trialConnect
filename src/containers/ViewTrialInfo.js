@@ -118,7 +118,7 @@ class ViewTrialInfo extends Component {
                                     <div className="card">
                                             <div className="card-header">
                                                 <h1 className='text-center font-weight-bold'
-                                                    style={{ "color": "#2994b2" }}><span className="font-weight-bold">Arms and Interventions</span>
+                                                    style={{ "color": "#2994b2" }}><span className="font-weight-bold">Diseases</span>
                                                 </h1>
                                             </div>
                                             <div className="card-body" style={{"backgroundColor":"white","color":"grey"}}>
