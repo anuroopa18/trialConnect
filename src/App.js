@@ -12,6 +12,7 @@ import LandingPage from "./containers/LandingPage";
 import Footer from './components/Footer/footer'
 import AdminUpdatePatientProfileContainer from './containers/AdminUpdateProfilePatient'
 import DoctorProfileContainer from './components/Profile/DoctorProfile'
+import AboutUsPage from './containers/AboutUsPage'
 
 class App extends React.Component {
     render() {
@@ -20,6 +21,7 @@ class App extends React.Component {
                 <section>
                     <section id="content">
                         <Route exact path='/' component={LandingPage}/>
+                        <Route exact path='/aboutUs' component={AboutUsPage}/>
                         <Route path='/register' component={RegisterContainer}/>
                         <Route path='/login' component={LoginContainer}/>
                         <Route exact path='/admin/updateProfile/:userId' component={AdminUpdateProfileContainer}/>
