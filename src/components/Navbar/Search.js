@@ -21,7 +21,7 @@ const SearchInLine = ({changeSearchText, searchTrials, searchText}) => {
     let inputElem;
     return (
         <div className="form-inline">
-            <input className="form-control" type="search" placeholder="Search" aria-label="Search"
+            <input className="form-control" type="search" placeholder="Search Trials" aria-label="Search"
                    ref={node => inputElem = node} onChange={() => {
                 changeSearchText(inputElem.value)
             }}/>

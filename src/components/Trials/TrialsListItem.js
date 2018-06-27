@@ -4,10 +4,10 @@ import React from 'react'
 const TrialListItem = ({trial, collapseClass, index, parent}) => {
     return (
         <section>
-            <section className='card'>
+            <section className='card mt-3'>
                 <section className='card-header bg-pc' id={index}>
                     <h5 className='mb-0'>
-                        <button className="btn btn-link" type='button' data-toggle="collapse"
+                        <button className="btn btn-link" style={{"color":"white"}} type='button' data-toggle="collapse"
                                 data-target={"#" + trial.nct_id}
                                 aria-expanded={true} aria-controls={trial.nct_id}>
                             {trial.nct_id}

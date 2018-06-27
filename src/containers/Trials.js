@@ -38,6 +38,7 @@ class Trials extends React.Component {
                     <NavbarContainer  showProfile={false} showAboutUs={false} showLogout={false} />
                 </div>
             <section className="container">
+                  
                 {this.props.trials.length > 0 &&
                 <section className="accordion" id={this.props.trials.length}>
                     {this.props.trials.map((trial, index) => {
