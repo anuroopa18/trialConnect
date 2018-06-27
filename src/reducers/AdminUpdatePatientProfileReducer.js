@@ -88,7 +88,7 @@ const reducerAdminUpdatePatientProfile = (state = {
             } else {
                 alert('Please fill out all the fields');
             }
-            break;
+            
         }
         default:
             return state;

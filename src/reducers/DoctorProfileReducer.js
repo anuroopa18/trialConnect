@@ -89,7 +89,7 @@ const reducerDoctorProfile = (state = {
                 alert('Please fill out all the fields');
                 return state;
             }
-            break;
+            
         }
         default:
             return state;

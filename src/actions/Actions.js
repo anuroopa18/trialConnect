@@ -137,4 +137,39 @@ export const login = (dispatch, username, password, role) => {
             alert("Please fill all fields!!");
         }
     }
+
+    else if (role === "Admin") {
+        if ((username !== undefined && username !== "") &&
+            (password !== undefined && password !== "")
+        ) {
+            console.log(role);
+            fetch('http://localhost:8080/api/findAdminByCredentials/admin', {
+                method: 'post',
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                }),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            }).then(response => (response.json()))
+                .then(admin => {
+                    console.log(admin);
+                    if (admin.username !== undefined && admin.username !== '' && admin.username !== null) {
+                        localStorage.setItem('user', JSON.stringify(admin));
+                        window.location.href = '/admin';
+                        dispatch({
+                            type: AppConstants.actions.SET_USER,
+                            user: admin
+                        })
+                    }
+                    else {
+                        alert("User Does not exist!!!");
+                    }
+                });
+        }
+        else {
+            alert("Please fill all fields!!");
+        }
+    }
 };

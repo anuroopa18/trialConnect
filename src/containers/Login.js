@@ -29,6 +29,7 @@ const Login = ({loginUsername, loginPassword, loginRole, login, role, username, 
     let passwordInput;
     let roleInputPatient;
     let roleInputDoctor;
+    let roleInputAdmin;
 
 
     return (
@@ -84,6 +85,13 @@ const Login = ({loginUsername, loginPassword, loginRole, login, role, username, 
                                                 loginRole(roleInputPatient.value)
                                             }}/>
                                             <span className='p-2 font-weight-bold'>Patient</span>
+                                        </label>
+                                        <label style={{"color": "#2994b2"}}>
+                                            <input type="radio" value="Admin" checked={role === "Admin"}
+                                                   ref={node => roleInputAdmin = node} onChange={() => {
+                                                loginRole(roleInputAdmin.value)
+                                            }}/>
+                                            <span className='p-2 font-weight-bold'>Admin</span>
                                         </label>
                                     </div>
                                 </div>
