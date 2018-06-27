@@ -14,11 +14,22 @@ export const searchTrials = (searchText, dispatch) => {
     return fetch('https://clinicaltrialsapi.cancer.gov/v1/clinical-trials?size=5&' + key + searchText)
         .then(response => (response.json()))
         .then(jsonObject => {
-                console.log(jsonObject);
+            if(jsonObject.trials.length !== 0){
                 return dispatch({
                     type: Constants.actions.SEARCH_TRIALS,
                     trials: jsonObject.trials
                 })
+
             }
+            else{
+                    alert("No results found");
+            } 
+            }
+
         )
+
+
+
+
+
 };

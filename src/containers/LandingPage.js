@@ -4,6 +4,7 @@ import anu from '../assets/images/whatsapp-image-2018-06-25-at-1.20.58-am-510x63
 import infographic from '../assets/images/clinical-trials-infographic-zoom-1000x518.png'
 import LandingCarousel from '../components/Carousel/IntroCarousel'
 import logo from '../assets/images/whatsapp-image-2018-06-24-at-10.26.44-pm-184x184.jpg'
+import SearchNavBar from '../components/Navbar/Search'
 
 const LandingPage = () => {
     return (
@@ -52,11 +53,17 @@ const LandingPage = () => {
                                 </a>
                             </li>
 
-                            <li className="nav-item">
-                                <a className="nav-link link text-primary display-4" href="/about">
-                                    <span className="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            <li className="nav-item mr-2">
+                                <a className="nav-link link text-primary display-4" href="/aboutUs">
+                                    <span ><i class="fas fa-user-md" style={{"fontSize":"22px"}}></i></span>
                                     About Us
                                 </a>
+                            </li>
+                            <li className="nav-item">
+                                
+                                    <span><SearchNavBar/></span>
+                                   
+                                
                             </li>
                         </ul>
                     </div>
@@ -74,7 +81,7 @@ const LandingPage = () => {
                                 a drug
                                 to market.</h3>
                             <div className="mbr-section-btn align-center py-4"><a className="btn btn-primary display-4"
-                                                                                  href="https://mobirise.com"><span
+                                                                                  href="/aboutUs"><span
                                 className="mbri-right mbr-iconfont mbr-iconfont-btn"></span>LEARN MORE</a></div>
                         </div>
                     </div>

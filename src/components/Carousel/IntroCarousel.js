@@ -34,7 +34,7 @@ const LandingCarousel = () => {
                                             <p className="lead mbr-text mbr-fonts-style display-5">85% of trials
                                                 finish late due to recruitment challenges.</p>
                                             <div className="mbr-section-btn" buttons="0"><a
-                                                className="btn btn-primary display-4" href="https://mobirise.com">
+                                                className="btn btn-primary display-4" href="/aboutUs">
                                                     <span
                                                         className="mbri-arrow-next mbr-iconfont mbr-iconfont-btn"></span>LEARN
                                                 MORE</a></div>

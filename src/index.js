@@ -27,7 +27,6 @@ import '../node_modules/dropdown-js/dist/dropdown.min'
 import '../node_modules/tether/dist/js/tether.min'
 import '../node_modules/jquery-touchswipe/jquery.touchSwipe.min'
 import '../node_modules/bootstrap-carousel-swipe/carousel-swipe'
-
 import '../node_modules/jquery-viewport-checker/src/jquery.viewportchecker'
 import './css/index.css'
 import rootReducer from "./reducers/rootReducer";

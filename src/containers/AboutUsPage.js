@@ -5,15 +5,17 @@ import 'react-circular-progressbar/dist/styles.css';
 import NavbarContainer from '../components/Navbar/Navbar'
 
 
+
 const AboutUsPage = () => {
     let percentage = 53;
     let percentage1 = 70;
     let percentage2 = 64;
     let percentage3 = 56;
+    
     return (
         <div>
             <div className="pb-lg-1">
-                    <NavbarContainer  showHome={false}  showProfile={false} showAboutUs={false} />
+                    <NavbarContainer  showHome={false}  showProfile={false} showAboutUs={false} showLogout={false} />
                 </div>
             <section className="progress-bars3 cid-qW1XIq5PTR" id="progress-bars3-b">
               
@@ -234,7 +236,7 @@ const AboutUsPage = () => {
                             <p className="mbr-author-name pt-4 mb-2 mbr-fonts-style display-7">
                                 Julie C.
                 </p>
-                            <p claclassNamess="mbr-author-desc mbr-fonts-style display-7">Healthy volunteer</p>
+                            <p className="mbr-author-desc mbr-fonts-style display-7">Healthy volunteer</p>
                         </div>
 
                         <div className="mbr-figure pl-lg-5" style={{ "width": "130%" }}>
@@ -252,7 +254,7 @@ const AboutUsPage = () => {
 
                         </div>
                         <div className="media-container-column col-12 col-lg-3 col-md-4">
-                            <div className="mbr-section-btn align-right py-4"><a className="btn btn-primary display-4" href="https://mobirise.com">JOIN US</a></div>
+                            <div className="mbr-section-btn align-right py-4"><a className="btn btn-primary display-4" href="/register">JOIN US</a></div>
                         </div>
                     </div>
                 </div>

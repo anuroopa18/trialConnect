@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import logo from '../../assets/images/whatsapp-image-2018-06-24-at-10.26.44-pm-184x184.jpg'
+
 
 
 const dispatchToPropsMapper = () => ({
@@ -21,7 +21,7 @@ const dispatchToPropsMapper = () => ({
 
 const NewNavbar = ({
     showLogin = true, showRegister = true, showProfile = true,
-    showLogout = true, showHome = true, showAboutUs = true, user = { username: '' }, logout,home
+    showLogout = true, showHome = true, showAboutUs = true, showSearch=true, user = { username: '' }, logout,home
 }) => {
     return (
         <div>
@@ -79,7 +79,7 @@ const NewNavbar = ({
                                 </li>}
                             {showAboutUs &&
                                 <li className="nav-item">
-                                    <a className="nav-link link text-primary display-4" href="/about">
+                                    <a className="nav-link link text-primary display-4" href="/aboutUs">
                                         <span className="mbri-smile-face mbr-iconfont mbr-iconfont-btn"></span>
                                         About Us
                                 </a>
@@ -101,7 +101,7 @@ const NewNavbar = ({
                                 </a>
                                 </li>
                             }
-
+                           
                         </ul>
                     </div>
                 </nav>

@@ -16,7 +16,7 @@ const reducerTrials = (state = {
                 modifiedState.init = action.init;
                 return modifiedState;
             }
-            break;
+            
         }
         case Constants.AppConstants.actions.NAVBAR_SEARCH: {
             console.log(action.text);

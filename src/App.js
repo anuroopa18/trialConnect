@@ -29,7 +29,7 @@ class App extends React.Component {
                         <Route exact path='/admin' component={AdminContainer}/>
                         <Route exact path='/profile/:username' component={PatientProfileContainer}/>
                         <Route exact path='/doctor/profile/:docId' component={DoctorProfileContainer}/>
-                        <section className="container">
+                        <section >
                             <Route path='/search/:searchText/results' component={TrialContainer}/>
                         </section>
                         <section>
