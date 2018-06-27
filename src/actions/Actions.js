@@ -1,16 +1,25 @@
 import * as constants from '../constants/AppConstants'
 import {AppConstants} from "../constants/AppConstants";
 
-export const findAllTrials = dispatch => {
+export const findAllTrials = (dispatch) => {
     console.log("Entered Action.js");
     fetch('https://clinicaltrialsapi.cancer.gov/v1/clinical-trials')
-        .then(response => response.json())
-        .then(jsonObject => (dispatch({
-            type: 'GET_ALL_TRIALS',
-            trials: jsonObject.trials,
-            init: false
-        })))
+    .then(response => response.json())
+    .then(jsonObject => (dispatch({
+        type: 'GET_ALL_TRIALS',
+        trials: jsonObject.trials,
+        init: false
+    })))
 };
+
+export const findTrialById = (dispatch,trialId) => (
+    fetch('https://clinicaltrialsapi.cancer.gov/v1/clinical-trial/' + trialId)
+    .then(response => response.json())
+    .then(jsonObject => (dispatch({
+        type: 'GET_TRIAL_BY_ID',
+        trial: jsonObject,   
+    })))
+);
 
 export const updateFirstName = (dispatch, firstName) => (
     dispatch({

@@ -1,9 +1,11 @@
 import * as Constants from '../constants/AppConstants'
 
+
 const reducerTrials = (state = {
     trials: [],
     init: true,
     searchText: '',
+    trial:{}
 }, action) => {
 
     let modifiedState;
@@ -27,6 +29,12 @@ const reducerTrials = (state = {
         case Constants.AppConstants.actions.SEARCH_TRIALS: {
             modifiedState = Object.assign({}, state);
             modifiedState.trials = action.trials;
+            return modifiedState;
+        }
+
+        case Constants.AppConstants.actions.GET_TRIAL_BY_ID: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.trial = action.trial;
             return modifiedState;
         }
         default:

@@ -65,6 +65,7 @@ export const AppConstants = {
         SET_USER:"SET_USER",
         NAVBAR_SEARCH: "NAVBAR_SEARCH",
         GET_ALL_TRIALS: "GET_ALL_TRIALS",
-        SEARCH_TRIALS: "SEARCH_TRIALS"
+        SEARCH_TRIALS: "SEARCH_TRIALS",
+        GET_TRIAL_BY_ID:"GET_TRIAL_BY_ID"
     },
 };

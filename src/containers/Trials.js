@@ -14,7 +14,7 @@ const stateToPropertiesMapper = ({trialsReducer}) => {
 
 const dispatcherToPropsMapper = dispatch => {
     return {
-        findAllTrials: () => (actions.findAllTrials(dispatch)),
+        findAllTrials: () => (actions.findAllTrials(dispatch))
     }
 };
 

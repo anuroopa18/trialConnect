@@ -13,6 +13,7 @@ import Footer from './components/Footer/footer'
 import AdminUpdatePatientProfileContainer from './containers/AdminUpdateProfilePatient'
 import DoctorProfileContainer from './components/Profile/DoctorProfile'
 import AboutUsPage from './containers/AboutUsPage'
+import ViewTrialInfo from './containers/ViewTrialInfo'
 
 class App extends React.Component {
     render() {
@@ -29,6 +30,7 @@ class App extends React.Component {
                         <Route exact path='/admin' component={AdminContainer}/>
                         <Route exact path='/profile/:username' component={PatientProfileContainer}/>
                         <Route exact path='/doctor/profile/:docId' component={DoctorProfileContainer}/>
+                        <Route exact path='/viewTrialInfo/:trialId' component={ViewTrialInfo}/>
                         <section >
                             <Route path='/search/:searchText/results' component={TrialContainer}/>
                         </section>
