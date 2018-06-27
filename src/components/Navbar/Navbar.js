@@ -5,12 +5,23 @@ import logo from '../../assets/images/whatsapp-image-2018-06-24-at-10.26.44-pm-1
 
 
 const dispatchToPropsMapper = () => ({
-    logout: () => { localStorage.clear(); window.location.href = '/login'; }
+    logout: () => { localStorage.clear(); window.location.href = '/login'; },
+    home:() => {
+       let role=JSON.parse(localStorage.getItem('role'));
+       let user=JSON.parse(localStorage.getItem('user'));
+       console.log(role);
+       if(role == "Patient"){
+        window.location.href = '/home/' + user.username + 'dashboard';
+       }
+       else if(role == "Doctor"){
+        window.location.href = '/register/';
+       }
+    }
 })
 
 const NewNavbar = ({
     showLogin = true, showRegister = true, showProfile = true,
-    showLogout = true, showHome = true, showAboutUs = true, user = { username: '' }, logout
+    showLogout = true, showHome = true, showAboutUs = true, user = { username: '' }, logout,home
 }) => {
     return (
         <div>
@@ -45,7 +56,7 @@ const NewNavbar = ({
                             {showHome &&
                                 <li className="nav-item">
                                     <a className="nav-link link text-primary display-4"
-                                        href={`/home/${user.username}/dashboard`}>
+                                        href={`/home/${user.username}/dashboard`} onClick={() => { home() }}>
                                         <span className="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
                                         Home
                                 </a>

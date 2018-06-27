@@ -75,7 +75,7 @@ class Admin extends Component {
         return (
             <div>
                 <div className="pb-lg-1">
-                    <NavbarContainer showLogin={false} showRegister={false} showProfile={false} showAboutUs={false} />
+                    <NavbarContainer showLogin={false} showHome={false} showRegister={false} showProfile={false} showAboutUs={false} />
                 </div>
                 <div className="container-fluid pt-5 adminContent" style={{"backgroundImage":`url(${background})`}}>
                     <div className="row">
