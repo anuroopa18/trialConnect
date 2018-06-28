@@ -18,13 +18,13 @@ const statistics = ({patient}) => {
                                 </div>
                                 <div className='col-md-8'>
                                     <div className='row'>
-                                        <h5 className='m-0'>{patient.name}</h5>
+                                        <h5 className='m-0'>{patient.firstName}&nbsp;{patient.lastName}</h5>
                                     </div>
                                     <div className='row'>
-                                        <small><strong>Male</strong>: {patient.age} years old</small>
+                                        <small><strong>{patient.gender}</strong>: {patient.age} years old</small>
                                     </div>
                                     <div className='row'>
-                                        <small>PID: 7844837847147328</small>
+                                        <small>PID: {patient.id}</small>
                                     </div>
                                 </div>
                             </div>

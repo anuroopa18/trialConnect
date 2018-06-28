@@ -10,7 +10,9 @@ const reducerProfile = (state = {
     email: '',
     username:'',
     age:'',
-    gender:''
+    gender:'',
+    height:'',
+    weight:''
 }, action) => {
     let modifiedState;
     switch (action.type) {
@@ -25,6 +27,8 @@ const reducerProfile = (state = {
             modifiedState.username = action.user.username;
             modifiedState.age = action.user.age;
             modifiedState.gender = action.user.gender;
+            modifiedState.height = action.user.height;
+            modifiedState.weight = action.user.weight;
             modifiedState.init = false;
             console.log(modifiedState);
             return modifiedState;
@@ -64,6 +68,16 @@ const reducerProfile = (state = {
         case AppConstants.actions.PROFILE_GENDER: {
             modifiedState = Object.assign({}, state);
             modifiedState.gender = action.gender;
+            return modifiedState
+        }
+        case AppConstants.actions.PROFILE_HEIGHT: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.height = action.height;
+            return modifiedState
+        }
+        case AppConstants.actions.PROFILE_WEIGHT: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.weight = action.weight;
             return modifiedState
         }
 

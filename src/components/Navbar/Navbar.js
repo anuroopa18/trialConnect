@@ -24,9 +24,11 @@ const dispatchToPropsMapper = () => ({
 })
 
 const NewNavbar = ({
+    
     showLogin = true, showRegister = true, showProfile = true,
-    showLogout = true, showHome = true, showAboutUs = true, showSearch=true, user = { username: '' }, logout,home
+    showLogout = true, showHome = true, showAboutUs = true, showSearch=true, logout,home
 }) => {
+    let user=JSON.parse(localStorage.getItem('user'))
     return (
         <div>
             <section className="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">

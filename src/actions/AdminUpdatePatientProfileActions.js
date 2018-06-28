@@ -48,6 +48,20 @@ export const genderUpdateAdminPat = (dispatch, gender) => (
     })
 );
 
+export const heightUpdateAdminPat = (dispatch, height) => (
+    dispatch({
+        type: constants.ADMIN_HEIGHT_CHANGED_PAT,
+        height: height
+    })
+);
+
+export const weightUpdateAdminPat = (dispatch, weight) => (
+    dispatch({
+        type: constants.ADMIN_WEIGHT_CHANGED_PAT,
+        weight: weight
+    })
+);
+
 export const updatePatientAdmin = (dispatch,patId) =>(
     dispatch({
         type: constants.ADMIN_UPDATE_PAT,

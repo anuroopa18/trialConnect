@@ -43,6 +43,16 @@ export const deleteDoctor = (dispatch, doctorId) => {
 
 };
 
+export const deleteRecord = (dispatch, recordId) => {
+    return fetch('http://localhost:8080/api/medicalrecord/' + recordId, {
+        method: 'delete'
+    })
+        .then(() => {
+            findAllPatients(dispatch);
+        })
+
+};
+
 export const deletePatient = (dispatch, patientId) => {
     return fetch('http://localhost:8080/api/patient/' + patientId, {
         method: 'delete'

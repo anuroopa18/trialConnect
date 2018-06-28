@@ -25,12 +25,13 @@ const dispatcherToPropsMapper = dispatch => {
         findAllPatients: () => (actions.findAllPatients(dispatch)),
         deleteDoctor: (doctorId) => (actions.deleteDoctor(dispatch, doctorId)),
         deletePatient: (patientId) => (actions.deletePatient(dispatch, patientId)),
+        deleteRecord: (recordId) => (actions.deleteRecord(dispatch, recordId)),
         adminUpdateFirstName: (firstName) => (actions.adminUpdateFirstName(dispatch, firstName)),
         adminUpdateLastName: (lastName) => (actions.adminUpdateLastName(dispatch, lastName)),
         adminUpdateUsername: (username) => (actions.adminUpdateUsername(dispatch, username)),
         adminUpdatePassword: (password) => (actions.adminUpdatePassword(dispatch, password)),
         adminUpdateRole: (role) => (actions.adminUpdateRole(dispatch, role)),
-        findAllRecords: () => (actions.findAllRecords(dispatch)),
+        //findAllRecords: () => (actions.findAllRecords(dispatch)),
         add: (role, user) => (actions.add(dispatch, role, user))
     }
 };
@@ -60,7 +61,7 @@ class Admin extends Component {
     componentDidMount() {
         this.props.findAllDoctors();
         this.props.findAllPatients();
-        this.props.findAllRecords();
+
     }
 
     render() {
@@ -77,7 +78,7 @@ class Admin extends Component {
                 <div className="pb-lg-1">
                     <NavbarContainer showLogin={false} showHome={false} showRegister={false} showProfile={false} showAboutUs={false} />
                 </div>
-                <div className="container-fluid pt-5 adminContent" style={{"backgroundImage":`url(${background})`}}>
+                <div className="container-fluid pt-5 adminContent" style={{ "backgroundImage": `url(${background})` }}>
                     <div className="row">
                         <div class="col-3">
                             <div class="nav flex-column nav-tabs border-0" style={{ "marginTop": "6px" }} id="v-pills-tab" role="tablist"
@@ -124,7 +125,7 @@ class Admin extends Component {
                                                         role="tabpanel"
                                                         aria-labelledby="doctors-tab">
                                                         <div className='container'>
-                                                       
+
                                                             < table className="table  table-hover table-responsive-md table-striped" style={{ "backgroundColor": "white" }}>
                                                                 <thead>
                                                                     <tr >
@@ -139,7 +140,7 @@ class Admin extends Component {
                                                                 </thead>
                                                                 <tbody>
                                                                     {this.props.doctors.map((doctor, index) => {
-                                                                        return <tr  style={{ "color": "grey" }} key={index}>
+                                                                        return <tr style={{ "color": "grey" }} key={index}>
                                                                             <td>
 
                                                                                 {doctor.firstName}
@@ -175,13 +176,13 @@ class Admin extends Component {
                                                                     )}
                                                                 </tbody>
                                                             </table>
-                                                            </div>
-                                                        
+                                                        </div>
+
                                                     </div>
                                                     <div className='tab-pane fade' id='patients' role="tabpanel"
                                                         aria-labelledby="patients-tab">
                                                         <div className='container'>
-                                                       
+
                                                             < table className="table  table-hover table-responsive-md table-striped" style={{ "backgroundColor": "white", "borderRadius": "5px" }}>
                                                                 <thead>
                                                                     <tr>
@@ -226,7 +227,7 @@ class Admin extends Component {
                                                             </table>
 
                                                         </div>
-                                                       
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -295,7 +296,7 @@ class Admin extends Component {
                                                                         this.props.adminUpdateRole(roleInputDoctor.value)
                                                                     }} />
                                                                 <span className="font-weight-bold p-2">Doctor</span>
-                                                             </label>
+                                                            </label>
 
                                                             <label style={{ "color": "#2994b2" }}>
                                                                 <input type="radio" value="Patient"
@@ -327,64 +328,79 @@ class Admin extends Component {
                                 <div class="tab-pane fade " id="v-pills-medical-record" role="tabpanel"
                                     aria-labelledby="v-pills-view-user-tab">
                                     <div className="container-fluid">
-                                    <div className="card">
-                                    <div className="card-header">
-                                    <h1 className='text-center font-weight-bold'
-                                        style={{"color": "#2994b2"}}><span className="font-weight-bold">Medical Records</span></h1>
+                                        <div className="card">
+                                            <div className="card-header">
+                                                <h1 className='text-center font-weight-bold'
+                                                    style={{ "color": "#2994b2" }}>Medical Records For Patients</h1>
+                                            </div>
+                                            <div class="card-body p-0" style={{ "backgroundColor": "white" }}>
+                                                <ul style={{ "color": "grey" }}>
+                                                    {this.props.patients.map((patient, index) => {
+                                                        return <li style={{ "color": "grey" }} key={index}>
+                                                            <h6> <strong style={{ "color": "#55b4d4" }}>Patient Name:</strong> {patient.firstName} </h6>
+
+                                                            < table className="table  table-hover table-responsive-md table-striped" style={{ "backgroundColor": "white", "borderRadius": "5px" }}>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}>Medical Condition</th>
+                                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}>Allergy Name</th>
+                                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}>Allergy Cause</th>
+                                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}>Body Temperature</th>
+                                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}>Pulse Rate</th>
+                                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}>Blood Pressure</th>
+                                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}>BMI</th>
+                                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}></th>
+                                                                        <th className="th-lg"></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {patient.medicalRecord.map((mr, index) => {
+                                                                        return <tr style={{ "color": "grey" }} key={index} >
+                                                                            <td >
+                                                                                {mr.medicalCondition}
+                                                                            </td>
+                                                                            <td>
+                                                                                {mr.allergyName}
+                                                                            </td>
+                                                                            <td>
+                                                                                {mr.allergyCause}
+                                                                            </td>
+                                                                            <td>
+                                                                                {mr.bodyTemperature}
+                                                                            </td>
+                                                                            <td>
+                                                                                {mr.pulseRate}
+                                                                            </td>
+                                                                            <td>
+                                                                                {mr.bloodPressure}
+                                                                            </td>
+                                                                            <td>
+                                                                                {mr.bmi}
+                                                                            </td>
+                                                                            <td>
+                                                                                <i class="fa fa-times" style={{ "color": "red" }} onClick={() => {
+                                                                                    if (window.confirm('Are you sure you wish to delete this item?')) this.props.deleteRecord(mr.id)
+                                                                                }}></i>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    })}
+                                                                </tbody>
+                                                            </table>
+
+
+
+                                                        </li>
+                                                    }
+
+                                                    )}
+
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className='container'>
-                                    <div className="row">
-                                        < table className="table  table-hover table-striped table-responsive-md" style={{ "backgroundColor": "white", "borderRadius": "5px" }}>
-                                            <thead>
-                                                <tr>
-                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Patient</th>
-                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Gender</th>
-                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Medicine</th>
-                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Problem</th>
-                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Results</th>
-                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}>Visits</th>
-                                                    <th className="th-lg" style={{ "color": "#55b4d4" }}></th>
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {this.props.records.map((record, index) => {
-                                                    return <tr style={{ "color": "grey" }} key={index}>
-                                                        <td>
-
-                                                        </td>
-                                                        <td>
-                                                            {record.gender}
-                                                        </td>
-                                                        <td>
-                                                            {record.medicine}
-                                                        </td>
-                                                        <td>
-                                                            {record.problem}
-                                                        </td>
-                                                        <td>
-                                                            {record.results}
-                                                        </td>
-                                                        <td>
-                                                            {record.visits}
-                                                        </td>
-
-                                                        <td>
-                                                            <i class="fa fa-times" style={{ "color": "red" }}></i>
-                                                        </td>
-
-                                                    </tr>
-                                                }
-                                                )}
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                    </div>
                                 </div>
-                                </div>
-
-                            </div>
                             </div>
                         </div>
                     </div>

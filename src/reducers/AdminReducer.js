@@ -23,7 +23,7 @@ const reducerAdmin = (state = {
         
         case constants.FIND_RECORDS:{
             modifiedState = Object.assign({}, state);
-            modifiedState.patients = action.records;
+            modifiedState.records = action.records;
             return modifiedState
         }
 

@@ -10,7 +10,9 @@ const reducerAdminUpdatePatientProfile = (state = {
     userId: '',
     username: '',
     age:'',
-    gender:''
+    gender:'',
+    height:'',
+    weight:''
 
 
 }, action) => {
@@ -55,6 +57,16 @@ const reducerAdminUpdatePatientProfile = (state = {
             modifiedState.gender = action.gender;
             return modifiedState
         }
+        case constants.ADMIN_HEIGHT_CHANGED_PAT: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.height = action.height;
+            return modifiedState
+        }
+        case constants.ADMIN_WEIGHT_CHANGED_PAT: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.weight = action.weight;
+            return modifiedState
+        }
 
         case constants.ADMIN_FIND_PAT: {
             modifiedState = Object.assign({}, state);
@@ -66,6 +78,8 @@ const reducerAdminUpdatePatientProfile = (state = {
             modifiedState.username = action.patient.username;
             modifiedState.age = action.patient.age;
             modifiedState.gender = action.patient.gender;
+            modifiedState.height = action.patient.height;
+            modifiedState.weight = action.patient.weight;
             return modifiedState
         }
 
@@ -76,8 +90,9 @@ const reducerAdminUpdatePatientProfile = (state = {
                 (state.email !== undefined && state.email !== "") &&
                 (state.phone !== undefined && state.phone !== "") &&
                 (state.age !== undefined && state.age !== "") &&
-                (state.gender !== undefined && state.gender !== "")
-
+                (state.gender !== undefined && state.gender !== "") &&
+                (state.height !== undefined && state.height !== "" && state.height !== null) &&
+                (state.weight !== undefined && state.weight !== "" && state.weight !== null)
             ) {
                 const user = {
                     firstName: state.firstName,
@@ -86,7 +101,9 @@ const reducerAdminUpdatePatientProfile = (state = {
                     email: state.email,
                     phone: state.phone,
                     age:state.age,
-                    gender: state.gender
+                    gender: state.gender,
+                    weight:state.weight,
+                    height:state.height
                 };
                 fetch('http://localhost:8080/api/patient/' + action.patId, {
                     method: 'put',
@@ -104,6 +121,9 @@ const reducerAdminUpdatePatientProfile = (state = {
                         modifiedState.phone = patient.phone;
                         modifiedState.age = patient.age;
                         modifiedState.gender = patient.gender;
+                        modifiedState.height = patient.height;
+                        modifiedState.weight = patient.weight;
+
                         alert('Updated successfully!');
                         return modifiedState;
                     })

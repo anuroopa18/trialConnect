@@ -58,7 +58,20 @@ export const updateGender = (dispatch, gender) => (
     })
 );
 
-export const updateUser = (dispatch, firstName, lastName, phone, email, password,age,gender, patientId) => {
+export const updateHeight = (dispatch, height) => (
+    dispatch({
+        type: Constants.AppConstants.actions.PROFILE_HEIGHT,
+        height: height
+    })
+);
+
+export const updateWeight = (dispatch, weight) => (
+    dispatch({
+        type: Constants.AppConstants.actions.PROFILE_WEIGHT,
+        weight: weight
+    })
+);
+export const updateUser = (dispatch, firstName, lastName, phone, email, password,age,gender,height,weight, patientId) => {
     console.log(firstName);
     if ((firstName !== undefined && firstName !== "") &&
         (lastName !== undefined && lastName !== "") &&
@@ -66,7 +79,9 @@ export const updateUser = (dispatch, firstName, lastName, phone, email, password
         (email !== undefined && email !== "") &&
         (phone !== undefined && phone !== "") &&
         (age !== undefined && age !== "") && 
-        (gender !== undefined && gender !== "")
+        (gender !== undefined && gender !== "") &&
+        (height !== undefined && height !== "") &&
+        (weight !== undefined && weight !== "")
 
     ) {
         fetch('http://localhost:8080/api/patient/' + patientId, {
@@ -78,7 +93,9 @@ export const updateUser = (dispatch, firstName, lastName, phone, email, password
                 email,
                 password,
                 age,
-                gender
+                gender,
+                height,
+                weight
             }),
             headers: {
                 'content-type': 'application/json'

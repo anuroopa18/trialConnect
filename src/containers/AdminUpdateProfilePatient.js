@@ -16,7 +16,9 @@ const stateToPropertiesMapper = ({ adminUpdatePatientProfileReducer }) => ({
     phone: adminUpdatePatientProfileReducer.phone,
     username: adminUpdatePatientProfileReducer.username,
     age:adminUpdatePatientProfileReducer.age,
-    gender: adminUpdatePatientProfileReducer.gender
+    gender: adminUpdatePatientProfileReducer.gender,
+    height: adminUpdatePatientProfileReducer.height,
+    weight: adminUpdatePatientProfileReducer.weight
 })
 
 const dispatcherToPropsMapper = dispatch => {
@@ -28,6 +30,8 @@ const dispatcherToPropsMapper = dispatch => {
         phoneUpdateAdminPat: (phone) => (actions.phoneUpdateAdminPat(dispatch, phone)),
         ageUpdateAdminPat: (age) => (actions.ageUpdateAdminPat(dispatch, age)),
         genderUpdateAdminPat: (gender) => (actions.genderUpdateAdminPat(dispatch, gender)),
+        heightUpdateAdminPat: (height) => (actions.heightUpdateAdminPat(dispatch, height)),
+        weightUpdateAdminPat: (weight) => (actions.weightUpdateAdminPat(dispatch, weight)),
         updatePatientAdmin: (userId) => (actions.updatePatientAdmin(dispatch, userId)),
         fetchPatientDetails: (patId) => (actions.fetchPatientDetails(dispatch, patId))
     }
@@ -51,12 +55,14 @@ class AdminUpdateProfilePatient extends Component {
         let phoneInput;
         let ageInput;
         let genderInput;
+        let heightInput;
+        let weightInput;
         return (
             <div>
                 <div>
                     <NavContainer showLogin={false} showProfile={false} showAboutUs={false} showRegister={false} />
                 </div>
-                <div className='container-fluid pt-5' style={{"backgroundImage":`url(${background})`}}>
+                <div className='container-fluid pt-5' >
                     <div className="row">
                     <div className="col-md-4 offset-4">
                             <div className="card">
@@ -119,6 +125,20 @@ class AdminUpdateProfilePatient extends Component {
                                             onChange={() => {
                                                 this.props.genderUpdateAdminPat(genderInput.value)
                                             }} value={this.props.gender} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="height" style={{ "color": "#2994b2" }}><span className="font-weight-bold">Height</span></label>
+                                        <input required className="form-control" name="height" ref={node => heightInput = node}
+                                            onChange={() => {
+                                                this.props.heightUpdateAdminPat(heightInput.value)
+                                            }} value={this.props.height} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="weight" style={{ "color": "#2994b2" }}><span className="font-weight-bold">Weight</span></label>
+                                        <input required className="form-control" name="weight" ref={node => weightInput = node}
+                                            onChange={() => {
+                                                this.props.weightUpdateAdminPat(weightInput.value)
+                                            }} value={this.props.weight} />
                                     </div>
                                     <p></p>
 
