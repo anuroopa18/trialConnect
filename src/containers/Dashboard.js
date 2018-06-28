@@ -10,14 +10,14 @@ const stateToPropsMapper = ({ patientDashBoardReducer }) => ({
 
     patient: patientDashBoardReducer.patient,
     medicalRecords: patientDashBoardReducer.medicalRecords,
-    bmi:patientDashBoardReducer.bmi
+    bmi: patientDashBoardReducer.bmi
 
 });
 
 const dispatchToPropsMapper = dispatch => {
     return {
         findPatientByUsername: (username) => (actions.findPatientByUsername(dispatch, username)),
-        findMedicalRecordsForPatient: (patientId) => (actions.findMedicalRecordsForPatient(dispatch,patientId))
+        findMedicalRecordsForPatient: (patientId) => (actions.findMedicalRecordsForPatient(dispatch, patientId))
     }
 };
 
@@ -46,14 +46,14 @@ class Dashboard extends React.Component {
                 <div className='container bg-light'>
                     <div className='row p-3'>
                         <div className='col-md-12'>
-                            <PatientStats patient={this.props.patient} bmi={this.props.bmi}/>
-                            </div>
+                            <PatientStats patient={this.props.patient} bmi={this.props.bmi} />
                         </div>
+                    </div>
                 </div>
-                        <div className='container bg-light mt-3'>
-                        <div className='row p-3'>
+                <div className='container bg-light mt-3'>
+                    <div className='row p-3'>
                         <div className='col-md-12'>
-                        <div className="container">
+                            <div className="container">
                                 <div className="card">
                                     <div className="card-header">
                                         <h1 className='text-center font-weight-bold'
@@ -72,38 +72,38 @@ class Dashboard extends React.Component {
                                                         <th className="th-lg" style={{ "color": "#55b4d4" }}>Pulse Rate</th>
                                                         <th className="th-lg" style={{ "color": "#55b4d4" }}>Blood Pressure</th>
                                                         <th className="th-lg" style={{ "color": "#55b4d4" }}>BMI</th>
-                                                        
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                    {this.props.medicalRecords.map((mr, index) => {
-                                        return <tr style={{ "color": "grey" }} key={index} >
-                                            <td >
-                                                {mr.medicalCondition}
-                                            </td>
-                                            <td>
-                                                {mr.allergyName}
-                                            </td>
-                                            <td>
-                                                {mr.allergyCause}
-                                            </td>
-                                            <td>
-                                                {mr.bodyTemperature}
-                                            </td>
-                                            <td>
-                                                {mr.pulseRate}
-                                            </td>
-                                            <td>
-                                                {mr.bloodPressure}
-                                            </td>
-                                            <td>
-                                                {mr.bmi}
-                                            </td>
-                                           
-                                        </tr>
+                                                    {this.props.medicalRecords.map((mr, index) => {
+                                                        return <tr style={{ "color": "grey" }} key={index} >
+                                                            <td >
+                                                                {mr.medicalCondition}
+                                                            </td>
+                                                            <td>
+                                                                {mr.allergyName}
+                                                            </td>
+                                                            <td>
+                                                                {mr.allergyCause}
+                                                            </td>
+                                                            <td>
+                                                                {mr.bodyTemperature}
+                                                            </td>
+                                                            <td>
+                                                                {mr.pulseRate}
+                                                            </td>
+                                                            <td>
+                                                                {mr.bloodPressure}
+                                                            </td>
+                                                            <td>
+                                                                {mr.bmi}
+                                                            </td>
 
-                                    })}
-                                </tbody>
+                                                        </tr>
+
+                                                    })}
+                                                </tbody>
 
                                             </table>
 
@@ -112,13 +112,47 @@ class Dashboard extends React.Component {
                                 </div>
                             </div>
 
-                            </div>
-                            </div>
                         </div>
+                    </div>
+                </div>
+                <div className='container bg-light mt-3'>
+                    <div className='row p-3'>
+                        <div className='col-md-12'>
+                            <div className="container">
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h1 className='text-center font-weight-bold'
+                                            style={{ "color": "#2994b2" }}>Trials</h1>
+                                    </div>
+                                    <div class="card-body p-0" style={{ "backgroundColor": "white" }}>
+                                        <ul style={{ "color": "grey" }}>
 
-                    
-                
-        
+                                            < table className="table  table-hover table-responsive-md table-striped" style={{ "backgroundColor": "white", "borderRadius": "5px" }}>
+                                                <thead>
+                                                    <tr>
+                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}>Title</th>
+                                                        <th className="th-lg" style={{ "color": "#55b4d4" }}>More</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
             </div>
         )
     }
