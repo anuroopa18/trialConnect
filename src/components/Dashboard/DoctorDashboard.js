@@ -34,7 +34,7 @@ class DoctorDashboard extends React.Component {
             <ul>
                 {
                     this.props.patients.map(patient => (
-                        <li><Link to={`/medRecord/${patient.id}`}>{patient.username}</Link></li>
+                        <li key={patient.id}><Link to={`/medRecord/${patient.id}`}>{patient.username}</Link></li>
                     ))
                 }
                 <li>Static li</li>
