@@ -10,10 +10,10 @@ const dispatchToPropsMapper = () => ({
        let role=JSON.parse(localStorage.getItem('role'));
        let user=JSON.parse(localStorage.getItem('user'));
        console.log(role);
-       if(role == "Patient"){
+       if(role === "Patient"){
         window.location.href = '/home/' + user.username + '/dashboard';
        }
-       else if(role == "Doctor"){
+       else if(role === "Doctor"){
         window.location.href = '/register/';
        }
     

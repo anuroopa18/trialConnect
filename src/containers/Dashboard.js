@@ -56,8 +56,8 @@ class Dashboard extends React.Component {
                             <div className="container">
                                 <div className="card">
                                     <div className="card-header">
-                                        <h1 className='text-center font-weight-bold'
-                                            style={{ "color": "#2994b2" }}>Medical Records For Patients</h1>
+                                        <h3 className='text-center font-weight-bold'
+                                            style={{ "color": "#2994b2" }}>Medical Records For Patients</h3>
                                     </div>
                                     <div class="card-body p-0" style={{ "backgroundColor": "white" }}>
                                         <ul style={{ "color": "grey" }}>
@@ -121,8 +121,8 @@ class Dashboard extends React.Component {
                             <div className="container">
                                 <div className="card">
                                     <div className="card-header">
-                                        <h1 className='text-center font-weight-bold'
-                                            style={{ "color": "#2994b2" }}>Trials</h1>
+                                        <h3 className='text-center font-weight-bold'
+                                            style={{ "color": "#2994b2" }}>Trials</h3>
                                     </div>
                                     <div class="card-body p-0" style={{ "backgroundColor": "white" }}>
                                         <ul style={{ "color": "grey" }}>
