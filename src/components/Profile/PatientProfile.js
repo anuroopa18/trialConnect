@@ -15,7 +15,8 @@ const stateToPropsMapper = ({patientProfileReducer}) => {
         phone: patientProfileReducer.phone,
         email: patientProfileReducer.email,
         password: patientProfileReducer.password,
-        username: patientProfileReducer.username
+        username: patientProfileReducer.username,
+        age: patientProfileReducer.age
     }
 };
 
@@ -25,15 +26,16 @@ const dispatchToPropsMapper = dispatch => ({
     updatePassword: (password) => (actions.updatePassword(dispatch, password)),
     updatePhone: (phone) => (actions.updatePhone(dispatch, phone)),
     updateEmail: (email) => (actions.updateEmail(dispatch, email)),
-    updateUser: (firstName, lastName, phone, email, password, patientId) =>
-        (actions.update(dispatch, firstName, lastName, phone, email, password, patientId)),
+    updateAge: (age) => (actions.updateAge(dispatch, age)),
+    updateUser: (firstName, lastName, phone, email, password,age, patientId) =>
+        (actions.updateUser(dispatch, firstName, lastName, phone, email, password,age, patientId)),
     setUser: (user) => (actions.setUser(dispatch, user))
 });
 
 const PatientProfile = ({
                             firstName, lastName, phone, email, password, user, updateUserFirstName,
-                            updateLastName, setUser, updatePassword, updatePhone,username,
-                            updateEmail, updateUser, match, init
+                            updateLastName, setUser, updatePassword, updatePhone,username,updateAge,
+                            updateEmail, updateUser, match, init,age
                         }) => {
 
     if (init === true) {
@@ -46,6 +48,7 @@ const PatientProfile = ({
     let passwordInput;
     let emailInput;
     let phoneInput;
+    let ageInput;
     console.log('password: ' + password);
     return (
         <div>
@@ -114,12 +117,20 @@ const PatientProfile = ({
                                                updatePhone(phoneInput.value)
                                            }}/>
                                 </div>
+                                <div>
+                                    <label htmlFor="age" style={{"color": "#2994b2"}}><span className="font-weight-bold">Age</span></label>
+                                    <input required className="form-control" name="specialization" value={age}
+                                           ref={node => ageInput = node}
+                                           onChange={() => {
+                                               updateAge(ageInput.value)
+                                           }}/>
+                                </div>
                                 <p></p>
 
                                 <div className="form-group">
                                     <button className="btn btn-block m-0"
                                             style={{"backgroundColor": "#22a7cc", "color": "white"}} onClick={() => {
-                                        updateUser(firstName, lastName, phone, email, password, user.id)
+                                        updateUser(firstName, lastName, phone, email, password,age,user.id)
                                     }}>UPDATE
                                     </button>
 

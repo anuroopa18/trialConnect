@@ -11,13 +11,16 @@ const dispatchToPropsMapper = () => ({
        let user=JSON.parse(localStorage.getItem('user'));
        console.log(role);
        if(role == "Patient"){
-        window.location.href = '/home/' + user.username + 'dashboard';
+        window.location.href = '/home/' + user.username + '/dashboard';
        }
        else if(role == "Doctor"){
         window.location.href = '/register/';
        }
-       else if(user.username == "admin"){
+       else if(role == "Admin"){
         window.location.href = '/admin';
+       }
+       else {
+        window.location.href = '/';
        }
     }
 })

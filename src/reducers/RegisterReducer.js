@@ -67,6 +67,7 @@ const reducerRegister = (state = {
                                     modifiedState = Object.assign({}, state);
                                     modifiedState.user = doctor;
                                     localStorage.setItem('user', JSON.stringify(doctor));
+                                    localStorage.setItem('role', JSON.stringify(state.role));
                                     window.location.href = '/login';
                                     return modifiedState;
                                 })
@@ -107,6 +108,7 @@ const reducerRegister = (state = {
                             modifiedState = Object.assign({}, state);
                             modifiedState.user = patient;
                             localStorage.setItem('user', JSON.stringify(modifiedState.user));
+                            localStorage.setItem('role', JSON.stringify(state.role));
                             window.location.href = '/login';
                             return modifiedState;
                         })

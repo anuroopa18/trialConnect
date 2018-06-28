@@ -30,7 +30,6 @@ const reducerLogin = (state = {
             modifiedState = Object.assign({}, state);
             modifiedState.loginUser = action.user;
             localStorage.setItem('user', JSON.stringify(action.user));
-            localStorage.setItem('role',JSON.stringify(state.role));
             console.log(modifiedState);
             return modifiedState;
         }

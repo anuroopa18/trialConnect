@@ -35,6 +35,13 @@ export const phoneUpdateAdmin = (dispatch, phone) => (
     })
 );
 
+export const specUpdateAdmin = (dispatch, specialization) => (
+    dispatch({
+        type: constants.ADMIN_SPEC_CHANGED_DOC,
+        specialization: specialization
+    })
+);
+
 export const updateDoctorAdmin = (dispatch,userId) =>(
     dispatch({
         type: constants.ADMIN_UPDATE_DOC,

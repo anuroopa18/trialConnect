@@ -34,6 +34,12 @@ export const phoneUpdateAdminPat = (dispatch, phone) => (
         phone: phone
     })
 );
+export const ageUpdateAdminPat = (dispatch, age) => (
+    dispatch({
+        type: constants.ADMIN_AGE_CHANGED_PAT,
+        age: age
+    })
+);
 
 export const updatePatientAdmin = (dispatch,patId) =>(
     dispatch({

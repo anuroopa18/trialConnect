@@ -11,7 +11,8 @@ const stateToPropertiesMapper = ({adminUpdateProfileDoctorReducer}) => ({
     password: adminUpdateProfileDoctorReducer.password,
     email: adminUpdateProfileDoctorReducer.email,
     phone: adminUpdateProfileDoctorReducer.phone,
-    username: adminUpdateProfileDoctorReducer.username
+    username: adminUpdateProfileDoctorReducer.username,
+    specialization:adminUpdateProfileDoctorReducer.specialization
 })
 
 const dispatcherToPropsMapper = dispatch => {
@@ -22,6 +23,7 @@ const dispatcherToPropsMapper = dispatch => {
         emailUpdateAdmin: (email) => (actions.emailUpdateAdmin(dispatch, email)),
         phoneUpdateAdmin: (phone) => (actions.phoneUpdateAdmin(dispatch, phone)),
         updateDoctorAdmin: (userId) => (actions.updateDoctorAdmin(dispatch, userId)),
+        specUpdateAdmin:(specialization) => (actions.specUpdateAdmin(dispatch,specialization)),
         fetchDoctorDetails: (docId) => (actions.fetchDoctorDetails(dispatch, docId))
     }
 };
@@ -42,6 +44,7 @@ class AdminUpdateProfileDoctor extends Component {
         let passwordInput;
         let emailInput;
         let phoneInput;
+        let specInput;
         return (
             <div>
                 <div>
@@ -111,6 +114,15 @@ class AdminUpdateProfileDoctor extends Component {
                                                onChange={() => {
                                                    this.props.phoneUpdateAdmin(phoneInput.value)
                                                }} value={this.props.phone}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="spec" style={{"color": "#2994b2"}}><span
+                                            className="font-weight-bold">Specialization</span></label>
+                                        <input required className="form-control" name="spec"
+                                               ref={node => specInput = node}
+                                               onChange={() => {
+                                                   this.props.specUpdateAdmin(specInput.value)
+                                               }} value={this.props.specialization}/>
                                     </div>
                                     <p></p>
 

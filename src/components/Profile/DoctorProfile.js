@@ -11,7 +11,8 @@ const stateToPropertiesMapper = ({doctorProfileReducer}) => ({
     password: doctorProfileReducer.password,
     email: doctorProfileReducer.email,
     phone: doctorProfileReducer.phone,
-    username: doctorProfileReducer.username
+    username: doctorProfileReducer.username,
+    specialization:doctorProfileReducer.specialization
 })
 
 const dispatcherToPropsMapper = dispatch => {
@@ -21,6 +22,7 @@ const dispatcherToPropsMapper = dispatch => {
         passwordUpdateDoctor: (password) => (actions.passwordUpdateDoctor(dispatch, password)),
         emailUpdateDoctor: (email) => (actions.emailUpdateDoctor(dispatch, email)),
         phoneUpdateDoctor: (phone) => (actions.phoneUpdateDoctor(dispatch, phone)),
+        specializationUpdateDoctor:(specialization) => (actions.specializationUpdateDoctor(dispatch,specialization)),
         updateDoctor: (userId) => (actions.updateDoctor(dispatch, userId)),
         fetchUpdatedDoctor: (docId) => (actions.fetchUpdatedDoctor(dispatch, docId))
     }
@@ -42,6 +44,7 @@ class DoctorProfile extends Component {
         let passwordInput;
         let emailInput;
         let phoneInput;
+        let specInput;
         return (
             <div>
                 <div>
@@ -105,6 +108,14 @@ class DoctorProfile extends Component {
                                                onChange={() => {
                                                    this.props.phoneUpdateDoctor(phoneInput.value)
                                                }} value={this.props.phone}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="spec" style={{"color": "#2994b2"}}><span className="font-weight-bold">Specialization</span></label>
+                                        <input required className="form-control" name="spec"
+                                               ref={node => specInput = node}
+                                               onChange={() => {
+                                                   this.props.specializationUpdateDoctor(specInput.value)
+                                               }} value={this.props.specialization}/>
                                     </div>
                                     <p></p>
 

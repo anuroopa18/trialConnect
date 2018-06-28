@@ -101,6 +101,7 @@ export const login = (dispatch, username, password, role) => {
                     console.log(doctor);
                     if (doctor.username !== undefined && doctor.username !== '' && doctor.username !== null) {
                         localStorage.setItem('user', JSON.stringify(doctor));
+                        localStorage.setItem('role', JSON.stringify(role));
                         window.location.href = '/doctor/dashboard/' + doctor.username;
                         return dispatch({
                             type: AppConstants.actions.SET_USER,
@@ -132,6 +133,7 @@ export const login = (dispatch, username, password, role) => {
                     console.log(patient);
                     if (patient.username !== undefined && patient.username !== '' && patient.username !== null) {
                         localStorage.setItem('user', JSON.stringify(patient));
+                        localStorage.setItem('role', JSON.stringify(role));
                         window.location.href = '/home/' + patient.username + '/dashboard';
                         dispatch({
                             type: AppConstants.actions.SET_USER,

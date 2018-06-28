@@ -8,7 +8,8 @@ const reducerAdminUpdateProfileDoctor = (state = {
     email: '',
     phone: '',
     userId: '',
-    username: ''
+    username: '',
+    specialization:''
 
 
 }, action) => {
@@ -43,6 +44,12 @@ const reducerAdminUpdateProfileDoctor = (state = {
             return modifiedState
         }
 
+        case constants.ADMIN_SPEC_CHANGED_DOC: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.specialization = action.specialization;
+            return modifiedState
+        }
+
         case constants.ADMIN_FIND_DOC: {
             modifiedState = Object.assign({}, state);
             modifiedState.firstName = action.doctor.firstName;
@@ -51,6 +58,7 @@ const reducerAdminUpdateProfileDoctor = (state = {
             modifiedState.email = action.doctor.email;
             modifiedState.phone = action.doctor.phone;
             modifiedState.username = action.doctor.username;
+            modifiedState.specialization =action.doctor.specialization;
             return modifiedState
         }
 
@@ -59,14 +67,17 @@ const reducerAdminUpdateProfileDoctor = (state = {
                 (state.lastName !== undefined && state.lastName !== "") &&
                 (state.password !== undefined && state.password !== "") &&
                 (state.email !== undefined && state.email !== "") &&
-                (state.phone !== undefined && state.phone !== "")
+                (state.phone !== undefined && state.phone !== "") &&
+                (state.specialization !== undefined && state.specialization !== "")
+
             ) {
                 const user = {
                     firstName: state.firstName,
                     lastName: state.lastName,
                     password: state.password,
                     email: state.email,
-                    phone: state.phone
+                    phone: state.phone,
+                    specialization:state.specialization
                 };
                 fetch('http://localhost:8080/api/doctor/' + action.userId, {
                     method: 'put',
@@ -82,6 +93,7 @@ const reducerAdminUpdateProfileDoctor = (state = {
                         modifiedState.password = doctor.password;
                         modifiedState.email = doctor.email;
                         modifiedState.phone = doctor.phone;
+                        modifiedState.specialization=doctor.specialization;
                         alert('Updated successfully!');
                         return modifiedState;
 

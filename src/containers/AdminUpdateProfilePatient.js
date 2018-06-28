@@ -14,7 +14,8 @@ const stateToPropertiesMapper = ({ adminUpdatePatientProfileReducer }) => ({
     password: adminUpdatePatientProfileReducer.password,
     email: adminUpdatePatientProfileReducer.email,
     phone: adminUpdatePatientProfileReducer.phone,
-    username: adminUpdatePatientProfileReducer.username
+    username: adminUpdatePatientProfileReducer.username,
+    age:adminUpdatePatientProfileReducer.age
 })
 
 const dispatcherToPropsMapper = dispatch => {
@@ -24,6 +25,7 @@ const dispatcherToPropsMapper = dispatch => {
         passwordUpdateAdminPat: (password) => (actions.passwordUpdateAdminPat(dispatch, password)),
         emailUpdateAdminPat: (email) => (actions.emailUpdateAdminPat(dispatch, email)),
         phoneUpdateAdminPat: (phone) => (actions.phoneUpdateAdminPat(dispatch, phone)),
+        ageUpdateAdminPat: (age) => (actions.ageUpdateAdminPat(dispatch, age)),
         updatePatientAdmin: (userId) => (actions.updatePatientAdmin(dispatch, userId)),
         fetchPatientDetails: (patId) => (actions.fetchPatientDetails(dispatch, patId))
     }
@@ -45,6 +47,7 @@ class AdminUpdateProfilePatient extends Component {
         let passwordInput;
         let emailInput;
         let phoneInput;
+        let ageInput;
         return (
             <div>
                 <div>
@@ -99,6 +102,13 @@ class AdminUpdateProfilePatient extends Component {
                                             onChange={() => {
                                                 this.props.phoneUpdateAdminPat(phoneInput.value)
                                             }} value={this.props.phone} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="age" style={{ "color": "#2994b2" }}><span className="font-weight-bold">Age</span></label>
+                                        <input required className="form-control" name="age" ref={node => ageInput = node}
+                                            onChange={() => {
+                                                this.props.ageUpdateAdminPat(ageInput.value)
+                                            }} value={this.props.age} />
                                     </div>
                                     <p></p>
 

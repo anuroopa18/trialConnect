@@ -35,7 +35,7 @@ class ViewTrialInfo extends Component {
         return (
             <div>
                 <div>
-                    <NavContainer showLogin={false} showProfile={false} showAboutUs={false} showRegister={false} />
+                    <NavContainer  showProfile={false} showAboutUs={false} showLogout={false} />
                 </div>
                 <div className="container-fluid pt-5 adminContent" >
                     <div className="row">

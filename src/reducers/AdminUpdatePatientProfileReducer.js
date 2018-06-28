@@ -8,7 +8,8 @@ const reducerAdminUpdatePatientProfile = (state = {
     email: '',
     phone: '',
     userId: '',
-    username: ''
+    username: '',
+    age:''
 
 
 }, action) => {
@@ -42,6 +43,11 @@ const reducerAdminUpdatePatientProfile = (state = {
             modifiedState.phone = action.phone;
             return modifiedState
         }
+        case constants.ADMIN_AGE_CHANGED_PAT: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.age = action.age;
+            return modifiedState
+        }
 
         case constants.ADMIN_FIND_PAT: {
             modifiedState = Object.assign({}, state);
@@ -51,6 +57,7 @@ const reducerAdminUpdatePatientProfile = (state = {
             modifiedState.email = action.patient.email;
             modifiedState.phone = action.patient.phone;
             modifiedState.username = action.patient.username;
+            modifiedState.age = action.patient.age;
             return modifiedState
         }
 
@@ -59,14 +66,17 @@ const reducerAdminUpdatePatientProfile = (state = {
                 (state.lastName !== undefined && state.lastName !== "") &&
                 (state.password !== undefined && state.password !== "") &&
                 (state.email !== undefined && state.email !== "") &&
-                (state.phone !== undefined && state.phone !== "")
+                (state.phone !== undefined && state.phone !== "") &&
+                (state.age !== undefined && state.age !== "")
+
             ) {
                 const user = {
                     firstName: state.firstName,
                     lastName: state.lastName,
                     password: state.password,
                     email: state.email,
-                    phone: state.phone
+                    phone: state.phone,
+                    age:state.age
                 };
                 fetch('http://localhost:8080/api/patient/' + action.patId, {
                     method: 'put',
@@ -82,6 +92,7 @@ const reducerAdminUpdatePatientProfile = (state = {
                         modifiedState.password = patient.password;
                         modifiedState.email = patient.email;
                         modifiedState.phone = patient.phone;
+                        modifiedState.age = patient.age;
                         alert('Updated successfully!');
                         return modifiedState;
                     })
