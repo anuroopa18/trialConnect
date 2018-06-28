@@ -1,24 +1,24 @@
 import * as constants from '../constants/AppConstants'
-import {AppConstants} from "../constants/AppConstants";
+import {AppConstants} from '../constants/AppConstants'
 
 export const findAllTrials = (dispatch) => {
     console.log("Entered Action.js");
     fetch('https://clinicaltrialsapi.cancer.gov/v1/clinical-trials')
-    .then(response => response.json())
-    .then(jsonObject => (dispatch({
-        type: 'GET_ALL_TRIALS',
-        trials: jsonObject.trials,
-        init: false
-    })))
+        .then(response => response.json())
+        .then(jsonObject => (dispatch({
+            type: 'GET_ALL_TRIALS',
+            trials: jsonObject.trials,
+            init: false
+        })))
 };
 
-export const findTrialById = (dispatch,trialId) => (
+export const findTrialById = (dispatch, trialId) => (
     fetch('https://clinicaltrialsapi.cancer.gov/v1/clinical-trial/' + trialId)
-    .then(response => response.json())
-    .then(jsonObject => (dispatch({
-        type: 'GET_TRIAL_BY_ID',
-        trial: jsonObject,   
-    })))
+        .then(response => response.json())
+        .then(jsonObject => (dispatch({
+            type: 'GET_TRIAL_BY_ID',
+            trial: jsonObject,
+        })))
 );
 
 export const updateFirstName = (dispatch, firstName) => (
@@ -100,9 +100,10 @@ export const login = (dispatch, username, password, role) => {
                 .then(doctor => {
                     console.log(doctor);
                     if (doctor.username !== undefined && doctor.username !== '' && doctor.username !== null) {
-                        window.location.href = '/profile/pa/' + doctor.username;
+                        localStorage.setItem('user', JSON.stringify(doctor));
+                        window.location.href = '/doctor/dashboard/' + doctor.username;
                         return dispatch({
-                            type: 'SET_USER',
+                            type: AppConstants.actions.SET_USER,
                             user: doctor
                         })
                     } else {

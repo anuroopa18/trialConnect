@@ -14,6 +14,8 @@ import AdminUpdatePatientProfileContainer from './containers/AdminUpdateProfileP
 import DoctorProfileContainer from './components/Profile/DoctorProfile'
 import AboutUsPage from './containers/AboutUsPage'
 import ViewTrialInfo from './containers/ViewTrialInfo'
+import MRContainer from './components/MedicalRecord/MRCreator'
+import DoctorDashboardContainer from "./components/Dashboard/DoctorDashboard";
 
 class App extends React.Component {
     render() {
@@ -36,6 +38,8 @@ class App extends React.Component {
                         </section>
                         <section>
                             <Route path={'/home/:username/dashboard'} component={DashboardContainer}/>
+                            <Route exact path={'/doctor/dashboard/:username'} component={DoctorDashboardContainer}/>
+                            <Route path={'/medRecord/:patientId'} component={MRContainer}/>
                         </section>
                     </section>
                     <Footer/>
