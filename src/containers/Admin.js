@@ -82,7 +82,7 @@ class Admin extends Component {
                         <div class="col-3">
                             <div class="nav flex-column nav-tabs border-0" style={{ "marginTop": "6px" }} id="v-pills-tab" role="tablist"
                                 aria-orientation="vertical">
-                                <a class="nav-link p-3 active" id="v-pills-view-user-tab" data-toggle="pill"
+                                <a className="nav-link p-3 active" id="v-pills-view-user-tab" data-toggle="pill"
                                     href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
                                     <i class="fa fa-eye text-secondary"></i><strong className="text-secondary">&nbsp;View Users</strong></a>
                                 <a class="nav-link p-3" id="v-pills-add-user-tab" data-toggle="pill" href="#v-pills-profile"

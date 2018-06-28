@@ -16,8 +16,8 @@ const dispatchToPropsMapper = () => ({
        else if(role == "Doctor"){
         window.location.href = '/register/';
        }
-       else{
-        window.location.href = '/';
+       else if(user.username == "admin"){
+        window.location.href = '/admin';
        }
     }
 })

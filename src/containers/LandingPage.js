@@ -104,7 +104,7 @@ const LandingPage = () => {
                     </h2>
                     <h3 className="pb-5 mbr-section-subtitle mbr-fonts-style mbr-light display-5">What completes us is
                         you, but
-                        also these.
+                        also them.
                     </h3>
                     <div className="row media-row">
 
