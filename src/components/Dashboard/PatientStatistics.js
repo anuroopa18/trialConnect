@@ -2,7 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import heightImg from '../../assets/PatientStats/212px-Human_body_silhouette.svg.png'
 
-const statistics = ({patient}) => {
+
+
+const statistics = ({patient,bmi}) => {
+    
+   
     return (
         <div className='container'>
             <div className='row'>
@@ -65,39 +69,42 @@ const statistics = ({patient}) => {
                             <div className='card no-border-r'>
                                 <div className='card-body'>
                                     <div className='card-title m-0'>
-                                        {patient.bmi <= 18.5 &&
-                                        <h4 className='m-0 text-info'>{patient.bmi}</h4>}
-                                        {patient.bmi <= 25 && patient.bmi > 18.5 &&
-                                        <h4 className='m-0 text-success'>{patient.bmi}</h4>}
-                                        {patient.bmi <= 30 && patient.bmi > 25 &&
-                                        <h4 className='m-0 text-warning'>{patient.bmi}</h4>}
-                                        {patient.bmi <= 40 && patient.bmi > 30 &&
-                                        <h4 className='m-0 text-danger'>{patient.bmi}</h4>}
+                                        {bmi <= 18.5 &&
+                                        <h3 style={{"color":"#00bfff"}} className='m-0 '>{bmi}</h3>}
+                                        {bmi <= 25 && bmi > 18.5 &&
+                                        <h3 style={{"color":"#bfff00"}} className='m-0 '>{bmi}</h3>}
+                                        {bmi <= 30 && bmi > 25 &&
+                                        <h3 style={{"color":"#ffed00"}} className='m-0 '>{bmi}</h3>}
+                                        {bmi <= 40 &&bmi > 30 &&
+                                        <h3 style={{"color":"#ff0000"}} className='m-0 '>{bmi}</h3>}
                                     </div>
                                     <div className='card-text'>
                                         <div className='row'>
                                             <div className='col-sm-2'>
+                                                
                                                 <small className='text-muted'>BMI</small>
+                                                
+                                          
                                             </div>
                                             <div className='col-sm-9'>
                                                 <div className="progress">
-                                                    <div className="progress-bar bg-info" role="progressbar"
-                                                         style={{width: "20%"}} aria-valuenow="0" aria-valuemin="15"
+                                                    <div className="progress-bar " role="progressbar"
+                                                         style={{width: "20%","backgroundColor":"#00bfff"}} aria-valuenow="0" aria-valuemin="15"
                                                          aria-valuemax="18.5">
                                                     </div>
-                                                    <div className="progress-bar bg-success" role="progressbar"
-                                                         style={{width: "30%"}}
+                                                    <div className="progress-bar " role="progressbar"
+                                                         style={{width: "30%","backgroundColor":"#bfff00"}}
                                                          aria-valuenow="0" aria-valuemin="18.51"
                                                          aria-valuemax="24.99">
 
                                                     </div>
-                                                    <div className="progress-bar bg-warning" role="progressbar"
-                                                         style={{width: "25%"}}
+                                                    <div className="progress-bar " role="progressbar"
+                                                         style={{width: "25%","backgroundColor":"#ffed00"}}
                                                          aria-valuenow="0" aria-valuemin="25" aria-valuemax="30">
 
                                                     </div>
-                                                    <div className="progress-bar bg-danger" role="progressbar"
-                                                         style={{width: "35%"}} aria-valuenow="0" aria-valuemin="30"
+                                                    <div className="progress-bar " role="progressbar"
+                                                         style={{width: "35%","backgroundColor":"#ff0000"}} aria-valuenow="0" aria-valuemin="30"
                                                          aria-valuemax="40">
 
                                                     </div>
@@ -155,7 +162,10 @@ const statistics = ({patient}) => {
                     </div>
                 </div>
             </div>
-        </div>
+
+
+
+         </div>
     )
 };
 

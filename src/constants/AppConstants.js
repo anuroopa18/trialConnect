@@ -60,6 +60,7 @@ export const UPDATE_DOC ='UPDATE_DOC';
 export const ADMIN_HEIGHT_CHANGED_PAT ='ADMIN_HEIGHT_CHANGED_PAT';
 export const ADMIN_WEIGHT_CHANGED_PAT ='ADMIN_WEIGHT_CHANGED_PAT';
 
+export const FIND_ALL_MEDICAL_RECORDS ='FIND_ALL_MEDICAL_RECORDS';
 
 export const AppConstants = {
     actions: {
