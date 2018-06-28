@@ -51,14 +51,22 @@ export const updateAge = (dispatch, age) => (
     })
 );
 
-export const updateUser = (dispatch, firstName, lastName, phone, email, password,age, patientId) => {
+export const updateGender = (dispatch, gender) => (
+    dispatch({
+        type: Constants.AppConstants.actions.PROFILE_GENDER,
+        gender: gender
+    })
+);
+
+export const updateUser = (dispatch, firstName, lastName, phone, email, password,age,gender, patientId) => {
     console.log(firstName);
     if ((firstName !== undefined && firstName !== "") &&
         (lastName !== undefined && lastName !== "") &&
         (password !== undefined && password !== "") &&
         (email !== undefined && email !== "") &&
         (phone !== undefined && phone !== "") &&
-        (age !== undefined && age !== "")
+        (age !== undefined && age !== "") && 
+        (gender !== undefined && gender !== "")
 
     ) {
         fetch('http://localhost:8080/api/patient/' + patientId, {
@@ -69,7 +77,8 @@ export const updateUser = (dispatch, firstName, lastName, phone, email, password
                 phone,
                 email,
                 password,
-                age
+                age,
+                gender
             }),
             headers: {
                 'content-type': 'application/json'

@@ -41,6 +41,13 @@ export const ageUpdateAdminPat = (dispatch, age) => (
     })
 );
 
+export const genderUpdateAdminPat = (dispatch, gender) => (
+    dispatch({
+        type: constants.ADMIN_GENDER_CHANGED_PAT,
+        gender: gender
+    })
+);
+
 export const updatePatientAdmin = (dispatch,patId) =>(
     dispatch({
         type: constants.ADMIN_UPDATE_PAT,

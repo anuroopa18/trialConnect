@@ -15,7 +15,8 @@ const stateToPropertiesMapper = ({ adminUpdatePatientProfileReducer }) => ({
     email: adminUpdatePatientProfileReducer.email,
     phone: adminUpdatePatientProfileReducer.phone,
     username: adminUpdatePatientProfileReducer.username,
-    age:adminUpdatePatientProfileReducer.age
+    age:adminUpdatePatientProfileReducer.age,
+    gender: adminUpdatePatientProfileReducer.gender
 })
 
 const dispatcherToPropsMapper = dispatch => {
@@ -26,6 +27,7 @@ const dispatcherToPropsMapper = dispatch => {
         emailUpdateAdminPat: (email) => (actions.emailUpdateAdminPat(dispatch, email)),
         phoneUpdateAdminPat: (phone) => (actions.phoneUpdateAdminPat(dispatch, phone)),
         ageUpdateAdminPat: (age) => (actions.ageUpdateAdminPat(dispatch, age)),
+        genderUpdateAdminPat: (gender) => (actions.genderUpdateAdminPat(dispatch, gender)),
         updatePatientAdmin: (userId) => (actions.updatePatientAdmin(dispatch, userId)),
         fetchPatientDetails: (patId) => (actions.fetchPatientDetails(dispatch, patId))
     }
@@ -48,6 +50,7 @@ class AdminUpdateProfilePatient extends Component {
         let emailInput;
         let phoneInput;
         let ageInput;
+        let genderInput;
         return (
             <div>
                 <div>
@@ -109,6 +112,13 @@ class AdminUpdateProfilePatient extends Component {
                                             onChange={() => {
                                                 this.props.ageUpdateAdminPat(ageInput.value)
                                             }} value={this.props.age} />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="gender" style={{ "color": "#2994b2" }}><span className="font-weight-bold">Gender</span></label>
+                                        <input required className="form-control" name="gender" ref={node => genderInput = node}
+                                            onChange={() => {
+                                                this.props.genderUpdateAdminPat(genderInput.value)
+                                            }} value={this.props.gender} />
                                     </div>
                                     <p></p>
 

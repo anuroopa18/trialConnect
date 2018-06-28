@@ -9,7 +9,8 @@ const reducerAdminUpdatePatientProfile = (state = {
     phone: '',
     userId: '',
     username: '',
-    age:''
+    age:'',
+    gender:''
 
 
 }, action) => {
@@ -49,6 +50,12 @@ const reducerAdminUpdatePatientProfile = (state = {
             return modifiedState
         }
 
+        case constants.ADMIN_GENDER_CHANGED_PAT: {
+            modifiedState = Object.assign({}, state);
+            modifiedState.gender = action.gender;
+            return modifiedState
+        }
+
         case constants.ADMIN_FIND_PAT: {
             modifiedState = Object.assign({}, state);
             modifiedState.firstName = action.patient.firstName;
@@ -58,6 +65,7 @@ const reducerAdminUpdatePatientProfile = (state = {
             modifiedState.phone = action.patient.phone;
             modifiedState.username = action.patient.username;
             modifiedState.age = action.patient.age;
+            modifiedState.gender = action.patient.gender;
             return modifiedState
         }
 
@@ -67,7 +75,8 @@ const reducerAdminUpdatePatientProfile = (state = {
                 (state.password !== undefined && state.password !== "") &&
                 (state.email !== undefined && state.email !== "") &&
                 (state.phone !== undefined && state.phone !== "") &&
-                (state.age !== undefined && state.age !== "")
+                (state.age !== undefined && state.age !== "") &&
+                (state.gender !== undefined && state.gender !== "")
 
             ) {
                 const user = {
@@ -76,7 +85,8 @@ const reducerAdminUpdatePatientProfile = (state = {
                     password: state.password,
                     email: state.email,
                     phone: state.phone,
-                    age:state.age
+                    age:state.age,
+                    gender: state.gender
                 };
                 fetch('http://localhost:8080/api/patient/' + action.patId, {
                     method: 'put',
@@ -93,6 +103,7 @@ const reducerAdminUpdatePatientProfile = (state = {
                         modifiedState.email = patient.email;
                         modifiedState.phone = patient.phone;
                         modifiedState.age = patient.age;
+                        modifiedState.gender = patient.gender;
                         alert('Updated successfully!');
                         return modifiedState;
                     })

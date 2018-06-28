@@ -68,7 +68,7 @@ const reducerDoctorProfile = (state = {
                 (state.password !== undefined && state.password !== "") &&
                 (state.email !== undefined && state.email !== "") &&
                 (state.phone !== undefined && state.phone !== "") &&
-                (state.specialization !== undefined && state.specialization !== "")
+                (state.specialization !== undefined && state.specialization !== "" && state.specialization !== null)
             ) {
                 const user = {
                     firstName: state.firstName,
