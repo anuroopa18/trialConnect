@@ -12,6 +12,15 @@ export const findPatientByUsername = (dispatch, username) => {
         }))})
     };
 
+    
+    
+    export const findDoctorsForPatient = (dispatch,patientId) => {
+        return fetch('http://localhost:8080/api/patient/'+ patientId +'/doctors')
+           .then(response => (response.json()))
+            .then(doctors => { "doctors "+console.log(doctors);
+               
+        })};
+
     export const findMedicalRecordsForPatient = (dispatch,patientId) => {
       
         return fetch('http://localhost:8080/api/findPatient/mr/' + patientId )

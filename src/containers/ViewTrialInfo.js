@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import NavContainer from '../components/Navbar/Navbar'
 import * as actions from '../actions/Actions'
-import background from '../assets/plus.jpg'
 
 
 const stateToPropertiesMapper = ({ trialsReducer }) => {

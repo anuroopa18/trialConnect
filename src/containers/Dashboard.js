@@ -17,7 +17,10 @@ const stateToPropsMapper = ({ patientDashBoardReducer }) => ({
 const dispatchToPropsMapper = dispatch => {
     return {
         findPatientByUsername: (username) => (actions.findPatientByUsername(dispatch, username)),
-        findMedicalRecordsForPatient: (patientId) => (actions.findMedicalRecordsForPatient(dispatch, patientId))
+        findMedicalRecordsForPatient: (patientId) => (actions.findMedicalRecordsForPatient(dispatch, patientId)),
+        findDoctorsForPatient:(patientId) => (actions.findDoctorsForPatient(dispatch,patientId))
+
+
     }
 };
 
@@ -32,6 +35,7 @@ class Dashboard extends React.Component {
         this.props.findPatientByUsername(this.props.match.params.username);
         let user = JSON.parse(localStorage.getItem('user'))
         this.props.findMedicalRecordsForPatient(user.id);
+        this.props.findDoctorsForPatient(user.id);
 
     }
 
