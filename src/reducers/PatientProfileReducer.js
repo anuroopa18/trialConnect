@@ -117,7 +117,7 @@ const reducerProfile = (state = {
                 if (trial.length === 1) {
                     console.log(modifiedState.patient.id);
                     let singleTrial = trial[0];
-                    fetch('http://localhost:8080/api/patient/' + modifiedState.patient.id + '/trial', {
+                    fetch('https://tconnect-webapp.herokuapp.com/api/patient/' + modifiedState.patient.id + '/trial', {
                         method: 'POST',
                         body: JSON.stringify({
                             nctId: singleTrial.nct_id,
@@ -184,7 +184,7 @@ const reducerProfile = (state = {
                 if (r.bmi !== undefined && r.bmi !== '') {
                     modifiedState.bmi = r.bmi
                 }
-            })
+            });
             console.log(modifiedState);
             console.log(action);
             return modifiedState;
