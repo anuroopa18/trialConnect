@@ -44,7 +44,7 @@ const reducerRegister = (state = {
                     (state.user.username !== undefined && state.user.username !== "") &&
                     (state.user.password !== undefined && state.user.password !== "")
                 ) {
-                     return fetch('http://localhost:8080/api/findDoctor/' + state.user.username)
+                     return fetch('https://tconnect-webapp.herokuapp.com/api/findDoctor/' + state.user.username)
                      .then(response => (response.json()))
                      .then(doctor => {
                         if (doctor.username !== undefined && doctor.username !== '' && doctor.username !== null)
@@ -56,7 +56,7 @@ const reducerRegister = (state = {
                         else
                         {
                             
-                            return fetch('http://localhost:8080/api/doctor', {
+                            return fetch('https://tconnect-webapp.herokuapp.com/api/doctor', {
                                 method: 'post',
                                 body: JSON.stringify(state.user),
                                 headers: {
@@ -86,7 +86,7 @@ const reducerRegister = (state = {
                     (state.user.username !== undefined && state.user.username !== "") &&
                     (state.user.password !== undefined && state.user.password !== "")
                 ) {
-                    return fetch('http://localhost:8080/api/findPatient/' + state.user.username)
+                    return fetch('https://tconnect-webapp.herokuapp.com/api/findPatient/' + state.user.username)
                      .then(response => (response.json()))
                      .then(patient => {
                         if (patient.username !== undefined && patient.username !== '' && patient.username !== null)
@@ -97,7 +97,7 @@ const reducerRegister = (state = {
                         }
 
                     else{
-                    return fetch('http://localhost:8080/api/patient', {
+                    return fetch('https://tconnect-webapp.herokuapp.com/api/patient', {
                         method: 'post',
                         body: JSON.stringify(state.user),
                         headers: {

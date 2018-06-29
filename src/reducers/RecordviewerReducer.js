@@ -69,7 +69,7 @@ const reducerRecordViewer = (state = {
 
             if (allergyName !== '' && allergyCause !== '' && allergyTreatment !== '' && bloodPressure !== ''
                 && bodyTemperature !== '' && medicine !== '' && medicalCondition !== '' && bmi !== '' && pulseRate !== '') {
-                fetch('http://localhost:8080/api/medicalrecord/' + pid + '/doc/' + docId, {
+                fetch('https://tconnect-webapp.herokuapp.com/api/medicalrecord/' + pid + '/doc/' + docId, {
                     method: 'post',
                     body: JSON.stringify({
                         allergyName: modifiedState.allergyName,
