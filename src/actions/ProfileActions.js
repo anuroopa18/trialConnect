@@ -4,13 +4,13 @@ import {AppConstants} from '../constants/AppConstants'
 
 export const setUser = (dispatch, user) => (
     dispatch({
-        type: 'SET_USER',
+        type: AppConstants.actions.SET_USER,
         user: user
     })
 );
 
 export const findPatient = (dispatch, username) => {
-    return fetch('http://localhost:8080/api/findPatient/' + username)
+    return fetch('https://tconnect-webapp.herokuapp.com/api/findPatient/' + username)
         .then(response => (response.json()))
         .then(patient => {
             (dispatch({
@@ -96,7 +96,7 @@ export const updateUser = (dispatch, firstName, lastName, phone, email, password
         (weight !== undefined && weight !== "")
 
     ) {
-        fetch('http://localhost:8080/api/patient/' + patientId, {
+        fetch('https://tconnect-webapp.herokuapp.com/api/patient/' + patientId, {
             method: 'put',
             body: JSON.stringify({
                 firstName,
@@ -140,7 +140,7 @@ export const findAllTrials = (dispatch) => {
     console.log(role);
     if (role.includes("Doctor")) {
         console.log('fetching results');
-        fetch('https://clinicaltrialsapi.cancer.gov/v1/clinical-trials')
+        fetch('https://tconnect-webapp.herokuapp.com/v1/clinical-trials')
             .then(response => response.json())
             .then(jsonObject => (dispatch({
                 type: AppConstants.actions.GET_ALL_TRIALS_DOCTOR,
@@ -149,7 +149,7 @@ export const findAllTrials = (dispatch) => {
     } else if (role.includes("Patient")) {
         console.log("Fetching for patient");
         let localUser = JSON.parse(localStorage.getItem('user'));
-        fetch('http://localhost:8080/api/patient/' + localUser.id + '/recommendedtrials')
+        fetch('https://tconnect-webapp.herokuapp.com/api/patient/' + localUser.id + '/recommendedtrials')
             .then(response => response.json())
             .then(trials => {
                 console.log(trials);
