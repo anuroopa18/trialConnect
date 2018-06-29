@@ -3,7 +3,7 @@ import logo from '../../assets/images/whatsapp-image-2018-06-24-at-10.26.44-pm-1
 
 const Footer = () => {
     return (
-        <section className="cid-qTkAaeaxX5 mbr-reveal pb-0 mb-0"  id="footer1-2">
+        <section className="cid-qTkAaeaxX5 mbr-reveal pb-0 mb-0" style={{"marginTop": "40px"}} id="footer1-2">
             <div className="container mt-5">
                 <div className="media-container-row content text-white">
                     <div className="col-12 col-md-3">

@@ -63,6 +63,7 @@ const reducerDoctorProfile = (state = {
         }
 
         case constants.UPDATE_DOC: {
+            modifiedState = Object.assign({}, state);
             if ((state.firstName !== undefined && state.firstName !== "") &&
                 (state.lastName !== undefined && state.lastName !== "") &&
                 (state.password !== undefined && state.password !== "") &&
@@ -100,7 +101,7 @@ const reducerDoctorProfile = (state = {
                 alert('Please fill out all the fields');
                 return state;
             }
-            
+            return modifiedState;
         }
         default:
             return state;

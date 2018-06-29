@@ -61,7 +61,7 @@ class Admin extends Component {
     componentDidMount() {
         this.props.findAllDoctors();
         this.props.findAllPatients();
-
+        this.props.findAllRecords();
     }
 
     render() {
@@ -73,16 +73,12 @@ class Admin extends Component {
         let roleInputPatient;
         let roleInputDoctor;
 
-        let role = JSON.parse(localStorage.getItem('role'));
-
-        if(role == "Admin")
-{
         return (
             <div>
                 <div className="pb-lg-1">
                     <NavbarContainer showLogin={false} showHome={false} showRegister={false} showProfile={false} showAboutUs={false} />
                 </div>
-                <div className="container-fluid pt-5 adminContent" style={{ "backgroundImage": `url(${background})` }}>
+                <div className="container-fluid pt-5 adminContent" style={{"backgroundImage":`url(${background})`}}>
                     <div className="row">
                         <div class="col-3">
                             <div class="nav flex-column nav-tabs border-0" style={{ "marginTop": "6px" }} id="v-pills-tab" role="tablist"
@@ -129,7 +125,7 @@ class Admin extends Component {
                                                         role="tabpanel"
                                                         aria-labelledby="doctors-tab">
                                                         <div className='container'>
-
+                                                       
                                                             < table className="table  table-hover table-responsive-md table-striped" style={{ "backgroundColor": "white" }}>
                                                                 <thead>
                                                                     <tr >
@@ -144,7 +140,7 @@ class Admin extends Component {
                                                                 </thead>
                                                                 <tbody>
                                                                     {this.props.doctors.map((doctor, index) => {
-                                                                        return <tr style={{ "color": "grey" }} key={index}>
+                                                                        return <tr  style={{ "color": "grey" }} key={index}>
                                                                             <td>
 
                                                                                 {doctor.firstName}
@@ -180,13 +176,13 @@ class Admin extends Component {
                                                                     )}
                                                                 </tbody>
                                                             </table>
-                                                        </div>
-
+                                                            </div>
+                                                        
                                                     </div>
                                                     <div className='tab-pane fade' id='patients' role="tabpanel"
                                                         aria-labelledby="patients-tab">
                                                         <div className='container'>
-
+                                                       
                                                             < table className="table  table-hover table-responsive-md table-striped" style={{ "backgroundColor": "white", "borderRadius": "5px" }}>
                                                                 <thead>
                                                                     <tr>
@@ -231,7 +227,7 @@ class Admin extends Component {
                                                             </table>
 
                                                         </div>
-
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -300,7 +296,7 @@ class Admin extends Component {
                                                                         this.props.adminUpdateRole(roleInputDoctor.value)
                                                                     }} />
                                                                 <span className="font-weight-bold p-2">Doctor</span>
-                                                            </label>
+                                                             </label>
 
                                                             <label style={{ "color": "#2994b2" }}>
                                                                 <input type="radio" value="Patient"
@@ -358,8 +354,7 @@ class Admin extends Component {
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    {patient.medicalRecord !== undefined && patient.medicalRecord !== '' &&
-                                                                    patient.medicalRecord.map((mr, index) => {
+                                                                    {patient.medicalRecord.map((mr, index) => {
                                                                         return <tr style={{ "color": "grey" }} key={index} >
                                                                             <td >
                                                                                 {mr.medicalCondition}
@@ -405,7 +400,7 @@ class Admin extends Component {
                                         </div>
                                     </div>
 
-                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -413,10 +408,6 @@ class Admin extends Component {
             </div>
 
         )
-    }
-    else{
-       window.location.href="/";
-    }
     }
 };
 const AdminContainer = connect(stateToPropertiesMapper, dispatcherToPropsMapper)(Admin);

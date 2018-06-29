@@ -101,7 +101,7 @@ const reducerAdminUpdateProfileDoctor = (state = {
             } else {
                 alert('Please fill out all the fields')
             }
-           
+            return modifiedState;
         }
         default:
             return state;

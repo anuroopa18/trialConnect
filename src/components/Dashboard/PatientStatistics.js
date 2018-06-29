@@ -81,10 +81,7 @@ const statistics = ({patient,bmi}) => {
                                     <div className='card-text'>
                                         <div className='row'>
                                             <div className='col-sm-2'>
-                                                
                                                 <small className='text-muted'>BMI</small>
-                                                
-                                          
                                             </div>
                                             <div className='col-sm-9'>
                                                 <div className="progress">
@@ -148,7 +145,7 @@ const statistics = ({patient,bmi}) => {
                                 <div className='col-md-6 text-center my-auto'>
                                     <div className='row'>
                                         <div className='col-md-12'>
-                                            <h4 className='font-weight-bold m-0'>{patient.height} </h4>
+                                            <h4 className='font-weight-bold m-0'>{patient.height}</h4>
                                         </div>
                                     </div>
                                     <div className='row'>
@@ -162,10 +159,7 @@ const statistics = ({patient,bmi}) => {
                     </div>
                 </div>
             </div>
-
-
-
-         </div>
+        </div>
     )
 };
 

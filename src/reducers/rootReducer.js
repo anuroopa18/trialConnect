@@ -7,8 +7,7 @@ import reducerAdmin from './AdminReducer'
 import reducerAdminUpdateProfileDoctor from './AdminUpdateProfileDoctorReducer'
 import reducerAdminUpdatePatientProfile from './AdminUpdatePatientProfileReducer'
 import reducerDoctorProfile from './DoctorProfileReducer'
-import reducerMedicalRecord from './MedicalRecordReducer'
-import reducerPatientDashBoard from './PatientDashboardReducer'
+import reducerRecordViewer from './RecordviewerReducer'
 
 const rootReducer = combineReducers({
     trialsReducer: reducerTrials,
@@ -16,11 +15,10 @@ const rootReducer = combineReducers({
     loginReducer: reducerLogin,
     patientProfileReducer: reducerProfile,
     adminReducer: reducerAdmin,
-    adminUpdateProfileDoctorReducer:reducerAdminUpdateProfileDoctor,
+    adminUpdateProfileDoctorReducer: reducerAdminUpdateProfileDoctor,
     adminUpdatePatientProfileReducer: reducerAdminUpdatePatientProfile,
     doctorProfileReducer: reducerDoctorProfile,
-    medicalRecordReducer: reducerMedicalRecord,
-    patientDashBoardReducer:reducerPatientDashBoard
+    medicalRecordReducer: reducerRecordViewer
 });
 
 export default rootReducer

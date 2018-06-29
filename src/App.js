@@ -6,7 +6,6 @@ import PatientProfileContainer from './components/Profile/PatientProfile'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import AdminContainer from './containers/Admin'
 import DashboardContainer from './containers/Dashboard'
-import NavContainer from './components/Navbar/Navbar'
 import AdminUpdateProfileContainer from './containers/AdminUpdateProfileDoctor'
 import LandingPage from "./containers/LandingPage";
 import Footer from './components/Footer/footer'
@@ -14,8 +13,8 @@ import AdminUpdatePatientProfileContainer from './containers/AdminUpdateProfileP
 import DoctorProfileContainer from './components/Profile/DoctorProfile'
 import AboutUsPage from './containers/AboutUsPage'
 import ViewTrialInfo from './containers/ViewTrialInfo'
-import MRContainer from './components/MedicalRecord/MRCreator'
 import DoctorDashboardContainer from "./components/Dashboard/DoctorDashboard";
+import MedicalRecordFormContainer from "./components/MedicalRecord/MRCreatorV2";
 
 class App extends React.Component {
     render() {
@@ -28,18 +27,19 @@ class App extends React.Component {
                         <Route path='/register' component={RegisterContainer}/>
                         <Route path='/login' component={LoginContainer}/>
                         <Route exact path='/admin/updateProfile/:userId' component={AdminUpdateProfileContainer}/>
-                        <Route exact path='/admin/updatePatientProfile/:patId' component={AdminUpdatePatientProfileContainer}/>
+                        <Route exact path='/admin/updatePatientProfile/:patId'
+                               component={AdminUpdatePatientProfileContainer}/>
                         <Route exact path='/admin' component={AdminContainer}/>
                         <Route exact path='/profile/:username' component={PatientProfileContainer}/>
                         <Route exact path='/doctor/profile/:docId' component={DoctorProfileContainer}/>
                         <Route exact path='/viewTrialInfo/:trialId' component={ViewTrialInfo}/>
-                        <section >
+                        <section>
                             <Route path='/search/:searchText/results' component={TrialContainer}/>
                         </section>
                         <section>
                             <Route path={'/home/:username/dashboard'} component={DashboardContainer}/>
                             <Route exact path={'/doctor/dashboard/:username'} component={DoctorDashboardContainer}/>
-                            <Route path={'/medRecord/:patientId'} component={MRContainer}/>
+                            <Route path={'/medRecord/create/:patientId'} component={MedicalRecordFormContainer}/>
                         </section>
                     </section>
                     <Footer/>

@@ -537,6 +537,10 @@ const reducerMedicalRecord = (state = {
             }
             return modifiedState
         }
+        case CONST.actions.UPDATE_M_RECORD: {
+            console.log('updating');
+            return modifiedState
+        }
 
         default:
             return state;

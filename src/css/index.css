@@ -21,6 +21,10 @@
     color: #563d7c;
 }
 
+.hover-cursor {
+    cursor: pointer;
+}
+
 .center {
     display: block;
     margin-left: auto;
@@ -28,29 +32,30 @@
     margin-bottom: 2%;
 }
 
-.admin{
-     color: #fff;
-     background-color: #55b4d4!important;
-     padding-bottom: 15px;
-     padding-top: 15px;
-     border: 0;
-     border-radius: 25px;
+.admin {
+    color: #fff;
+    background-color: #55b4d4 !important;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border: 0;
+    border-radius: 25px;
 }
+
 #content {
     min-height: calc(100vh - 40px);
-  }
+}
 
-  .adminContent{
+.adminContent {
     min-height: calc(100vh - 40px);
-  }
+}
 
-  .containerd{
+.containerd {
     position: relative;
     text-align: center;
     color: white;
-  }
+}
 
-  .centered {
+.centered {
     position: absolute;
     top: 50%;
     left: 50%;
