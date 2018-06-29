@@ -50,7 +50,7 @@ export const updateDoctorAdmin = (dispatch,userId) =>(
 );
 
 export const fetchDoctorDetails = (dispatch,docId) => {
-    fetch('http://localhost:8080/api/doctor/' + docId)
+    fetch('https://tconnect-webapp.herokuapp.com/api/doctor/' + docId)
        .then(response => (response.json()))
         .then(jsonObject => (dispatch({
             type: constants.ADMIN_FIND_DOC,

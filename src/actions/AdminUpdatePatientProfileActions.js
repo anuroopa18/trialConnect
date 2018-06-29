@@ -70,7 +70,7 @@ export const updatePatientAdmin = (dispatch,patId) =>(
 );
 
 export const fetchPatientDetails = (dispatch,patId) => {
-    fetch('http://localhost:8080/api/patient/' + patId)
+    fetch('https://tconnect-webapp.herokuapp.com/api/patient/' + patId)
        .then(response => (response.json()))
         .then(jsonObject => (dispatch({
             type: constants.ADMIN_FIND_PAT,
