@@ -9,7 +9,7 @@ const reducerAdminUpdateProfileDoctor = (state = {
     phone: '',
     userId: '',
     username: '',
-    specialization:''
+    specialization: ''
 
 
 }, action) => {
@@ -58,7 +58,7 @@ const reducerAdminUpdateProfileDoctor = (state = {
             modifiedState.email = action.doctor.email;
             modifiedState.phone = action.doctor.phone;
             modifiedState.username = action.doctor.username;
-            modifiedState.specialization =action.doctor.specialization;
+            modifiedState.specialization = action.doctor.specialization;
             return modifiedState
         }
 
@@ -77,9 +77,9 @@ const reducerAdminUpdateProfileDoctor = (state = {
                     password: state.password,
                     email: state.email,
                     phone: state.phone,
-                    specialization:state.specialization
+                    specialization: state.specialization
                 };
-                fetch('http://localhost:8080/api/doctor/' + action.userId, {
+                fetch('https://tconnect-webapp.herokuapp.com/api/doctor/' + action.userId, {
                     method: 'put',
                     body: JSON.stringify(user),
                     headers: {
@@ -93,7 +93,7 @@ const reducerAdminUpdateProfileDoctor = (state = {
                         modifiedState.password = doctor.password;
                         modifiedState.email = doctor.email;
                         modifiedState.phone = doctor.phone;
-                        modifiedState.specialization=doctor.specialization;
+                        modifiedState.specialization = doctor.specialization;
                         alert('Updated successfully!');
                         return modifiedState;
 

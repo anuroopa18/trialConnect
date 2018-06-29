@@ -9,10 +9,10 @@ const reducerAdminUpdatePatientProfile = (state = {
     phone: '',
     userId: '',
     username: '',
-    age:'',
-    gender:'',
-    height:'',
-    weight:''
+    age: '',
+    gender: '',
+    height: '',
+    weight: ''
 
 
 }, action) => {
@@ -100,12 +100,12 @@ const reducerAdminUpdatePatientProfile = (state = {
                     password: state.password,
                     email: state.email,
                     phone: state.phone,
-                    age:state.age,
+                    age: state.age,
                     gender: state.gender,
-                    weight:state.weight,
-                    height:state.height
+                    weight: state.weight,
+                    height: state.height
                 };
-                fetch('http://localhost:8080/api/patient/' + action.patId, {
+                fetch('https://tconnect-webapp.herokuapp.com/api/patient/' + action.patId, {
                     method: 'put',
                     body: JSON.stringify(user),
                     headers: {
@@ -130,7 +130,7 @@ const reducerAdminUpdatePatientProfile = (state = {
             } else {
                 alert('Please fill out all the fields');
             }
-            
+
         }
         default:
             return state;
