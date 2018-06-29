@@ -18,8 +18,10 @@ const dispatchToPropsMapper = () => ({
         else if (role === "Doctor") {
             window.location.href = '/doctor/dashboard/' + user.username;
         }
-        else {
-            window.location.href = '/';
+        else if (role === "Admin") {
+            window.location.href = '/admin';
+        } else {
+            window.location.href = '/'
         }
     }
 });
@@ -31,14 +33,14 @@ const NewNavbar = ({
     let user = JSON.parse(localStorage.getItem('user'));
     let role = localStorage.getItem('role');
     let link = '/'
-    if(role === null){
+    if (role === null) {
         role = 'Anon';
-    }else if(role !== null && role.includes('Doctor')){
-        link='/doctor/dashboard/'+user.username;
-    }else if(role !== null && role.includes('Patient')){
-        link = '/home/'+user.username+'/dashboard';
-    }else if(role.includes('Admin')){
-        link='/admin';
+    } else if (role !== null && role.includes('Doctor')) {
+        link = '/doctor/dashboard/' + user.username;
+    } else if (role !== null && role.includes('Patient')) {
+        link = '/home/' + user.username + '/dashboard';
+    } else if (role.includes('Admin')) {
+        link = '/admin';
     }
     return (
         <div>
