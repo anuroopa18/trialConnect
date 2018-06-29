@@ -100,31 +100,56 @@ export const adminUpdateRole = (dispatch, role) => (
 export const add = (dispatch, role, user) => {
     console.log('after clicking add from validateFields');
     if (role === "Doctor") {
-        return fetch('http://localhost:8080/api/doctor', {
-            method: 'post',
-            body: JSON.stringify(user),
-            headers: {
-                'content-type': 'application/json'
-            }
-        }).then(() => {
-            window.location.reload();
-            alert("Added successfully");
-            findAllDoctors(dispatch);
-        })
-    }
-    else {
-        return fetch('http://localhost:8080/api/patient', {
-            method: 'post',
-            body: JSON.stringify(user),
-            headers: {
-                'content-type': 'application/json'
-            }
-        })
 
-            .then(() => {
-                alert("Added successfully")
-                findAllPatients(dispatch);
+        return fetch('http://localhost:8080/api/findDoctor/' + user.username)
+            .then(response => (response.json()))
+            .then(doctor => {
+                if (doctor.username !== undefined && doctor.username !== '' && doctor.username !== null) {
+
+                    alert("Username already exists!!!!");
+
+                }
+                else {
+                    return fetch('http://localhost:8080/api/doctor', {
+                        method: 'post',
+                        body: JSON.stringify(user),
+                        headers: {
+                            'content-type': 'application/json'
+                        }
+                    }).then(() => {
+                        window.location.reload();
+                        alert("Added successfully");
+                        findAllDoctors(dispatch);
+                    })
+                }
             })
     }
 
-};
+    else {
+
+        return fetch('http://localhost:8080/api/findPatient/' + user.username)
+            .then(response => (response.json()))
+            .then(patient => {
+                if (patient.username !== undefined && patient.username !== '' && patient.username !== null) {
+
+                    alert("Username already exists!!!!");
+                   
+                }
+
+                else {
+                    return fetch('http://localhost:8080/api/patient', {
+                        method: 'post',
+                        body: JSON.stringify(user),
+                        headers: {
+                            'content-type': 'application/json'
+                        }
+                    })
+
+                        .then(() => {
+                            alert("Added successfully")
+                            findAllPatients(dispatch);
+                        })
+                }})
+            }
+
+            };
