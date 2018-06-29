@@ -140,7 +140,7 @@ export const findAllTrials = (dispatch) => {
     console.log(role);
     if (role.includes("Doctor")) {
         console.log('fetching results');
-        fetch('https://tconnect-webapp.herokuapp.com/v1/clinical-trials')
+        fetch('https://clinicaltrialsapi.cancer.gov/v1/clinical-trials')
             .then(response => response.json())
             .then(jsonObject => (dispatch({
                 type: AppConstants.actions.GET_ALL_TRIALS_DOCTOR,
