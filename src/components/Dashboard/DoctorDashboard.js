@@ -51,14 +51,13 @@ class DoctorDashboard extends React.Component {
                                 <a className="nav-link p-3 active" id="all-patients-tab" data-toggle="pill"
                                    href="#all-patients-view" role="tab" aria-controls="all-patients-view"
                                    aria-selected="true">
-                                    <i className="fa fa-eye text-secondary"></i><strong
-                                    className="text-secondary">&nbsp;All Patients</strong></a>
+                                    <strong className="text-secondary">&nbsp;All Patients</strong><i
+                                    className="fas fa-chalkboard-teacher pl-2 text-secondary"></i></a>
                                 <a className="nav-link p-3" id="my-patients-tab" data-toggle="pill"
                                    href="#my-patients-view"
-                                   role="tab" aria-controls="my-patients-view" aria-selected="false"><i
-                                    className="fas fa-user-plus text-secondary"></i>
+                                   role="tab" aria-controls="my-patients-view" aria-selected="false">
                                     <strong className="text-secondary">&nbsp;My Patients</strong>
-                                </a>
+                                    <i className="fas fa-handshake pl-2 text-secondary"></i></a>
                             </div>
                         </div>
                         <div className="col-md-9">
@@ -79,11 +78,11 @@ class DoctorDashboard extends React.Component {
                                             </thead>
                                             <tbody>
                                             {
-                                                this.props.patients.map((p, i) => {
+                                                this.props.patients !== undefined && this.props.patients.map((p, i) => {
                                                     return (<tr key={i}>
                                                             <td>
                                                                 <Link to={`/home/${p.username}/dashboard`}>
-                                                                <i className="fas fa-prescription"></i>
+                                                                    <i className="fas fa-prescription"></i>
                                                                 </Link>
                                                             </td>
                                                             <td>
@@ -124,8 +123,8 @@ class DoctorDashboard extends React.Component {
                                                 this.props.myPatients.map((p, i) => {
                                                     return (<tr key={i}>
                                                             <td>
-                                                            <Link to={`/home/${p.username}/dashboard`}>
-                                                                <i className="fas fa-prescription"></i>
+                                                                <Link to={`/home/${p.username}/dashboard`}>
+                                                                    <i className="fas fa-prescription"></i>
                                                                 </Link>
                                                             </td>
                                                             <td>

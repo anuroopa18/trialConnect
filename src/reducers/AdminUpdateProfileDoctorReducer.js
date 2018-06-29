@@ -63,6 +63,7 @@ const reducerAdminUpdateProfileDoctor = (state = {
         }
 
         case constants.ADMIN_UPDATE_DOC: {
+            modifiedState = Object.assign({}, state);
             if ((state.firstName !== undefined && state.firstName !== "") &&
                 (state.lastName !== undefined && state.lastName !== "") &&
                 (state.password !== undefined && state.password !== "") &&
