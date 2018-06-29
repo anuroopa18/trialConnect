@@ -87,7 +87,7 @@ export const login = (dispatch, username, password, role) => {
         if ((username !== undefined && username !== '') &&
             (password !== undefined && password !== '')
         ) {
-            return fetch('http://localhost:8080/api/findDoctorByCredentials/doctor', {
+            return fetch('https://tconnect-webapp.herokuapp.com/api/findDoctorByCredentials/doctor', {
                 method: 'post',
                 body: JSON.stringify({
                     username: username,
@@ -119,7 +119,7 @@ export const login = (dispatch, username, password, role) => {
             (password !== undefined && password !== "")
         ) {
             console.log(role);
-            fetch('http://localhost:8080/api/findPatientByCredentials/patient', {
+            fetch('https://tconnect-webapp.herokuapp.com/api/findPatientByCredentials/patient', {
                 method: 'post',
                 body: JSON.stringify({
                     username: username,
@@ -155,7 +155,7 @@ export const login = (dispatch, username, password, role) => {
             (password !== undefined && password !== "")
         ) {
             console.log(role);
-            fetch('http://localhost:8080/api/findAdminByCredentials/admin', {
+            fetch('https://tconnect-webapp.herokuapp.com/api/findAdminByCredentials/admin', {
                 method: 'post',
                 body: JSON.stringify({
                     username: username,

@@ -1,7 +1,7 @@
 import * as constants from '../constants/AppConstants'
 
 export const findAllDoctors = (dispatch) => {
-    fetch('http://localhost:8080/api/doctors/')
+    fetch('https://tconnect-webapp.herokuapp.com/api/doctors/')
         .then(response => (response.json()))
         .then(jsonObject => (dispatch({
             type: constants.FIND_DOCTORS,
@@ -12,7 +12,7 @@ export const findAllDoctors = (dispatch) => {
 };
 
 export const findAllPatients = (dispatch) => (
-    fetch('http://localhost:8080/api/patients/')
+    fetch('https://tconnect-webapp.herokuapp.com/api/patients/')
         .then(response => (response.json()))
         .then(jsonObject => (dispatch({
             type: constants.FIND_PATIENTS,
@@ -23,7 +23,7 @@ export const findAllPatients = (dispatch) => (
 );
 
 export const findAllRecords = (dispatch) => (
-    fetch('http://localhost:8080/api/medicalrecords/')
+    fetch('https://tconnect-webapp.herokuapp.com/api/medicalrecords/')
         .then(response => (response.json()))
         .then(jsonObject => (dispatch({
             type: constants.FIND_RECORDS,
@@ -34,7 +34,7 @@ export const findAllRecords = (dispatch) => (
 );
 
 export const deleteDoctor = (dispatch, doctorId) => {
-    return fetch('http://localhost:8080/api/doctor/' + doctorId, {
+    return fetch('https://tconnect-webapp.herokuapp.com/api/doctor/' + doctorId, {
         method: 'delete'
     })
         .then(() => {
@@ -44,7 +44,7 @@ export const deleteDoctor = (dispatch, doctorId) => {
 };
 
 export const deleteRecord = (dispatch, recordId) => {
-    return fetch('http://localhost:8080/api/medicalrecord/' + recordId, {
+    return fetch('https://tconnect-webapp.herokuapp.com/api/medicalrecord/' + recordId, {
         method: 'delete'
     })
         .then(() => {
@@ -54,7 +54,7 @@ export const deleteRecord = (dispatch, recordId) => {
 };
 
 export const deletePatient = (dispatch, patientId) => {
-    return fetch('http://localhost:8080/api/patient/' + patientId, {
+    return fetch('https://tconnect-webapp.herokuapp.com/api/patient/' + patientId, {
         method: 'delete'
     })
         .then(() => {
@@ -101,7 +101,7 @@ export const add = (dispatch, role, user) => {
     console.log('after clicking add from validateFields');
     if (role === "Doctor") {
 
-        return fetch('http://localhost:8080/api/findDoctor/' + user.username)
+        return fetch('https://tconnect-webapp.herokuapp.com/api/findDoctor/' + user.username)
             .then(response => (response.json()))
             .then(doctor => {
                 if (doctor.username !== undefined && doctor.username !== '' && doctor.username !== null) {
@@ -110,7 +110,7 @@ export const add = (dispatch, role, user) => {
 
                 }
                 else {
-                    return fetch('http://localhost:8080/api/doctor', {
+                    return fetch('https://tconnect-webapp.herokuapp.com/api/doctor', {
                         method: 'post',
                         body: JSON.stringify(user),
                         headers: {
