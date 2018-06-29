@@ -43,10 +43,10 @@ const statistics = ({patient,bmi}) => {
                             <div className='card no-border-r'>
                                 <div className='card-body'>
                                     <div className='card-title m-0'>
-                                        <h4 className='m-0'>{patient.weight}</h4>
+                                        <h4 className='m-0'>{patient.weight} </h4>
                                     </div>
                                     <div className='card-text'>
-                                        <small className='text-muted'>Weight ({patient.weightUnit})</small>
+                                        <small className='text-muted'>Weight (lbs)</small>
                                     </div>
                                 </div>
                             </div>
@@ -72,11 +72,11 @@ const statistics = ({patient,bmi}) => {
                                         {bmi <= 18.5 &&
                                         <h3 style={{"color":"#00bfff"}} className='m-0 '>{bmi}</h3>}
                                         {bmi <= 25 && bmi > 18.5 &&
-                                        <h3 style={{"color":"#bfff00"}} className='m-0 '>{bmi}</h3>}
+                                        <h3 style={{"color":"#99cc00"}} className='m-0 '>{bmi}</h3>}
                                         {bmi <= 30 && bmi > 25 &&
                                         <h3 style={{"color":"#ffed00"}} className='m-0 '>{bmi}</h3>}
                                         {bmi <= 40 &&bmi > 30 &&
-                                        <h3 style={{"color":"#ff0000"}} className='m-0 '>{bmi}</h3>}
+                                        <h3 style={{"color":"#ff654d"}} className='m-0 '>{bmi}</h3>}
                                     </div>
                                     <div className='card-text'>
                                         <div className='row'>
@@ -93,7 +93,7 @@ const statistics = ({patient,bmi}) => {
                                                          aria-valuemax="18.5">
                                                     </div>
                                                     <div className="progress-bar " role="progressbar"
-                                                         style={{width: "30%","backgroundColor":"#bfff00"}}
+                                                         style={{width: "30%","backgroundColor":"#99cc00"}}
                                                          aria-valuenow="0" aria-valuemin="18.51"
                                                          aria-valuemax="24.99">
 
@@ -104,7 +104,7 @@ const statistics = ({patient,bmi}) => {
 
                                                     </div>
                                                     <div className="progress-bar " role="progressbar"
-                                                         style={{width: "35%","backgroundColor":"#ff0000"}} aria-valuenow="0" aria-valuemin="30"
+                                                         style={{width: "35%","backgroundColor":"#ff654d"}} aria-valuenow="0" aria-valuemin="30"
                                                          aria-valuemax="40">
 
                                                     </div>
@@ -148,12 +148,12 @@ const statistics = ({patient,bmi}) => {
                                 <div className='col-md-6 text-center my-auto'>
                                     <div className='row'>
                                         <div className='col-md-12'>
-                                            <h4 className='font-weight-bold m-0'>{patient.height}</h4>
+                                            <h4 className='font-weight-bold m-0'>{patient.height} </h4>
                                         </div>
                                     </div>
                                     <div className='row'>
                                         <div className='col-md-12'>
-                                            <small className='text-muted'>Height ({patient.heightUnit})</small>
+                                            <small className='text-muted'>Height (cm)</small>
                                         </div>
                                     </div>
                                 </div>

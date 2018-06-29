@@ -73,6 +73,10 @@ class Admin extends Component {
         let roleInputPatient;
         let roleInputDoctor;
 
+        let role = JSON.parse(localStorage.getItem('role'));
+
+        if(role == "Admin")
+{
         return (
             <div>
                 <div className="pb-lg-1">
@@ -354,7 +358,8 @@ class Admin extends Component {
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    {patient.medicalRecord.map((mr, index) => {
+                                                                    {patient.medicalRecord !== undefined && patient.medicalRecord !== '' &&
+                                                                    patient.medicalRecord.map((mr, index) => {
                                                                         return <tr style={{ "color": "grey" }} key={index} >
                                                                             <td >
                                                                                 {mr.medicalCondition}
@@ -408,6 +413,10 @@ class Admin extends Component {
             </div>
 
         )
+    }
+    else{
+       window.location.href="/";
+    }
     }
 };
 const AdminContainer = connect(stateToPropertiesMapper, dispatcherToPropsMapper)(Admin);
