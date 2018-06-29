@@ -169,6 +169,7 @@ export const login = (dispatch, username, password, role) => {
                     console.log(admin);
                     if (admin.username !== undefined && admin.username !== '' && admin.username !== null) {
                         localStorage.setItem('user', JSON.stringify(admin));
+                        localStorage.setItem('role', JSON.stringify(role));
                         window.location.href = '/admin';
                         dispatch({
                             type: AppConstants.actions.SET_USER,

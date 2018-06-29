@@ -38,7 +38,7 @@ const Register = ({updateFirstName, updateLastName, updateUsername, updatePasswo
             <div>
                 <NavContainer showRegister={false} showProfile={false} showLogout={false}/>
             </div>
-            <div className='container-fluid pt-5' style={{"backgroundImage":`url(${background})`}}>
+            <div className='container-fluid pt-5 adminContent' style={{"backgroundImage":`url(${background})`}}>
                 <div className="row">
                     <div className="col-md-4 offset-4">
                         <div className="card">

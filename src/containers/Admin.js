@@ -31,7 +31,7 @@ const dispatcherToPropsMapper = dispatch => {
         adminUpdateUsername: (username) => (actions.adminUpdateUsername(dispatch, username)),
         adminUpdatePassword: (password) => (actions.adminUpdatePassword(dispatch, password)),
         adminUpdateRole: (role) => (actions.adminUpdateRole(dispatch, role)),
-        //findAllRecords: () => (actions.findAllRecords(dispatch)),
+        findAllRecords: () => (actions.findAllRecords(dispatch)),
         add: (role, user) => (actions.add(dispatch, role, user))
     }
 };
@@ -73,6 +73,10 @@ class Admin extends Component {
         let roleInputPatient;
         let roleInputDoctor;
 
+        let role = JSON.parse(localStorage.getItem('role'));
+
+        if(role == "Admin")
+{
         return (
             <div>
                 <div className="pb-lg-1">
@@ -354,7 +358,8 @@ class Admin extends Component {
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    {patient.medicalRecord.map((mr, index) => {
+                                                                    {patient.medicalRecords !== undefined && patient.medicalRecords !== '' &&
+                                                                    patient.medicalRecords.map((mr, index) => {
                                                                         return <tr style={{ "color": "grey" }} key={index} >
                                                                             <td >
                                                                                 {mr.medicalCondition}
@@ -408,6 +413,10 @@ class Admin extends Component {
             </div>
 
         )
+    }
+    else{
+       window.location.href="/";
+    }
     }
 };
 const AdminContainer = connect(stateToPropertiesMapper, dispatcherToPropsMapper)(Admin);
