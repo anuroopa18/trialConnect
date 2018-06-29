@@ -4,7 +4,8 @@ const reducerPatientDashBoard = (state = {
     username:'',
     patient:{},
     medicalRecords:[],
-    bmi:''
+    bmi:'',
+    doctors:[]
 
 }, action) => {
     let modifiedState;
@@ -30,6 +31,15 @@ const reducerPatientDashBoard = (state = {
             console.log(modifiedState);
             console.log(action);
             return modifiedState;
+        }
+
+        case constants.FIND_MY_DOCTORS :
+        {
+            modifiedState = Object.assign({}, state);
+            modifiedState.doctors = action.doctors;
+            console.log(modifiedState);
+            console.log(action);
+            return modifiedState;   
         }
         
         default:

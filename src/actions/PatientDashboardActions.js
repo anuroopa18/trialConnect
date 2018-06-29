@@ -14,7 +14,11 @@ export const findDoctorsForPatient = (dispatch, patientId) => {
     return fetch('http://localhost:8080/api/patient/' + patientId + '/doctors')
         .then(response => (response.json()))
         .then(doctors => {
-            "doctors " + console.log(doctors);
+            (dispatch({
+                type: constants.FIND_MY_DOCTORS,
+                doctors: doctors  
+            }))
+          
 
         })
 };

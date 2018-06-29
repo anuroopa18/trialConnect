@@ -162,6 +162,16 @@ const reducerProfile = (state = {
             console.log(action);
             return modifiedState;
         }
+
+        case constants.FIND_MY_DOCTORS :
+        {
+            modifiedState = Object.assign({}, state);
+            modifiedState.doctors = action.doctors;
+            console.log(modifiedState);
+            console.log(action);
+            return modifiedState;   
+        }
+        
         case constants.FIND_ALL_MEDICAL_RECORDS: {
             modifiedState = Object.assign({}, state);
             modifiedState.medicalRecords = action.medicalRecords;
