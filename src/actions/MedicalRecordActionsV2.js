@@ -79,7 +79,7 @@ export const updateMedicalRecord = dispatch => {
     })
 };
 export const setPatient = (dispatch, patientId) => {
-    return fetch('http://localhost:8080/api/patient/' + patientId)
+    return fetch('https://tconnect-webapp.herokuapp.com/api/patient/' + patientId)
         .then(response => response.json())
         .then(patient => {
             console.log(patient);
@@ -90,7 +90,7 @@ export const setPatient = (dispatch, patientId) => {
         })
 };
 export const findAllPatients = (dispatch) => {
-    return fetch('http://localhost:8080/api/patients')
+    return fetch('https://tconnect-webapp.herokuapp.com/api/patients')
         .then((response) => (response.json()))
         .then((patients => {
             console.log(patients);
@@ -104,7 +104,7 @@ export const findAllPatients = (dispatch) => {
 export const findMyPatients = (dispatch) => {
     console.log('finding my patients');
     let doctor = JSON.parse(localStorage.getItem('user'));
-    return fetch('http://localhost:8080/api/doctor/' + doctor.id + '/patients')
+    return fetch('https://tconnect-webapp.herokuapp.com/api/doctor/' + doctor.id + '/patients')
         .then(response => response.json())
         .then(myPatients => {
             console.log(myPatients);

@@ -2,7 +2,7 @@ import * as constants from '../constants/AppConstants'
 
 export const findPatientByUsername = (dispatch, username) => {
     console.log(username);
-    return fetch('http://localhost:8080/api/findPatient/' + username)
+    return fetch('https://tconnect-webapp.herokuapp.com/api/findPatient/' + username)
         .then(response => (response.json()))
         .then(jsonObject => {
             return findMedicalRecordsForPatient(dispatch, jsonObject)
@@ -11,7 +11,7 @@ export const findPatientByUsername = (dispatch, username) => {
 
 
 export const findDoctorsForPatient = (dispatch, patientId) => {
-    return fetch('http://localhost:8080/api/patient/' + patientId + '/doctors')
+    return fetch('https://tconnect-webapp.herokuapp.com/api/patient/' + patientId + '/doctors')
         .then(response => (response.json()))
         .then(doctors => {
             (dispatch({
@@ -25,7 +25,7 @@ export const findDoctorsForPatient = (dispatch, patientId) => {
 
 export const findMedicalRecordsForPatient = (dispatch, patient) => {
 
-    return fetch('http://localhost:8080/api/findPatient/mr/' + patient.id)
+    return fetch('https://tconnect-webapp.herokuapp.com/api/findPatient/mr/' + patient.id)
         .then(response => (response.json()))
         .then(jsonObject => {
             console.log(jsonObject);

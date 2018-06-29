@@ -50,7 +50,7 @@ export const updateDoctor = (dispatch,docId) =>(
 );
 
 export const fetchUpdatedDoctor = (dispatch,docId) => {
-    fetch('http://localhost:8080/api/doctor/' + docId)
+    fetch('https://tconnect-webapp.herokuapp.com/api/doctor/' + docId)
        .then(response => (response.json()))
         .then(jsonObject => (dispatch({
             type: constants.FIND_UPDATED_USER_DOC,
