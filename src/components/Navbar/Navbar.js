@@ -30,6 +30,16 @@ const NewNavbar = ({
                    }) => {
     let user = JSON.parse(localStorage.getItem('user'));
     let role = localStorage.getItem('role');
+    let link = '/'
+    if(role === null){
+        role = 'Anon';
+    }else if(role !== null && role.includes('Doctor')){
+        link='/doctor/dashboard/'+user.username;
+    }else if(role !== null && role.includes('Patient')){
+        link = '/home/'+user.username+'/dashboard';
+    }else if(role.includes('Admin')){
+        link='/admin';
+    }
     return (
         <div>
             <section className="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
@@ -48,14 +58,14 @@ const NewNavbar = ({
                     <div className="menu-logo">
                         <div className="navbar-brand">
                             <span className="navbar-logo">
-                                <a href="/">
+                                <a href={link}>
                                     <img className='mr-2' src={logo} alt="Logo" height={'60px'} width={'60px'}
                                          title="Logo"/>
                                 </a>
                             </span>
                             <span className="navbar-caption-wrap">
                                 <a className="navbar-caption text-primary display-5"
-                                   href="/">Trial Connect</a></span>
+                                   href={link}>Trial Connect</a></span>
                         </div>
                     </div>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -71,7 +81,7 @@ const NewNavbar = ({
                                 </a>
                             </li>
                             }
-                            {showLogin &&
+                            {showLogin && role.includes('Anon') &&
                             <li className="nav-item">
                                 <a className="nav-link link text-primary display-4" href='/login'>
                                     <span className="mbri-login mbr-iconfont mbr-iconfont-btn"></span>
@@ -79,7 +89,7 @@ const NewNavbar = ({
                                 </a>
                             </li>
                             }
-                            {showRegister &&
+                            {showRegister && role.includes('Anon') &&
                             <li className="nav-item">
                                 <a className="nav-link link text-primary display-4" href='/register'>
                                     <span className="mbri-users mbr-iconfont mbr-iconfont-btn"></span>
@@ -110,7 +120,7 @@ const NewNavbar = ({
                                 </a>
                             </li>
                             }
-                            {showLogout &&
+                            {showLogout && !role.includes('Anon') &&
                             <li className="nav-item">
                                 <a className="nav-link link text-primary display-4" onClick={() => {
                                     logout()

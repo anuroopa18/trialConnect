@@ -9,6 +9,9 @@ const dispatchToPropsMapper = dispatch => ({
 
 const TrialListItem = ({trial, collapseClass, index, parent, recommendTrial}) => {
     let role = localStorage.getItem('role');
+    if(role === null){
+        role = 'Anon';
+    }
     return (
         <section>
             <section className='card mt-3'>

@@ -37,7 +37,7 @@ class Trials extends React.Component {
                <div className="pb-lg-1">
                     <NavbarContainer  showProfile={false} showAboutUs={false} showLogout={false} />
                 </div>
-            <section className="container">
+            <section className="container mb-5">
                   
                 {this.props.trials.length > 0 &&
                 <section className="accordion" id={this.props.trials.length}>

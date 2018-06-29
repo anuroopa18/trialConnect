@@ -36,7 +36,7 @@ class ViewTrialInfo extends Component {
                 <div>
                     <NavContainer showLogin={false} showProfile={false} showAboutUs={false} showRegister={false}/>
                 </div>
-                <div className="container-fluid pt-5 adminContent">
+                <div className="container-fluid pt-5 adminContent mb-5">
                     <div className="row">
                         <div class="col-3">
                             <div class="nav flex-column nav-tabs border-0" style={{"marginTop": "6px"}} id="v-pills-tab"

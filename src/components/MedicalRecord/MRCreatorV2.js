@@ -56,7 +56,7 @@ class MedicalRecordForm extends React.Component {
                 <div>
                     <NavContainer showLogin={false} showAboutUs={false} showRegister={false}/>
                 </div>
-                <div className='container-fluid'>
+                <div className='container-fluid pt-5'>
                     <div className="row">
                         <div className="col-md-4 offset-4">
                             <div className="card">

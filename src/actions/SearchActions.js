@@ -11,6 +11,9 @@ export const changeSearchText = (text, dispatch) => {
 
 export const searchTrials = (searchText, dispatch) => {
     let key = '_fulltext=';
+    if(searchText == ''){
+        searchText = "cancer";
+    }
     return fetch('https://clinicaltrialsapi.cancer.gov/v1/clinical-trials?size=5&' + key + searchText)
         .then(response => (response.json()))
         .then(jsonObject => {

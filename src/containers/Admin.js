@@ -337,8 +337,8 @@ class Admin extends Component {
                                                 <h1 className='text-center font-weight-bold'
                                                     style={{ "color": "#2994b2" }}>Medical Records For Patients</h1>
                                             </div>
-                                            <div class="card-body p-0" style={{ "backgroundColor": "white" }}>
-                                                <ul style={{ "color": "grey" }}>
+                                            <div class="card-body p-0 mt-2" style={{ "backgroundColor": "white" }}>
+                                                <ul style={{ "color": "grey" }} className='mt-1'>
                                                     {this.props.patients.map((patient, index) => {
                                                         return <li style={{ "color": "grey" }} key={index}>
                                                             <h6> <strong style={{ "color": "#55b4d4" }}>Patient Name:</strong> {patient.firstName} </h6>

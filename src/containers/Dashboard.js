@@ -202,7 +202,7 @@ class Dashboard extends React.Component {
                                                                                         <td>
                                                                                             <div className='row'>
                                                                                                 <div className='col-12'>
-                                                                                                    {trial.title}
+                                                                                                    <i>{trial.title}</i>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </td>
@@ -224,10 +224,10 @@ class Dashboard extends React.Component {
 
                                                 </div>
                                             </div>
-                                            {this.props.role.includes('Doctor') &&
+                                        </div>
+                                        {this.props.role.includes('Doctor') &&
                                                 <TrialListings trials={this.props.trials} />
                                             }
-                                        </div>
                                     </div>
 
                                 </div>

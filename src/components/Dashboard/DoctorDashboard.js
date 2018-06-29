@@ -80,11 +80,10 @@ class DoctorDashboard extends React.Component {
                                             <tbody>
                                             {
                                                 this.props.patients.map((p, i) => {
-                                                    return (<tr key={i}
-                                                                onClick={() => this.props.redirectToPatientDashboard()}>
+                                                    return (<tr key={i}>
                                                             <td>
                                                                 <Link to={`/home/${p.username}/dashboard`}>
-                                                                    {i+1}
+                                                                <i className="fas fa-prescription"></i>
                                                                 </Link>
                                                             </td>
                                                             <td>
@@ -113,6 +112,7 @@ class DoctorDashboard extends React.Component {
                                                style={{"backgroundColor": "white", "borderRadius": "5px"}}>
                                             <thead>
                                             <tr>
+                                                <th className="th-lg" style={{"color": "#55b4d4"}}>#</th>
                                                 <th className="th-lg" style={{"color": "#55b4d4"}}>First Name</th>
                                                 <th className="th-lg" style={{"color": "#55b4d4"}}>Last Name</th>
                                                 <th className="th-lg" style={{"color": "#55b4d4"}}>Email</th>
@@ -123,6 +123,11 @@ class DoctorDashboard extends React.Component {
                                             {
                                                 this.props.myPatients.map((p, i) => {
                                                     return (<tr key={i}>
+                                                            <td>
+                                                            <Link to={`/home/${p.username}/dashboard`}>
+                                                                <i className="fas fa-prescription"></i>
+                                                                </Link>
+                                                            </td>
                                                             <td>
                                                                 {p.firstName}
                                                             </td>

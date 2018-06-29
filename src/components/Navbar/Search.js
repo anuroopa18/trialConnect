@@ -19,14 +19,20 @@ const stateToPropsMapper = ({trialsReducer}) => {
 
 const SearchInLine = ({changeSearchText, searchTrials, searchText}) => {
     let inputElem;
+    if(searchText == '')
+            {
+                searchText="cancer"
+            }
     return (
         <div className="form-inline">
             <input className="form-control" type="search" placeholder="Search Trials" aria-label="Search"
                    ref={node => inputElem = node} onChange={() => {
                 changeSearchText(inputElem.value)
             }}/>
+            
+            
             <Link to={`/search/${searchText}/results`}>
-                <button className="btn btn-sm" style={{"backgroundColor":"#149dcc", "padding":"14px"}} onClick={() => {
+                <button className="btn" style={{"backgroundColor":"#149dcc"}} onClick={() => {
                     searchTrials(searchText)
                 }}><span><i class="fas fa-2x fa-search" style={{"color":"white"}}></i></span>
                 </button>

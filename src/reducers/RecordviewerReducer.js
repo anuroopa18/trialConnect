@@ -1,4 +1,4 @@
-import {AppConstants as CONST} from "../constants/AppConstants";
+import { AppConstants as CONST } from "../constants/AppConstants";
 
 function onlyUnique(value, index, self) {
     console.log(value);
@@ -57,34 +57,48 @@ const reducerRecordViewer = (state = {
             modifiedState = Object.assign({}, state);
             let pid = modifiedState.curPatient.id;
             let docId = modifiedState.doctor.id;
-            fetch('http://localhost:8080/api/medicalrecord/' + pid + '/doc/' + docId, {
-                method: 'post',
-                body: JSON.stringify({
-                    allergyName: modifiedState.allergyName,
-                    allergyCause: modifiedState.allergyCause,
-                    allergyTreatment: modifiedState.allergyTreatment,
-                    bloodPressure: modifiedState.bloodPressure,
-                    bodyTemperature: modifiedState.bodyTemperature,
-                    medicine: modifiedState.medicine,
-                    pulseRate: modifiedState.pulseRate,
-                    bmi: modifiedState.bmi,
-                    medicalCondition: modifiedState.medicalCondition
-                }),
-                headers: {
-                    'content-type': 'application/json'
-                }
-            })
-                .then(response => response.json())
-                .then(mr => {
-                    modifiedState.medicalRecord = mr;
-                    if (mr !== undefined && mr !== {}) {
-                        alert('Record created successfully');
-                        window.location.href = '/doctor/dashboard/' + modifiedState.doctor.username;
-                    } else {
-                        alert('Something went wrong. Please try again after some time.');
-                    }
-                });
+            const { allergyName } = modifiedState;
+            const { allergyCause } = modifiedState;
+            const { allergyTreatment } = modifiedState;
+            const { bloodPressure } = modifiedState;
+            const { bodyTemperature } = modifiedState;
+            const { medicine } = modifiedState;
+            const { pulseRate } = modifiedState;
+            const { bmi } = modifiedState;
+            const { medicalCondition } = modifiedState;
 
+            if (allergyName !== '' && allergyCause !== '' && allergyTreatment !== '' && bloodPressure !== ''
+                && bodyTemperature !== '' && medicine !== '' && medicalCondition !== '' && bmi !== '' && pulseRate !== '') {
+                fetch('http://localhost:8080/api/medicalrecord/' + pid + '/doc/' + docId, {
+                    method: 'post',
+                    body: JSON.stringify({
+                        allergyName: modifiedState.allergyName,
+                        allergyCause: modifiedState.allergyCause,
+                        allergyTreatment: modifiedState.allergyTreatment,
+                        bloodPressure: modifiedState.bloodPressure,
+                        bodyTemperature: modifiedState.bodyTemperature,
+                        medicine: modifiedState.medicine,
+                        pulseRate: modifiedState.pulseRate,
+                        bmi: modifiedState.bmi,
+                        medicalCondition: modifiedState.medicalCondition
+                    }),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(mr => {
+                        modifiedState.medicalRecord = mr;
+                        if (mr !== undefined && mr !== {}) {
+                            alert('Record created successfully');
+                            window.location.href = '/home/' + modifiedState.curPatient.username + '/dashboard';
+                        } else {
+                            alert('Something went wrong. Please try again after some time.');
+                        }
+                    });
+            }else{
+                alert('Please fill all the fields.');
+            }
             return modifiedState;
         }
 

@@ -55,7 +55,7 @@ const LandingPage = () => {
 
                             <li className="nav-item mr-2">
                                 <a className="nav-link link text-primary display-4" href="/aboutUs">
-                                    <span ><i class="fas fa-user-md" style={{"fontSize":"22px"}}></i></span>
+                                    <span ><i className="fas fa-user-md" style={{"fontSize":"22px"}}></i></span>
                                     About Us
                                 </a>
                             </li>

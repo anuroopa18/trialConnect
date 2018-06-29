@@ -10,7 +10,7 @@ const stateToPropsMapper = ({patientProfileReducer}) => {
 
 const TrialListings = ({trials}) => {
     return (
-        <div className='container mt-3 bg-light'>
+        <div className='container mt-3 bg-light mb-3'>
             <div className='row'>
                 <div className='col-md-12'>
                     {trials.map((trial, index) => {
